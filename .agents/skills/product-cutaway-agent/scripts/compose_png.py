@@ -4,7 +4,7 @@ import argparse
 import json
 import math
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 def font_path(explicit=None):
@@ -27,20 +27,40 @@ def point(value, size):
 
 
 def compose(image, labels_path, output, font=None):
-    with Image.open(image) as img:
-        canvas = Image.new("RGB", img.size, "white")
-        if img.mode == "RGBA":
-            canvas.paste(img, mask=img.getchannel("A"))
-        else:
-            canvas.paste(img.convert("RGB"))
     labels = json.loads(Path(labels_path).read_text(encoding="utf-8"))
+    with Image.open(image) as img:
+        base = Image.new("RGB", img.size, "white")
+        if img.mode == "RGBA":
+            base.paste(img, mask=img.getchannel("A"))
+        else:
+            base.paste(img.convert("RGB"))
+    config = labels.get("canvas")
+    source_size = list(base.size)
+    image_bounds = [0, 0, base.width, base.height]
+    if config:
+        size = config.get("size")
+        box = config.get("image_box")
+        if not isinstance(size, list) or len(size) != 2 or any(type(v) is not int or not 32 <= v <= 8192 for v in size):
+            raise ValueError("Invalid canvas size")
+        if not isinstance(box, list) or len(box) != 4 or any(type(v) is not int for v in box):
+            raise ValueError("Invalid image_box")
+        if not (0 <= box[0] < box[2] <= size[0] and 0 <= box[1] < box[3] <= size[1]):
+            raise ValueError("image_box outside canvas")
+        canvas = Image.new("RGB", size, "white")
+        placed = ImageOps.contain(base, (box[2]-box[0], box[3]-box[1]))
+        offset = (box[0]+(box[2]-box[0]-placed.width)//2,
+                  box[1]+(box[3]-box[1]-placed.height)//2)
+        canvas.paste(placed, offset)
+        image_bounds = [offset[0], offset[1], offset[0]+placed.width, offset[1]+placed.height]
+    else:
+        canvas = base
     path = font_path(font or labels.get("font"))
     draw = ImageDraw.Draw(canvas)
     color = labels.get("color", "#073C76")
     items = ([labels["title"]] if labels.get("title") else []) + labels.get("labels", [])
     if not items:
         raise ValueError("No title or labels")
-    boxes, seen, warnings = [], set(), []
+    boxes, seen, warnings, target_points = [], set(), [], {}
     for i, item in enumerate(items):
         identifier = item.get("id", "title" if i == 0 and labels.get("title") else str(i))
         if identifier in seen:
@@ -61,8 +81,15 @@ def compose(image, labels_path, output, font=None):
             if box[0] < other[2] and box[2] > other[0] and box[1] < other[3] and box[3] > other[1]:
                 raise ValueError(f"Text overlap: {identifier} / {previous}")
         boxes.append((identifier, box))
-        if "target" in item:
-            target = point(item["target"], canvas.size)
+        if "target" in item or "target_image" in item:
+            if "target" in item and "target_image" in item:
+                raise ValueError("Choose target (canvas) or target_image (source), not both")
+            if "target_image" in item:
+                local = point(item["target_image"], (image_bounds[2]-image_bounds[0], image_bounds[3]-image_bounds[1]))
+                target = (image_bounds[0]+local[0], image_bounds[1]+local[1])
+            else:
+                target = point(item["target"], canvas.size)
+            target_points[identifier] = list(target)
             start = point(item.get("line_start", item["position"]), canvas.size)
             route = [start]
             if "elbow" in item:
@@ -82,6 +109,7 @@ def compose(image, labels_path, output, font=None):
     canvas.save(output, format="PNG")
     result = {"image": str(output.resolve()), "font": path,
               "label_boxes": {key: list(box) for key, box in boxes}, "warnings": warnings,
+              "source_size": source_size, "image_bounds": image_bounds, "target_points": target_points,
               "semantic_targets_checked": False}
     output.with_suffix(".layout.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return result

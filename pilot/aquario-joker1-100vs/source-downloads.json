@@ -1,0 +1,28 @@
+{
+  "downloads": [
+    {
+      "source_id": "aquario-manual",
+      "url": "https://aquario.ru/sites/default/files/manuals/Joker_0.pdf",
+      "sha256": "665e004dc25c2490d782f142ce19c4371cf289dfd372fe32ceb12e73158827e3",
+      "bytes": 3267113,
+      "local_file": "sources/manufacturer-manual.pdf",
+      "archive_policy": "downloaded locally, complete PDF not committed"
+    },
+    {
+      "source_id": "espa-analog",
+      "url": "https://www.espa.com/download/docs/6254/instruction-manual-espa-tecnoplus-25.pdf",
+      "sha256": "bcb3f0c2bd2028767be60b84051488632d938d8ffbaa711dae45296f0836f79e",
+      "bytes": 4725767,
+      "local_file": "sources/espa-analog.pdf",
+      "archive_policy": "downloaded locally, complete PDF not committed"
+    },
+    {
+      "source_id": "caleffi-analog",
+      "url": "https://www.caleffi.com/sites/default/files/media/external-file/01079_EN_20.pdf",
+      "sha256": "01e3c2c15d1904b552a1552ee8bd08e9a283643fe42600afca50f617b122d433",
+      "bytes": 233664,
+      "local_file": "sources/caleffi-analog.pdf",
+      "archive_policy": "downloaded locally, complete PDF not committed"
+    }
+  ]
+}

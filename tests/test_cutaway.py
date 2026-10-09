@@ -3,6 +3,8 @@ import importlib.util
 import json
 from pathlib import Path
 import tempfile
+import subprocess
+import sys
 from concurrent.futures import ThreadPoolExecutor
 import unittest
 from PIL import Image
@@ -167,6 +169,15 @@ class CutawayTests(unittest.TestCase):
         self.assertEqual(sum(value is not None for value in results), 1)
         self.assertEqual(len(c.load(self.run / "state.json")["attempts"]), 1)
 
+    def test_separate_processes_cannot_double_reserve(self):
+        command = [sys.executable, str(SCRIPTS / "cutaway.py"), "reserve", "--run", str(self.run),
+                   "--prompt-file", str(self.prompt), "--ref", str(self.image)]
+        processes = [subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True) for _ in range(2)]
+        outputs = [process.communicate(timeout=15) for process in processes]
+        self.assertEqual(sorted(process.returncode for process in processes), [0,1])
+        successful = [json.loads(out) for process, (out, err) in zip(processes, outputs) if process.returncode == 0]
+        self.assertEqual(successful[0]["attempt"], 1)
+
     def test_critical_error_loses_to_lower_score_without_one(self):
         # Make the critical fact a small part of construction to test precedence.
         base = self.checklist["checks"][0]
@@ -184,6 +195,7 @@ class CutawayTests(unittest.TestCase):
         result = c.finalize(self.run, "test completed")
         self.assertEqual(result["best"], first)
         self.assertTrue((self.run / "final/report.md").is_file())
+        self.assertIn("clarity / fail", (self.run / "final/errors.md").read_text())
         self.assertTrue((self.run / "attempts/002/image.png").is_file())
 
     def test_unreviewed_candidate_blocks_final(self):
@@ -287,6 +299,40 @@ class CutawayTests(unittest.TestCase):
     def test_coordinate_nan_rejected(self):
         with self.assertRaises(ValueError):
             layout.point([float("nan"), .5], (900,600))
+
+    def test_canvas_adds_label_margins_without_changing_base(self):
+        labels = self.root / "labels.json"
+        c.atomic_json(labels, {"canvas": {"size": [1200, 900], "image_box": [150,150,1050,750]},
+                               "title": {"text": "Двигатель", "position": [.02,.02]}})
+        before = c.digest(self.image)
+        out = self.root / "out.png"
+        layout.compose(self.image, labels, out)
+        with Image.open(out) as composed:
+            self.assertEqual(composed.size, (1200,900))
+        self.assertEqual(c.digest(self.image), before)
+
+    def test_image_box_outside_canvas_rejected(self):
+        labels = self.root / "labels.json"
+        c.atomic_json(labels, {"canvas": {"size": [1200,900], "image_box": [0,0,1500,900]},
+                               "title": {"text": "Test", "position": [.02,.02]}})
+        with self.assertRaisesRegex(ValueError, "outside"):
+            layout.compose(self.image, labels, self.root / "out.png")
+
+    def test_source_target_accounts_for_letterboxing(self):
+        labels = self.root / "labels.json"
+        c.atomic_json(labels, {"canvas": {"size": [1200,1200], "image_box": [100,100,1100,1100]},
+            "labels": [{"id":"part","text":"Part","position":[.02,.02],"target_image":[0,0]}]})
+        result = layout.compose(self.image, labels, self.root / "out.png")
+        # 900x600 fitted in a square needs a vertical white band.
+        self.assertGreater(result["image_bounds"][1], 100)
+        self.assertEqual(result["target_points"]["part"], result["image_bounds"][:2])
+
+    def test_mixed_target_coordinate_spaces_rejected(self):
+        labels = self.root / "labels.json"
+        c.atomic_json(labels, {"labels":[{"text":"Part","position":[.02,.02],
+                                        "target":[.5,.5],"target_image":[.5,.5]}]})
+        with self.assertRaisesRegex(ValueError, "not both"):
+            layout.compose(self.image, labels, self.root / "out.png")
 
 
 if __name__ == "__main__":

@@ -451,6 +451,27 @@ def report_text(run, state, candidates, reason):
     return "\n".join(lines) + "\n"
 
 
+def error_report_text(run, state):
+    lines = ["# Ошибки и ограничения запуска", "",
+             "Сохранены наблюдения по каждой версии. unknown означает непроверенность, а не доказанную техническую ошибку.", ""]
+    for attempt in state["attempts"]:
+        lines += [f"## Попытка {attempt['id']}", ""]
+        if attempt.get("error"):
+            lines.append(f"- Ошибка вызова: {attempt['error']} ({attempt['status']}).")
+        for i, path in enumerate(attempt.get("reviews", []), 1):
+            review = load(Path(run) / path)
+            lines.append(f"Проверка {i}:")
+            issues = [item for item in review["checks"] if item["status"] != "pass"]
+            for item in issues:
+                lines.append(f"- {item['id']} / {item['status']}: {item['observation']}")
+            if not issues:
+                lines.append("- В данном проходе замечаний не записано.")
+            for change in review.get("resolved_changes", []):
+                lines.append(f"- Исправлено/изменено: {change}")
+            lines.append("")
+    return "\n".join(lines) + "\n"
+
+
 def finalize(run, reason):
     run = Path(run)
     text_value(reason, "stop reason")
@@ -480,11 +501,12 @@ def finalize(run, reason):
         atomic_json(final / "ranking.json", [{"attempt": a["id"], "rating": a["score"]["total"],
                     "critical_errors": a["score"]["critical_errors"]} for a in candidates])
         (final / "report.md").write_text(report_text(run, state, candidates, reason), encoding="utf-8")
+        (final / "errors.md").write_text(error_report_text(run, state), encoding="utf-8")
         contact_sheet(run, candidates, final / "contact-sheet.jpg")
         state.update(best=best["id"], stage="complete", stop_reason=reason)
         event(state, "finalize", best=best["id"], reason=reason)
     return {"best": best["id"], "rating": best["score"]["total"], "image": str(final / "best.png"),
-            "report": str(final / "report.md")}
+            "report": str(final / "report.md"), "errors": str(final / "errors.md")}
 
 
 def contact_sheet(run, candidates, target):

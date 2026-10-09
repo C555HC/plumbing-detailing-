@@ -1,0 +1,15 @@
+{
+  "executor": "built-in imagegen",
+  "model": "not exposed by tool",
+  "call_count": 6,
+  "attempt_types": {
+    "1": "generate",
+    "2": "edit",
+    "3": "edit",
+    "4": "edit",
+    "5": "generate",
+    "6": "edit"
+  },
+  "token_usage": "not exposed by tool",
+  "manual_review": "pending technical specialist"
+}

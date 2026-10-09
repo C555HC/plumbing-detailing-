@@ -49,6 +49,8 @@ Labels use normalized coordinates relative to the base PNG, with manually verifi
 
 The composition helper rejects clipped/overlapping text and invalid coordinates, saves a layout report, and refuses replacing the base. It does not detect every line crossing, text over product, missing Cyrillic glyph in an arbitrary supplied font, or a wrong semantic target: inspect the PNG.
 
+For labels outside the product, optionally set `canvas: {"size":[2000,1800],"image_box":[300,270,1650,1620]}`. The source is fitted with its aspect ratio preserved. Prefer `target_image: [x,y]` relative to the source PNG for leader endpoints; `position`, `line_start` and `elbow` remain relative to the output canvas. This automatically accounts for white bands around non-square images. Use either target_image or target, not both. The layout report records actual image_bounds and target_points. Changing a cut plane still requires identifying new semantic targets; geometry conversion is not object recognition.
+
 ## Changing evidence / finishing
 
 `prepare --update` creates a new immutable input version, preserves previous inputs and score history, and removes active ratings. Re-review every available image under the new checklist before finalizing. Never edit frozen inputs in place.
