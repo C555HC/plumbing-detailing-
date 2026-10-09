@@ -1,0 +1,4 @@
+interface:
+  display_name: "Разрезы сантехнических товаров"
+  short_description: "Разрезы по документации с проверкой и историей версий"
+  default_prompt: "Используй $product-cutaway-agent для разреза товара по ссылке."
