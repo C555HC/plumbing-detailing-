@@ -469,7 +469,7 @@ def error_report_text(run, state):
             for change in review.get("resolved_changes", []):
                 lines.append(f"- Исправлено/изменено: {change}")
             lines.append("")
-    return "\n".join(lines) + "\n"
+    return "\n".join(lines).rstrip() + "\n"
 
 
 def finalize(run, reason):
