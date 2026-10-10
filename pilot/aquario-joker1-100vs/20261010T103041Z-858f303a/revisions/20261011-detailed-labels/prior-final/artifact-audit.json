@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-10-10T22:37:58.917921+00:00",
+  "attempts": 9,
+  "budget": 10,
+  "images": 8,
+  "best": 9,
+  "score": 92,
+  "critical_errors": [],
+  "critical_unknown": [
+    "T1"
+  ],
+  "pending_generations": 0,
+  "frozen_input_hashes": "passed",
+  "candidate_and_preview_hashes": "passed",
+  "reference_hashes": "passed",
+  "final_matches_reviewed_preview": "passed",
+  "json_files_checked_before_this_report": 176,
+  "markdown_files_checked": 70,
+  "broken_local_links": 0,
+  "previous_run_diff_against_main": "empty",
+  "skill_validation": "passed",
+  "git_diff_check": "passed",
+  "unit_integration_tests": {
+    "count": 41,
+    "result": "passed in prior development step"
+  },
+  "factory_context_screenshots_cached": false,
+  "technical_expert_approval": false,
+  "github_actions": {
+    "run_id": 38092199476,
+    "url": "https://github.com/C555HC/plumbing-detailing-/actions/runs/38092199476",
+    "tested_commit": "cc7fa084cfeebc73fd389472f0600283b37fff12",
+    "result": "success",
+    "tests": 41,
+    "platform": "ubuntu-latest / Python3.12"
+  }
+}

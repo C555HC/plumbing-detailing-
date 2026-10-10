@@ -1,0 +1,206 @@
+{
+  "image": "/Users/nikitas/Documents/ChatGPT/Ворк/plumbing-detailing-/pilot/aquario-joker1-100vs/20261010T103041Z-858f303a/revisions/20261011-detailed-labels/preview-v2.png",
+  "font": "/System/Library/Fonts/Supplemental/Arial.ttf",
+  "label_boxes": {
+    "title": [
+      59,
+      59,
+      860,
+      188
+    ],
+    "tank": [
+      60,
+      447,
+      371,
+      519
+    ],
+    "nipple": [
+      60,
+      627,
+      405,
+      738
+    ],
+    "gas": [
+      60,
+      807,
+      393,
+      918
+    ],
+    "membrane": [
+      60,
+      986,
+      376,
+      1059
+    ],
+    "diffusers": [
+      60,
+      1166,
+      317,
+      1277
+    ],
+    "inlet": [
+      60,
+      1345,
+      446,
+      1418
+    ],
+    "shaft": [
+      60,
+      1525,
+      439,
+      1598
+    ],
+    "impellers": [
+      60,
+      1705,
+      410,
+      1817
+    ],
+    "fasteners": [
+      60,
+      1885,
+      327,
+      1958
+    ],
+    "water-chamber": [
+      500,
+      287,
+      736,
+      359
+    ],
+    "tank-joint": [
+      875,
+      272,
+      1232,
+      337
+    ],
+    "outlet": [
+      1299,
+      231,
+      1630,
+      304
+    ],
+    "valve": [
+      1679,
+      297,
+      2007,
+      401
+    ],
+    "controller": [
+      1989,
+      447,
+      2397,
+      519
+    ],
+    "sensor": [
+      1989,
+      697,
+      2386,
+      769
+    ],
+    "stator": [
+      1989,
+      1016,
+      2321,
+      1087
+    ],
+    "rotor": [
+      1989,
+      1265,
+      2340,
+      1377
+    ],
+    "seal": [
+      1989,
+      1536,
+      2274,
+      1684
+    ]
+  },
+  "warnings": [],
+  "source_size": [
+    1448,
+    1086
+  ],
+  "image_bounds": [
+    480,
+    530,
+    1960,
+    1640
+  ],
+  "target_points": {
+    "tank": [
+      694,
+      707
+    ],
+    "nipple": [
+      631,
+      821
+    ],
+    "gas": [
+      838,
+      836
+    ],
+    "membrane": [
+      950,
+      833
+    ],
+    "diffusers": [
+      1045,
+      1153
+    ],
+    "inlet": [
+      754,
+      1293
+    ],
+    "shaft": [
+      848,
+      1300
+    ],
+    "impellers": [
+      1123,
+      1282
+    ],
+    "fasteners": [
+      1397,
+      1506
+    ],
+    "water-chamber": [
+      1021,
+      884
+    ],
+    "tank-joint": [
+      1106,
+      808
+    ],
+    "outlet": [
+      1181,
+      620
+    ],
+    "valve": [
+      1184,
+      733
+    ],
+    "controller": [
+      1623,
+      701
+    ],
+    "sensor": [
+      1293,
+      785
+    ],
+    "stator": [
+      1484,
+      1229
+    ],
+    "rotor": [
+      1637,
+      1224
+    ],
+    "seal": [
+      1336,
+      1248
+    ]
+  },
+  "semantic_targets_checked": false
+}

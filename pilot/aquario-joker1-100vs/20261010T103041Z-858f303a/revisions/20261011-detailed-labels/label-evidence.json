@@ -1,0 +1,283 @@
+{
+  "checked_at": "2026-10-10T22:52:08.604903+00:00",
+  "manufacturer_model": "JOKER1-100VS / 2700",
+  "manual_url": "https://aquario.ru/sites/default/files/manuals/Joker_0.pdf",
+  "manual_revision": "10.2024",
+  "viewer_url": "https://aquario.ru:1111/user/pubscheme",
+  "relevant_parts": {
+    "6335": "датчик давления",
+    "8017": "Обратный клапан",
+    "8036": "Вал-ротор",
+    "8037": "Задний диффузор",
+    "8038": "Промеж.диффузор",
+    "8039": {
+      "name": "Рабочее колесо",
+      "quantity": 3
+    },
+    "8044": "Статор",
+    "8856": "торцевое уплотнение"
+  },
+  "generation_calls": 0,
+  "labels": [
+    {
+      "id": "tank",
+      "label": "Гидроаккумулятор / Мембранный бак",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "PDF p5 fig2; 2700 whole accumulator",
+      "target_image": [
+        0.145,
+        0.16
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "nipple",
+      "label": "Воздушный ниппель / Проверка давления / воздуха",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF p5 fig2 and p13 air pressure check",
+      "target_image": [
+        0.102,
+        0.262
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "gas",
+      "label": "Газовая камера / Воздушная сторона / мембраны",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF p13 membrane rupture/air nipple; chamber shape remains reconstructed",
+      "target_image": [
+        0.242,
+        0.276
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "membrane",
+      "label": "Мембрана EPDM / Разделяет камеры",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF p5 materials; exact membrane shape not proved",
+      "target_image": [
+        0.318,
+        0.273
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "diffusers",
+      "label": "Диффузоры / Неподвижные / направляющие",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "PDF p5 materials; 2700 parts8037/8038",
+      "target_image": [
+        0.382,
+        0.562
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "inlet",
+      "label": "Входной патрубок / Всасывающая сторона",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF p5 fig2",
+      "target_image": [
+        0.185,
+        0.688
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "shaft",
+      "label": "Общий вал / Привод рабочих колёс",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "PDF p5 shaft; 2700 shaft/rotor assembly",
+      "target_image": [
+        0.249,
+        0.694
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "impellers",
+      "label": "Рабочие колёса / Три ступени / Нержавеющая сталь",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "PDF p5 materials, p6 table1; 2700 part8039 count3",
+      "target_image": [
+        0.435,
+        0.678
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "fasteners",
+      "label": "Стяжные болты / Крепёж корпуса",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "PDF p5 steel fasteners; 2700 front flange fasteners",
+      "target_image": [
+        0.507,
+        0.877
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "water-chamber",
+      "label": "Камера со / стороны воды",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF p13 membrane separates air/water; chamber shape reconstructed",
+      "target_image": [
+        0.366,
+        0.3
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "tank-joint",
+      "label": "Заднее подключение / бака",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "2700 rear horizontal joint into pressure tee; rotated view",
+      "target_image": [
+        0.423,
+        0.251
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "outlet",
+      "label": "Выходной патрубок / Напорная сторона",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF p5 fig2",
+      "target_image": [
+        0.474,
+        0.081
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "valve",
+      "label": "Встроенный / тестовый обратный / клапан",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "PDF p5 fig2 and p9 production test function; 2700 part8017",
+      "target_image": [
+        0.476,
+        0.183
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "controller",
+      "label": "Частотный / контроллер / Управляет двигателем",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF p5 fig2 and p6 motor/controller",
+      "target_image": [
+        0.773,
+        0.154
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "sensor",
+      "label": "Датчик давления / На напорном узле",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "PDF p5 fig2,p6; 2700 part6335",
+      "target_image": [
+        0.55,
+        0.23
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "stator",
+      "label": "Обмотка статора / Неподвижная часть",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "PDF p12 motor winding; 2700 part8044 rear orange/copper ring",
+      "target_image": [
+        0.679,
+        0.63
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "rotor",
+      "label": "Чашеобразный / вал-ротор / Синхронный двигатель / с постоянными / магнитами",
+      "source_ids": [
+        "aquario-3d",
+        "aquario-manual"
+      ],
+      "locator": "2700 part8036; PDF p6 permanent-magnet synchronous motor",
+      "target_image": [
+        0.782,
+        0.626
+      ],
+      "semantic_target_checked": true
+    },
+    {
+      "id": "seal",
+      "label": "Торцевое / уплотнение вала / Между насосом / и двигателем",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "PDF p12 fig7; 2700 part8856",
+      "target_image": [
+        0.579,
+        0.647
+      ],
+      "semantic_target_checked": true
+    }
+  ],
+  "gaps": [
+    "Точная форма мембраны и камер остаётся реконструкцией",
+    "Путь скрытых межступенчатых каналов не подтверждён",
+    "Не подписываются отдельные магниты, подшипники и плата: их расположение в данном PNG не проверено",
+    "Просмотрщик осмотрен повторно; локальные screenshots в этой ревизии не сохранены"
+  ],
+  "visual_review": {
+    "reviewed_by": "same Codex agent",
+    "full_frame_checked": true,
+    "text_clipping": false,
+    "text_overlap": false,
+    "leader_endpoints_checked": 18,
+    "base_geometry_changed": false,
+    "selected_layout": "labels-v4.json",
+    "note": "Композиционный скрипт не распознаёт узлы; семантическую проверку выполнил агент по PNG."
+  }
+}

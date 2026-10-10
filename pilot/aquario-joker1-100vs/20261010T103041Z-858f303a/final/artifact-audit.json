@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-10T22:37:58.917921+00:00",
+  "checked_at": "2026-10-10T22:56:18.988048+00:00",
   "attempts": 9,
   "budget": 10,
   "images": 8,
@@ -14,8 +14,8 @@
   "candidate_and_preview_hashes": "passed",
   "reference_hashes": "passed",
   "final_matches_reviewed_preview": "passed",
-  "json_files_checked_before_this_report": 176,
-  "markdown_files_checked": 70,
+  "json_files_checked_before_this_report": 189,
+  "markdown_files_checked": 74,
   "broken_local_links": 0,
   "previous_run_diff_against_main": "empty",
   "skill_validation": "passed",
@@ -32,6 +32,23 @@
     "tested_commit": "cc7fa084cfeebc73fd389472f0600283b37fff12",
     "result": "success",
     "tests": 41,
-    "platform": "ubuntu-latest / Python3.12"
+    "platform": "ubuntu-latest / Python3.12",
+    "scope": "Unchanged helper code; label-only revision verified visually, CI not repeated."
+  },
+  "label_revision": {
+    "date": "2026-10-11",
+    "label_count": 18,
+    "size": [
+      2400,
+      2200
+    ],
+    "generated_base_unchanged": true,
+    "additional_generation_calls": 0,
+    "final_sha256": "2c791f0e2b4e6b4c880e999d0583824e9adebfa1812b372503d3c9c8e4848635",
+    "preview_sha256": "2c791f0e2b4e6b4c880e999d0583824e9adebfa1812b372503d3c9c8e4848635",
+    "prior_final": "../revisions/20261011-detailed-labels/prior-final",
+    "semantic_targets_checked_by_agent": true,
+    "not_an_independent_expert_review": true,
+    "prior_final_matches_previous_reviewed_preview": true
   }
 }
