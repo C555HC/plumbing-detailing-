@@ -1,0 +1,60 @@
+{
+  "checked_date": "2026-10-10",
+  "kind": "manufacturer_model",
+  "model": "JOKER1-100VS",
+  "article": "2700",
+  "landing_url": "https://aquario.ru/3d-diagrams",
+  "viewer_url": "https://aquario.ru:1111/user/pubscheme",
+  "access": "Browser UI: search Joker; choose 2700; rotate; select named parts",
+  "inspected_parts": [
+    {
+      "name": "Вал-ротор",
+      "article": "8036",
+      "quantity": 1,
+      "observation": "Чашеобразная форма; проверена выделением именованной детали"
+    },
+    {
+      "name": "Рабочее колесо.001",
+      "article": "8039",
+      "quantity": 3,
+      "observation": "Три колеса, проверены выделением"
+    },
+    {
+      "name": "Задний диффузор",
+      "article": "8037",
+      "quantity": 1
+    },
+    {
+      "name": "Промеж.диффузор",
+      "article": "8038",
+      "quantity": 1
+    },
+    {
+      "name": "Статор",
+      "article": "8044",
+      "quantity": 1
+    },
+    {
+      "name": "торцевое уплотнение Joker1-100VS",
+      "article": "8856",
+      "quantity": 1
+    },
+    {
+      "name": "Обратный клапан",
+      "article": "8017",
+      "quantity": 1
+    },
+    {
+      "name": "датчик (преобразователь) давления для JOKER1-100VS",
+      "article": "6335",
+      "quantity": 1
+    }
+  ],
+  "limitations": [
+    "Не осмотрен внутренний разрез мембраны",
+    "Не доказаны все гидравлические переходы",
+    "CAD не скачан; точные размеры не измерены"
+  ],
+  "rating_status": "92 is historical; new evidence requires geometry checks and full re-evaluation",
+  "generation_calls_added": 0
+}
