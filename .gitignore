@@ -10,3 +10,4 @@ pilot/**/sources/page-*.txt
 pilot/**/sources/page-*.png
 pilot/**/input/product-page.html
 pilot/**/references/*.png
+pilot/**/evidence/files/*

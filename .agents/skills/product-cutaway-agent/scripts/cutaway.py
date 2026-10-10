@@ -262,6 +262,7 @@ def prepare(run, spec_path, checklist_path, sources_path, update=False):
         for attempt in state["attempts"]:
             if "score" in attempt:
                 attempt.setdefault("score_history", []).append(attempt.pop("score"))
+            attempt.pop("caption_audit", None)
         state["best"] = None
         state["stage"] = "ready"
         event(state, "prepare", version=version, checklist=checklist["version"])
@@ -282,6 +283,7 @@ def reserve(run, prompt_file, refs, parent=None, kind="generate"):
         if not state["inputs_version"]:
             raise ValueError("Prepare technical inputs first")
         verify_inputs(run, state)
+        verify_evidence(run, state)
         if len(state["attempts"]) >= state["limit"]:
             raise ValueError("Generation limit exhausted")
         if any(a["status"] == "reserved" for a in state["attempts"]):
@@ -331,6 +333,87 @@ def verify_inputs(run, state):
             raise ValueError("Frozen inputs changed; use prepare --update and re-review")
 
 
+def archive_evidence(run, source_id, locator, observation, file=None, gap=None):
+    """Archive an inspected source asset, or explicitly record why no asset exists."""
+    run = Path(run)
+    text_value(locator, "evidence.locator")
+    text_value(observation, "evidence.observation")
+    if bool(file) == bool(gap):
+        raise ValueError("Supply either an evidence file or an explicit archive gap")
+    if gap:
+        text_value(gap, "evidence.gap")
+    with transaction(run) as state:
+        if not state.get("inputs_version"):
+            raise ValueError("Prepare technical inputs before archiving evidence")
+        verify_inputs(run, state)
+        sources = load(run / state["inputs_dir"] / "sources.json")["sources"]
+        source = next((s for s in sources if s["id"] == source_id), None)
+        if source is None:
+            raise ValueError("Unknown evidence source")
+        entries = state.setdefault("evidence_archives", [])
+        entry = {"id": len(entries) + 1, "source_id": source_id, "url": source["url"],
+                 "kind": source["kind"], "applicability": source["applicability"],
+                 "inputs_version": state["inputs_version"], "locator": locator,
+                 "observation": observation, "archived_at": now()}
+        if file:
+            original = Path(file)
+            checksum = digest(original)
+            suffix = original.suffix.lower()
+            if not re.fullmatch(r"\.[a-z0-9]{1,10}", suffix):
+                suffix = ".bin"
+            target = run / "evidence" / "files" / (checksum + suffix)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            if target.exists() and digest(target) != checksum:
+                raise ValueError("Archived evidence changed; refusing overwrite")
+            if not target.exists():
+                shutil.copy2(original, target)
+            entry.update(path=str(target.relative_to(run)), sha256=checksum)
+        else:
+            entry["gap"] = gap
+        manifest = run / "evidence" / f"{entry['id']:03d}.json"
+        if manifest.exists():
+            raise ValueError("Orphaned evidence manifest exists; inspect before retrying")
+        atomic_json(manifest, entry)
+        entries.append({**entry, "manifest": str(manifest.relative_to(run)),
+                        "manifest_sha256": digest(manifest)})
+        event(state, "archive_evidence", source_id=source_id, archived=bool(file))
+    return entry
+
+
+def verify_evidence(run, state):
+    for entry in state.get("evidence_archives", []):
+        if digest(Path(run) / entry["manifest"]) != entry["manifest_sha256"]:
+            raise ValueError("Evidence manifest changed after archiving")
+        if entry.get("path") and digest(Path(run) / entry["path"]) != entry["sha256"]:
+            raise ValueError("Archived evidence changed after inspection")
+
+
+def validate_label_review(labels, audit, source_ids, hashes):
+    if any(audit.get(key) != value for key, value in hashes.items()):
+        raise ValueError("Label review hashes do not match base, labels and preview")
+    if audit.get("layout_checked") is not True or audit.get("title_checked") is not True:
+        raise ValueError("Inspect caption layout and title before registering the preview")
+    expected = [text_value(item.get("id"), "label.id") for item in labels.get("labels", [])]
+    if len(set(expected)) != len(expected):
+        raise ValueError("Duplicate label ID")
+    checks = audit.get("checks", [])
+    actual = [item.get("id") for item in checks]
+    if len(set(actual)) != len(actual) or set(actual) != set(expected):
+        raise ValueError("Label review must cover every label exactly once")
+    by_id = {item["id"]: item for item in checks}
+    for label in labels.get("labels", []):
+        check = by_id[label["id"]]
+        text_value(check.get("observation"), "label observation")
+        text_value(check.get("locator"), "label source locator")
+        refs = check.get("source_ids", [])
+        if not refs or any(sid not in source_ids for sid in refs):
+            raise ValueError("Label names require applicable sources")
+        if check.get("text_checked") is not True:
+            raise ValueError("Label wording has not been checked")
+        if ("target" in label or "target_image" in label) and check.get("target_checked") is not True:
+            raise ValueError("Label endpoint has not been visually checked")
+
+
 def record(run, number, image, metadata=None):
     run = Path(run)
     size = image_size(image)
@@ -370,7 +453,7 @@ def scored_candidates(state):
                                              -a["score"]["total"], a["id"]))
 
 
-def review_attempt(run, number, review_path, preview=None):
+def review_attempt(run, number, review_path, preview=None, labels_path=None, label_review_path=None):
     run = Path(run)
     review = load(review_path)
     with transaction(run) as state:
@@ -381,7 +464,16 @@ def review_attempt(run, number, review_path, preview=None):
             raise ValueError("Candidate image changed after recording")
         checklist = load(run / state["inputs_dir"] / "checklist.json")
         verify_inputs(run, state)
+        verify_evidence(run, state)
         score = evaluate(checklist, review)
+        if labels_path or label_review_path:
+            if not (preview and labels_path and label_review_path):
+                raise ValueError("Caption review requires preview, labels and label-review together")
+            sources = load(run / state["inputs_dir"] / "sources.json")["sources"]
+            source_ids = {s["id"] for s in sources if s["kind"] != "style_reference"}
+            validate_label_review(load(labels_path), load(label_review_path), source_ids,
+                                  {"base_sha256": attempt["image_sha256"],
+                                   "labels_sha256": digest(labels_path), "preview_sha256": digest(preview)})
         ordinal = len(attempt.get("reviews", [])) + 1
         folder = run / "attempts" / f"{number:03d}"
         if preview:
@@ -391,6 +483,17 @@ def review_attempt(run, number, review_path, preview=None):
                 shutil.copy2(preview, destination)
             attempt["preview"] = str(destination.relative_to(run))
             attempt["preview_sha256"] = digest(destination)
+            # A new preview must never inherit a previous caption audit.
+            attempt.pop("caption_audit", None)
+            if labels_path:
+                saved = {}
+                for key, source in (("labels", labels_path), ("label_review", label_review_path)):
+                    target = folder / f"{key}-{ordinal:02d}.json"
+                    if Path(source).resolve() != target.resolve():
+                        shutil.copy2(source, target)
+                    saved[key] = str(target.relative_to(run))
+                    saved[key + "_sha256"] = digest(target)
+                attempt["caption_audit"] = saved
         review_file = folder / f"review-{ordinal:02d}.json"
         atomic_json(review_file, review)
         attempt.setdefault("reviews", []).append(str(review_file.relative_to(run)))
@@ -452,6 +555,20 @@ def report_text(run, state, candidates, reason):
     lines += ["", "## Источники", ""]
     for source in sources:
         lines.append(f"- [{source.get('title', source['id'])}]({source['url']}): {source['kind']}; {source['applicability']}")
+    lines += ["", "## Архив доказательств", ""]
+    archives = state.get("evidence_archives", [])
+    if not archives:
+        lines.append("Локальный архив источников не зарегистрирован; ссылки не заменяют сохранённые ракурсы.")
+    for entry in archives:
+        asset = f"[файл](../{entry['path']})" if entry.get("path") else "не сохранено: " + entry["gap"]
+        lines.append(f"- {entry['source_id']}, inputs v{entry['inputs_version']}, {entry['locator']}: {entry['observation']}; {asset}.")
+    current_ids = {entry["source_id"] for entry in archives if entry["inputs_version"] == state["inputs_version"]}
+    missing = [source["id"] for source in sources if source["id"] not in current_ids]
+    if missing:
+        lines.append("Для текущих входных данных архив или причина отсутствия не зарегистрированы: " + ", ".join(missing) + ".")
+    lines += ["", "## Проверка подписей", "",
+              "По всем выноскам зарегистрированы проверка названия и визуальный осмотр конечных точек. Это проверка агентом, не автоматическое распознавание деталей."
+              if best.get("caption_audit") else "Отдельный машинно проверяемый протокол подписей не зарегистрирован (исторический или иной режим)."]
     return "\n".join(lines) + "\n"
 
 
@@ -481,6 +598,7 @@ def finalize(run, reason):
     text_value(reason, "stop reason")
     with transaction(run) as state:
         verify_inputs(run, state)
+        verify_evidence(run, state)
         if any(a["status"] == "reserved" for a in state["attempts"]):
             raise ValueError("An unfinished generation remains")
         unreviewed = [a["id"] for a in state["attempts"] if a.get("image") and not a.get("score")]
@@ -490,6 +608,10 @@ def finalize(run, reason):
         if not candidates:
             raise ValueError("No scored candidates")
         for candidate in candidates:
+            for key in ("labels", "label_review"):
+                audit = candidate.get("caption_audit", {})
+                if key in audit and digest(run / audit[key]) != audit[key + "_sha256"]:
+                    raise ValueError("Caption audit changed after evaluation")
             if digest(run / candidate["image"]) != candidate["image_sha256"]:
                 raise ValueError("Candidate changed after evaluation")
             if candidate.get("preview") and digest(run / candidate["preview"]) != candidate["preview_sha256"]:
@@ -502,6 +624,13 @@ def finalize(run, reason):
         final = run / "final"
         final.mkdir(exist_ok=True)
         shutil.copy2(selected, final / "best.png")
+        for key in ("labels", "label_review"):
+            audit = best.get("caption_audit", {})
+            target = final / (key + ".json")
+            if key in audit:
+                shutil.copy2(run / audit[key], target)
+            elif target.exists():
+                target.unlink()
         atomic_json(final / "ranking.json", [{"attempt": a["id"], "rating": a["score"]["total"],
                     "critical_errors": a["score"]["critical_errors"]} for a in candidates])
         (final / "report.md").write_text(report_text(run, state, candidates, reason), encoding="utf-8")
@@ -551,6 +680,12 @@ def main():
     p = sub.add_parser("review")
     p.add_argument("--run", required=True); p.add_argument("--attempt", type=int, required=True)
     p.add_argument("--review-file", required=True); p.add_argument("--preview")
+    p.add_argument("--labels"); p.add_argument("--label-review")
+    p = sub.add_parser("archive-evidence")
+    for name in ("run", "source-id", "locator", "observation"):
+        p.add_argument("--" + name, required=True)
+    group = p.add_mutually_exclusive_group(required=True)
+    group.add_argument("--file"); group.add_argument("--gap")
     p = sub.add_parser("finalize")
     p.add_argument("--run", required=True); p.add_argument("--reason", required=True)
     p = sub.add_parser("status"); p.add_argument("--run", required=True)
@@ -567,7 +702,9 @@ def main():
         elif args.command == "fail":
             result = fail(args.run, args.attempt, args.reason, args.unknown)
         elif args.command == "review":
-            result = review_attempt(args.run, args.attempt, args.review_file, args.preview)
+            result = review_attempt(args.run, args.attempt, args.review_file, args.preview, args.labels, args.label_review)
+        elif args.command == "archive-evidence":
+            result = archive_evidence(args.run, args.source_id, args.locator, args.observation, args.file, args.gap)
         elif args.command == "finalize":
             result = finalize(args.run, args.reason)
         else:

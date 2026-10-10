@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-11",
+  "test": "Isolated clone of actual AQUARIO pilot; historical observations reused, no new technical assessment",
+  "generation_calls": 0,
+  "attempts_before": 9,
+  "attempts_after": 9,
+  "limit": 10,
+  "best": 9,
+  "rating": 92.0,
+  "label_checks": 18,
+  "evidence_records": 2,
+  "explicit_archive_gaps": 1,
+  "original_run_unchanged": true,
+  "final_png_hash_unchanged": true,
+  "unit_tests_passed": 51,
+  "semantic_recognition_automatic": false,
+  "independent_visual_evaluation": false
+}

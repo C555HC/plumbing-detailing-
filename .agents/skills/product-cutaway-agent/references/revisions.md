@@ -2,7 +2,7 @@
 
 Read the saved run, chosen parent, inputs, and report. Save the user's wording. Decide if it changes labels/exterior or technical structure. If the request conflicts with an applicable document, explain the concrete conflict and clarify rather than silently inventing a different product.
 
-For only labels under composed mode: copy the labels JSON to a versioned sibling, change text/coordinates, render a new preview, inspect it and re-review its parent using `--preview`. This creates a new review/preview while preserving old ones; no image-generator call is needed. Save the revision request separately before finalizing again.
+For only labels under composed mode: copy the labels JSON to a versioned sibling, change text/coordinates, render a new preview, inspect every changed name/target and the entire layout, and re-review its parent using `--preview --labels --label-review` with newly bound hashes. This creates a new review/preview while preserving old ones; no image-generator call is needed. Save the revision request and archive the prior final before finalizing again. Never reuse an old caption audit for a changed preview.
 
 For a technical image edit within a non-exhausted run: reserve with `--kind edit --parent N`, use the chosen base image, record, review and finalize again. The old best stays in attempts and review history. Never overwrite image.png of an existing attempt.
 

@@ -5,11 +5,12 @@ Helpers require Python 3.10+ and Pillow; file locking currently targets macOS/Li
 ```text
 python cutaway.py init --root output/cutaways --product-id brand-article --model MODEL --url URL --image PHOTO --limit 10
 python cutaway.py prepare --run RUN --spec SPEC.json --checklist CHECKLIST.json --sources SOURCES.json
+python cutaway.py archive-evidence --run RUN --source-id manual --locator "PDF page 5, printed page 3, figure 2" --observation "Observed inlet and outlet positions" --file PAGE.png
 python cutaway.py reserve --run RUN --prompt-file PROMPT.md --ref PHOTO [--ref DIAGRAM] [--kind edit --parent 1]
 # Agent now invokes the built-in image generator with exactly those references and prompt.
 python cutaway.py record --run RUN --attempt 1 --image RETURNED.png [--metadata SMALL-METADATA.json]
 python compose_png.py --image BASE.png --labels LABELS.json --output PREVIEW.png [--font FONT.ttf]
-python cutaway.py review --run RUN --attempt 1 --review-file REVIEW.json [--preview PREVIEW.png]
+python cutaway.py review --run RUN --attempt 1 --review-file REVIEW.json [--preview PREVIEW.png --labels LABELS.json --label-review LABEL-REVIEW.json]
 python cutaway.py status --run RUN
 python cutaway.py finalize --run RUN --reason REASON
 ```
@@ -51,6 +52,17 @@ Labels use normalized coordinates relative to the base PNG, with manually verifi
 
 The composition helper rejects clipped/overlapping text and invalid coordinates, saves a layout report, and refuses replacing the base. It does not detect every line crossing, text over product, missing Cyrillic glyph in an arbitrary supplied font, or a wrong semantic target: inspect the PNG.
 
+### Caption verification protocol
+
+For new composed captions, visually inspect the finished preview and record every label ID exactly once in a separate JSON:
+```json
+{"base_sha256":"SHA256-OF-BASE","labels_sha256":"SHA256-OF-LABELS","preview_sha256":"SHA256-OF-PREVIEW","layout_checked":true,"title_checked":true,"checks":[{"id":"motor","source_ids":["manual"],"locator":"PDF page 6, printed page 4","text_checked":true,"target_checked":true,"observation":"Name matches the manual; endpoint is on the exposed motor housing, not its cable"}]}
+```
+
+Compute hashes from the actual files; true flags are the inspecting agent's claims and must only be recorded after visual checks. Source IDs must be applicable sources, not style references. Unsupported or hidden features should have their callout removed/reworded rather than falsely marking an endpoint checked. The title flag covers model/article and title layout; layout flag covers readability, clipping, text/line conflicts. A leader endpoint check is required for each label with a target. The script cannot recognize parts, and this protocol is not independent expert approval.
+
+Pass preview, labels and protocol together. `review` validates coverage, source IDs and hashes and saves immutable copies beside the preview. `finalize` checks the copies and exports the selected labels and protocol. A new preview clears the old caption audit; updated inputs invalidate it too. Historical previews can still be reviewed without these flags, but reports explicitly say no structured caption audit was registered.
+
 For labels outside the product, optionally set `canvas: {"size":[2000,1800],"image_box":[300,270,1650,1620]}`. The source is fitted with its aspect ratio preserved. Prefer `target_image: [x,y]` relative to the source PNG for leader endpoints; `position`, `line_start` and `elbow` remain relative to the output canvas. This automatically accounts for white bands around non-square images. Use either target_image or target, not both. The layout report records actual image_bounds and target_points. Changing a cut plane still requires identifying new semantic targets; geometry conversion is not object recognition.
 
 ## Changing evidence / finishing
@@ -60,6 +72,10 @@ For labels outside the product, optionally set `canvas: {"size":[2000,1800],"ima
 `finalize` refuses pending generations and unreviewed images, sorts candidates without critical fails first, copies the leader to final/best.png, writes report.md/ranking.json and a comparison sheet. It does not assert expert approval, require exactly 10 attempts, or automatically generate new images. Previous reviews/previews persist when the same candidate is reassessed.
 
 Keep runtime results outside Git by default. For an explicitly authorized pilot archive, publish selected/all attempts, reviews, prompts, labels and reports intentionally; avoid blindly committing downloaded complete manuals or raw HTML. Preserve source URLs so another run can fetch them. Development failures go in `docs/development-v0.1.md`.
+
+### Evidence archive
+
+`archive-evidence --run RUN --source-id ID --locator VIEW --observation FACT --file ASSET` copies original bytes into `evidence/files/` and writes a hashed manifest under `evidence/`. Use `--gap REASON` instead of `--file` if no local asset is available. Exactly one is required. Unknown source IDs are rejected. Records bind to the current frozen input version, preserve original URLs/applicability, and consume no generation attempt. `reserve`, `review` and `finalize` check that registered manifests/assets have not changed. Final reports link local assets and disclose missing archive records. The helper imports files; it does not download pages, operate a viewer or make screenshots.
 
 ## Approved visual references
 

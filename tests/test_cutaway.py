@@ -83,6 +83,125 @@ class CutawayTests(unittest.TestCase):
                 self.assertEqual(c.digest(cached), ref["sha256"])
                 c.fail(self.run, n, "Synthetic test call not dispatched")
 
+    def test_archive_survives_original_loss_without_spending_attempts(self):
+        asset = self.root / "factory.png"
+        Image.new("RGB", (80, 60), "grey").save(asset)
+        before = asset.read_bytes()
+        entry = c.archive_evidence(self.run, "manual", "PDF page 1, figure 2",
+                                   "The actual inspected fixture", file=asset)
+        asset.unlink()
+        self.assertEqual((self.run / entry["path"]).read_bytes(), before)
+        state = c.load(self.run / "state.json")
+        self.assertEqual(state["attempts"], [])
+        self.assertEqual(state["evidence_archives"][0]["inputs_version"], 1)
+        self.candidate()
+        c.finalize(self.run, "fixture")
+        self.assertIn("PDF page 1, figure 2", (self.run / "final/report.md").read_text())
+
+    def test_archive_missing_asset_requires_explicit_gap_and_known_source(self):
+        with self.assertRaises(ValueError):
+            c.archive_evidence(self.run, "manual", "rear", "Inspected view")
+        with self.assertRaisesRegex(ValueError, "Unknown"):
+            c.archive_evidence(self.run, "absent", "rear", "Inspected view", gap="No export")
+        c.archive_evidence(self.run, "manual", "rear", "Inspected view", gap="No local export available")
+        self.candidate()
+        c.finalize(self.run, "fixture")
+        self.assertIn("No local export available", (self.run / "final/report.md").read_text())
+
+    def test_modified_archive_blocks_generation_and_finalization(self):
+        self.candidate()
+        entry = c.archive_evidence(self.run, "manual", "page 1", "Inspected page", file=self.image)
+        (self.run / entry["path"]).write_bytes(b"changed")
+        with self.assertRaisesRegex(ValueError, "Archived evidence changed"):
+            c.reserve(self.run, self.prompt, [self.image])
+        with self.assertRaisesRegex(ValueError, "Archived evidence changed"):
+            c.finalize(self.run, "fixture")
+
+    def test_modified_evidence_manifest_blocks_use(self):
+        c.archive_evidence(self.run, "manual", "page 1", "Inspected page", gap="Unavailable export")
+        state = c.load(self.run / "state.json")
+        entry = state["evidence_archives"][0]
+        (self.run / entry["manifest"]).write_text("{}")
+        with self.assertRaisesRegex(ValueError, "manifest changed"):
+            c.reserve(self.run, self.prompt, [self.image])
+
+    def caption_fixture(self):
+        self.candidate()
+        labels = self.root / "labels.json"
+        c.atomic_json(labels, {"labels": [{"id": "a", "text": "Двигатель", "position": [.05,.05],
+                                          "target_image": [.5,.5], "font_size": 24}]})
+        preview = self.root / "preview.png"
+        layout.compose(self.image, labels, preview)
+        audit = self.root / "label-review.json"
+        c.atomic_json(audit, {"base_sha256": c.digest(self.image), "labels_sha256": c.digest(labels),
+                             "preview_sha256": c.digest(preview), "title_checked": True, "layout_checked": True,
+                             "checks": [{"id": "a", "source_ids": ["manual"], "locator": "page 1",
+                                         "text_checked": True, "target_checked": True,
+                                         "observation": "Endpoint inspected on fixture centre"}]})
+        review = self.root / "caption-review.json"
+        c.atomic_json(review, self.answer())
+        return labels, preview, audit, review
+
+    def test_caption_protocol_is_bound_to_exact_files_and_preserves_budget(self):
+        labels, preview, audit, review = self.caption_fixture()
+        c.review_attempt(self.run, 1, review, preview, labels, audit)
+        state = c.load(self.run / "state.json")
+        self.assertEqual(len(state["attempts"]), 1)
+        self.assertIn("caption_audit", state["attempts"][0])
+        c.finalize(self.run, "caption fixture")
+        self.assertEqual(c.digest(self.run / "final/labels.json"), c.digest(labels))
+        self.assertTrue((self.run / "final/label_review.json").exists())
+
+    def test_caption_protocol_rejects_missing_unchecked_or_stale_targets(self):
+        labels, preview, audit, review = self.caption_fixture()
+        valid = c.load(audit)
+        for modification in ("missing", "unchecked", "stale", "unknown-source"):
+            with self.subTest(modification=modification):
+                value = copy.deepcopy(valid)
+                if modification == "missing":
+                    value["checks"] = []
+                elif modification == "unchecked":
+                    value["checks"][0]["target_checked"] = False
+                elif modification == "stale":
+                    value["preview_sha256"] = "old"
+                else:
+                    value["checks"][0]["source_ids"] = ["absent"]
+                c.atomic_json(audit, value)
+                with self.assertRaises(ValueError):
+                    c.review_attempt(self.run, 1, review, preview, labels, audit)
+                self.assertEqual(len(c.load(self.run / "state.json")["attempts"][0]["reviews"]), 1)
+
+    def test_modified_caption_audit_blocks_finalization(self):
+        labels, preview, audit, review = self.caption_fixture()
+        c.review_attempt(self.run, 1, review, preview, labels, audit)
+        state = c.load(self.run / "state.json")
+        saved = state["attempts"][0]["caption_audit"]
+        (self.run / saved["labels"]).write_text("{}")
+        with self.assertRaisesRegex(ValueError, "Caption audit changed"):
+            c.finalize(self.run, "fixture")
+
+    def test_new_preview_cannot_inherit_old_caption_verification(self):
+        labels, preview, audit, review = self.caption_fixture()
+        c.review_attempt(self.run, 1, review, preview, labels, audit)
+        c.review_attempt(self.run, 1, review, preview)
+        self.assertNotIn("caption_audit", c.load(self.run / "state.json")["attempts"][0])
+
+    def test_new_sources_invalidate_caption_verification(self):
+        labels, preview, audit, review = self.caption_fixture()
+        c.review_attempt(self.run, 1, review, preview, labels, audit)
+        c.prepare(self.run, self.root / "spec.json", self.root / "checklist.json", self.root / "sources.json", update=True)
+        self.assertNotIn("caption_audit", c.load(self.run / "state.json")["attempts"][0])
+
+    def test_score_is_not_a_function_of_attempt_order(self):
+        low = self.answer({"clarity": "fail"})
+        high = self.answer()
+        before = c.evaluate(self.checklist, high)
+        c.evaluate(self.checklist, low)
+        after = c.evaluate(self.checklist, high)
+        self.assertEqual(before, after)
+        self.assertEqual(after["total"], 100)
+        # This tests arithmetic independence, not independence of the human/model observations.
+
     def test_jpeg_reference_does_not_allow_jpeg_generated_output(self):
         source = self.root / "approved.jpg"
         Image.new("RGB", (80, 60), "grey").save(source)
