@@ -25,5 +25,13 @@
     "result": "passed in prior development step"
   },
   "factory_context_screenshots_cached": false,
-  "technical_expert_approval": false
+  "technical_expert_approval": false,
+  "github_actions": {
+    "run_id": 38092199476,
+    "url": "https://github.com/C555HC/plumbing-detailing-/actions/runs/38092199476",
+    "tested_commit": "cc7fa084cfeebc73fd389472f0600283b37fff12",
+    "result": "success",
+    "tests": 41,
+    "platform": "ubuntu-latest / Python3.12"
+  }
 }
