@@ -1,0 +1,61 @@
+[
+  {
+    "attempt": 9,
+    "rating": 92.0,
+    "critical_errors": []
+  },
+  {
+    "attempt": 5,
+    "rating": 90.0,
+    "critical_errors": [
+      "L2"
+    ]
+  },
+  {
+    "attempt": 6,
+    "rating": 90.0,
+    "critical_errors": [
+      "L2"
+    ]
+  },
+  {
+    "attempt": 7,
+    "rating": 90.0,
+    "critical_errors": [
+      "L2"
+    ]
+  },
+  {
+    "attempt": 3,
+    "rating": 84.0,
+    "critical_errors": [
+      "T3",
+      "L2"
+    ]
+  },
+  {
+    "attempt": 4,
+    "rating": 81.0,
+    "critical_errors": [
+      "T3",
+      "L2"
+    ]
+  },
+  {
+    "attempt": 1,
+    "rating": 78.0,
+    "critical_errors": [
+      "T3",
+      "L2"
+    ]
+  },
+  {
+    "attempt": 2,
+    "rating": 73.0,
+    "critical_errors": [
+      "C3",
+      "T3",
+      "L2"
+    ]
+  }
+]

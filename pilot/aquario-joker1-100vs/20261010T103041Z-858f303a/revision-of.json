@@ -1,0 +1,10 @@
+{
+  "previous_run": "pilot/aquario-joker1-100vs/20261009T223138Z-3c5a9d39",
+  "previous_best": 8,
+  "previous_commit": "ecc737c81d3b9fd3ea70adfccabe83129bae4c86",
+  "new_generation_limit": 10,
+  "authorization": "User answer: До 10 новых генераций",
+  "reference_approval": "User answer: Утверждена по внешнему виду",
+  "branch": "codex/aquario-tank-refinement",
+  "request": "Исправить бак/мембрану по визуальному примеру, без воды, убрать красную обводку и сохранить материалы среза; стремиться к90–95 по реальным проверкам."
+}

@@ -1,0 +1,10 @@
+{
+  "tool": "built-in image_gen",
+  "intent": "edit",
+  "parent": 3,
+  "local_refs": [
+    "attempts/003/image.png",
+    "input/reference.png"
+  ],
+  "reconstruction": "tank chamber geometry schematic; exact factory diaphragm and shell substrate unconfirmed"
+}

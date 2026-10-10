@@ -60,3 +60,7 @@ For labels outside the product, optionally set `canvas: {"size":[2000,1800],"ima
 `finalize` refuses pending generations and unreviewed images, sorts candidates without critical fails first, copies the leader to final/best.png, writes report.md/ranking.json and a comparison sheet. It does not assert expert approval, require exactly 10 attempts, or automatically generate new images. Previous reviews/previews persist when the same candidate is reassessed.
 
 Keep runtime results outside Git by default. For an explicitly authorized pilot archive, publish selected/all attempts, reviews, prompts, labels and reports intentionally; avoid blindly committing downloaded complete manuals or raw HTML. Preserve source URLs so another run can fetch them. Development failures go in `docs/development-v0.1.md`.
+
+## Approved visual references
+
+Use `kind: style_reference` for an image approved for appearance. Record whether technical review occurred. It may guide visual/completeness checks, but cannot prove a model/series node or earn construction evidence; construction still requires manufacturer sources. `reserve` accepts actual PNG/JPEG/WebP references, validates their bytes and caches them unchanged under the matching format extension. Generated results and composed previews still require PNG. An external prior-run edit seed is recorded as the first candidate in the new run, with its actual edit intent/roles in execution metadata and a `revision-of.json`; it is not an in-run parent attempt.

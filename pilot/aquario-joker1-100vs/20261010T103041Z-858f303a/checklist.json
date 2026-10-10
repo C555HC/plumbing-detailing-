@@ -1,0 +1,204 @@
+{
+  "version": "aquario-tank-natural-dry-v3",
+  "checks": [
+    {
+      "id": "C1",
+      "block": "construction",
+      "points": 10,
+      "requirement": "Ровно три рабочих колеса 8039 на общем валу, чередуются с диффузорами по заводской деталировке.",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "AQUARIO 3D / 2700, 8039 count3, 8037/8038; manual p6",
+      "critical": true
+    },
+    {
+      "id": "C2",
+      "block": "construction",
+      "points": 10,
+      "requirement": "Синхронный двигатель на постоянных магнитах с чашеобразным валом-ротором 8036 и взаимным расположением ротора/статора по заводской деталировке; не вытянутый внутренний цилиндрический ротор.",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "AQUARIO 3D / 2700, named Вал-ротор 8036 and Статор 8044; manual p6",
+      "critical": true
+    },
+    {
+      "id": "C3",
+      "block": "construction",
+      "points": 8,
+      "requirement": "Встроенный тестовый клапан показан в выходном патрубке, не на входе.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF стр.5 рис.2 и стр.9 печатная7",
+      "critical": true
+    },
+    {
+      "id": "C4",
+      "block": "construction",
+      "points": 7,
+      "requirement": "Гидравлические колёса, диффузоры и вал изображены металлическими, в соответствии с указанной нержавеющей сталью.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF стр.5 печатная3, материалы",
+      "critical": false
+    },
+    {
+      "id": "C5",
+      "block": "construction",
+      "points": 5,
+      "requirement": "В баке показана эластичная мембрана, разделяющая камеры; химический состав нельзя установить по пикселям.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF стр.5, материал EPDM; стр.13 печатная11",
+      "critical": false
+    },
+    {
+      "id": "C6",
+      "block": "construction",
+      "points": 5,
+      "requirement": "Контроллер и датчик давления представлены отдельными узлами, датчик связан с напорным патрубком.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF стр.5 рис.2, стр.6",
+      "critical": false
+    },
+    {
+      "id": "T1",
+      "block": "topology",
+      "points": 8,
+      "requirement": "В сухом разрезе физические стенки/отверстия позволяют проследить серийную связь ступеней между входом и выходом; жидкость и стрелки не считаются доказательством.",
+      "source_ids": [
+        "aquario-3d",
+        "aquario-manual",
+        "espa-analog"
+      ],
+      "locator": "AQUARIO 3D / 2700 and manual p5; ESPA p67 only principle",
+      "critical": true
+    },
+    {
+      "id": "T2",
+      "block": "topology",
+      "points": 5,
+      "requirement": "Общий вал и уплотнение связывают насос и двигатель, видна граница мокрой и сухой зоны.",
+      "source_ids": [
+        "espa-analog",
+        "aquario-manual"
+      ],
+      "locator": "AQUARIO стр.12 рис.7; ESPA стр.67",
+      "critical": false,
+      "partial_rule": "Вал и граница видны, но само уплотнение частично перекрыто"
+    },
+    {
+      "id": "T3",
+      "block": "topology",
+      "points": 6,
+      "requirement": "Водяная камера бака связана с напорной частью; не подключена к воздушному ниппелю.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF стр.5 рис.2 и стр.13",
+      "critical": true
+    },
+    {
+      "id": "T4",
+      "block": "topology",
+      "points": 6,
+      "requirement": "Воздушный ниппель связан с газовой стороной мембраны; газ/вода разделены.",
+      "source_ids": [
+        "caleffi-analog",
+        "aquario-manual"
+      ],
+      "locator": "AQUARIO стр.5/13; Caleffi стр.2",
+      "critical": true
+    },
+    {
+      "id": "F1",
+      "block": "completeness",
+      "points": 6,
+      "requirement": "Разрез открывает основные гидравлические ступени и позволяет отличить колёса от неподвижных диффузоров.",
+      "source_ids": [
+        "espa-analog",
+        "aquario-manual"
+      ],
+      "locator": "AQUARIO стр.5/6; ESPA стр.67",
+      "critical": false,
+      "partial_rule": "Три колеса различимы, но один диффузор перекрыт"
+    },
+    {
+      "id": "F2",
+      "block": "completeness",
+      "points": 5,
+      "requirement": "Виден внутренний двигатель с общим валом, а не только наружная оболочка.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF стр.6",
+      "critical": false
+    },
+    {
+      "id": "F3",
+      "block": "completeness",
+      "points": 4,
+      "requirement": "Виден бак в разрезе и снаружи различимы датчик и контроллер.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF стр.5 рис.2",
+      "critical": false,
+      "partial_rule": "Бак открыт, один из внешних узлов частично скрыт"
+    },
+    {
+      "id": "A1",
+      "block": "appearance",
+      "points": 6,
+      "requirement": "Сохранены положение круглого бака слева сверху, контроллера справа сверху, корпуса насоса и двигателя.",
+      "source_ids": [
+        "user-photo"
+      ],
+      "locator": "Приложенная фотография",
+      "critical": false,
+      "partial_rule": "Общий силуэт сохранён, один узел заметно смещён"
+    },
+    {
+      "id": "A2",
+      "block": "appearance",
+      "points": 4,
+      "requirement": "Сохранены фронтальный вход, верхний выход, крепёж и общие пропорции.",
+      "source_ids": [
+        "user-photo"
+      ],
+      "locator": "Приложенная фотография",
+      "critical": false,
+      "partial_rule": "Патрубки и пропорции сохранены, часть крепежа отличается"
+    },
+    {
+      "id": "L1",
+      "block": "clarity",
+      "points": 3,
+      "requirement": "Русские подписи точно называют показанные узлы; каждая выноска указывает на нужный объект.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "Названия AQUARIO рис.2; ручная проверка всех точек",
+      "critical": false
+    },
+    {
+      "id": "L2",
+      "block": "clarity",
+      "points": 2,
+      "requirement": "Сухое устройство на белом фоне с читаемыми подписями: в базовом изображении нет воды/жидкости, синего заполнения каналов, пузырей или стрелок потока. Линии выносок допустимы. Нет красной/цветной полосы по срезам или окрашенного сечения; срез сохраняет естественный материал детали, без декоративного узора.",
+      "source_ids": [
+        "user-photo"
+      ],
+      "locator": "User revision 2026-10-10: dry master, no colored section contour, natural cut material",
+      "critical": true
+    }
+  ]
+}

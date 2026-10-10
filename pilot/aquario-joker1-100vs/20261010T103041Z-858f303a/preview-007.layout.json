@@ -1,0 +1,116 @@
+{
+  "image": "/Users/nikitas/Documents/ChatGPT/Ворк/plumbing-detailing-/pilot/aquario-joker1-100vs/20261010T103041Z-858f303a/preview-007.png",
+  "font": "/System/Library/Fonts/Supplemental/Arial.ttf",
+  "label_boxes": {
+    "title": [
+      69,
+      61,
+      817,
+      182
+    ],
+    "tank": [
+      50,
+      384,
+      332,
+      451
+    ],
+    "outlet": [
+      760,
+      239,
+      916,
+      307
+    ],
+    "valve": [
+      1119,
+      293,
+      1381,
+      361
+    ],
+    "controller": [
+      1619,
+      491,
+      1794,
+      559
+    ],
+    "sensor": [
+      1639,
+      780,
+      1785,
+      845
+    ],
+    "inlet": [
+      50,
+      1030,
+      272,
+      1098
+    ],
+    "motor": [
+      1639,
+      1193,
+      1870,
+      1289
+    ],
+    "impellers": [
+      440,
+      1643,
+      743,
+      1710
+    ],
+    "seal": [
+      1139,
+      1589,
+      1398,
+      1656
+    ]
+  },
+  "warnings": [],
+  "source_size": [
+    1448,
+    1086
+  ],
+  "image_bounds": [
+    300,
+    439,
+    1650,
+    1451
+  ],
+  "target_points": {
+    "tank": [
+      752,
+      687
+    ],
+    "outlet": [
+      927,
+      521
+    ],
+    "valve": [
+      941,
+      628
+    ],
+    "controller": [
+      1250,
+      643
+    ],
+    "sensor": [
+      1077,
+      720
+    ],
+    "inlet": [
+      552,
+      1126
+    ],
+    "motor": [
+      1339,
+      1066
+    ],
+    "impellers": [
+      864,
+      1119
+    ],
+    "seal": [
+      1101,
+      1087
+    ]
+  },
+  "semantic_targets_checked": false
+}

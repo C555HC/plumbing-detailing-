@@ -68,6 +68,43 @@ class CutawayTests(unittest.TestCase):
         self.assertEqual(score["total"], 82.5)
         self.assertEqual(score["blocks"]["topology"], 12.5)
 
+    def test_reference_formats_preserve_bytes_and_real_suffix(self):
+        for fmt, suffix in (("JPEG", ".jpg"), ("WEBP", ".webp")):
+            with self.subTest(format=fmt):
+                source = self.root / ("reference-" + fmt + ".wrong-extension")
+                Image.new("RGB", (80, 60), "grey").save(source, format=fmt)
+                before = source.read_bytes()
+                n = c.reserve(self.run, self.prompt, [source])["attempt"]
+                ref = c.load(self.run / "state.json")["attempts"][-1]["refs"][0]
+                cached = self.run / ref["path"]
+                self.assertEqual(cached.suffix, suffix)
+                self.assertEqual(cached.read_bytes(), before)
+                self.assertEqual(source.read_bytes(), before)
+                self.assertEqual(c.digest(cached), ref["sha256"])
+                c.fail(self.run, n, "Synthetic test call not dispatched")
+
+    def test_jpeg_reference_does_not_allow_jpeg_generated_output(self):
+        source = self.root / "approved.jpg"
+        Image.new("RGB", (80, 60), "grey").save(source)
+        n = c.reserve(self.run, self.prompt, [source])["attempt"]
+        with self.assertRaises(ValueError):
+            c.record(self.run, n, source)
+        state = c.load(self.run / "state.json")
+        self.assertEqual(len(state["attempts"]), 1)
+        self.assertEqual(state["attempts"][0]["status"], "reserved")
+        c.record(self.run, n, self.image)
+
+    def test_style_reference_can_guide_appearance_but_not_construction(self):
+        self.sources["sources"].append({"id": "approved", "kind": "style_reference",
+                                       "url": "https://example.org/approved.jpg",
+                                       "applicability": "appearance approved only", "verified": True})
+        check = next(x for x in self.checklist["checks"] if x["block"] == "appearance")
+        check["source_ids"] = ["approved"]
+        c.validate_inputs(self.spec, self.checklist, self.sources)
+        self.checklist["checks"][0]["source_ids"] = ["approved"]
+        with self.assertRaises(ValueError):
+            c.validate_inputs(self.spec, self.checklist, self.sources)
+
     def test_critical_partial_rejected(self):
         with self.assertRaises(ValueError):
             c.evaluate(self.checklist, self.answer({"construction": "partial"}))

@@ -25,7 +25,7 @@ BLOCK_NAMES = {"construction": "Конструкция", "topology": "Распо
                "clarity": "Ясность и выноски"}
 FACTORS = {"pass": Decimal(1), "partial": Decimal("0.5"),
            "fail": Decimal(0), "unknown": Decimal(0)}
-SOURCE_KINDS = {"manufacturer_model", "manufacturer_series", "analog", "product_photo"}
+SOURCE_KINDS = {"manufacturer_model", "manufacturer_series", "analog", "product_photo", "style_reference"}
 
 
 def now():
@@ -207,14 +207,18 @@ def event(state, action, **details):
     state["events"].append({"at": now(), "action": action, **details})
 
 
-def image_size(path):
+def image_details(path, allowed_formats=("PNG",)):
     from PIL import Image
     with Image.open(path) as img:
         img.verify()
     with Image.open(path) as img:
-        if img.format != "PNG":
-            raise ValueError("Expected an actual PNG; convert through the approved image workflow")
-        return list(img.size)
+        if img.format not in allowed_formats:
+            raise ValueError("Unsupported image format; expected " + ", ".join(allowed_formats))
+        return list(img.size), img.format
+
+
+def image_size(path):
+    return image_details(path)[0]
 
 
 def initialize(root, product_id, model, url, image, limit=10):
@@ -271,8 +275,7 @@ def reserve(run, prompt_file, refs, parent=None, kind="generate"):
     if kind not in {"generate", "edit"}:
         raise ValueError("Invalid attempt kind")
     ref_paths = [Path(p).resolve() for p in refs]
-    for ref in ref_paths:
-        image_size(ref)
+    ref_formats = [image_details(ref, ("PNG", "JPEG", "WEBP"))[1] for ref in ref_paths]
     if not ref_paths:
         raise ValueError("At least one inspected image reference is required")
     with transaction(run) as state:
@@ -296,9 +299,10 @@ def reserve(run, prompt_file, refs, parent=None, kind="generate"):
         folder.mkdir(parents=True)
         (folder / "prompt.md").write_text(prompt, encoding="utf-8")
         saved_refs = []
-        for path in ref_paths:
+        for path, image_format in zip(ref_paths, ref_formats):
             checksum = digest(path)
-            target = run / "references" / f"{checksum}.png"
+            suffix = {"PNG": ".png", "JPEG": ".jpg", "WEBP": ".webp"}[image_format]
+            target = run / "references" / f"{checksum}{suffix}"
             target.parent.mkdir(exist_ok=True)
             if not target.exists():
                 shutil.copy2(path, target)

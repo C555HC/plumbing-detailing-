@@ -1,0 +1,190 @@
+{
+  "canvas": {
+    "size": [
+      2000,
+      1800
+    ],
+    "image_box": [
+      300,
+      270,
+      1650,
+      1620
+    ]
+  },
+  "color": "#073C76",
+  "title": {
+    "text": "AQUARIO JOKER1-100VS\nВнутреннее устройство",
+    "position": [
+      0.035,
+      0.028
+    ],
+    "font_size": 62
+  },
+  "labels": [
+    {
+      "id": "tank",
+      "text": "Гидроаккумулятор\nс мембраной",
+      "position": [
+        0.025,
+        0.21
+      ],
+      "line_start": [
+        0.18,
+        0.27
+      ],
+      "elbow": [
+        0.24,
+        0.27
+      ],
+      "font_size": 33,
+      "target_image": [
+        0.335,
+        0.245
+      ]
+    },
+    {
+      "id": "outlet",
+      "text": "Напорный\nпатрубок",
+      "position": [
+        0.38,
+        0.13
+      ],
+      "line_start": [
+        0.455,
+        0.18
+      ],
+      "font_size": 33,
+      "target_image": [
+        0.465,
+        0.081
+      ]
+    },
+    {
+      "id": "valve",
+      "text": "Тестовый\nобратный клапан",
+      "position": [
+        0.56,
+        0.16
+      ],
+      "line_start": [
+        0.56,
+        0.2
+      ],
+      "elbow": [
+        0.515,
+        0.2
+      ],
+      "font_size": 33,
+      "target_image": [
+        0.475,
+        0.187
+      ]
+    },
+    {
+      "id": "controller",
+      "text": "Частотный\nконтроллер",
+      "position": [
+        0.81,
+        0.27
+      ],
+      "line_start": [
+        0.8,
+        0.3
+      ],
+      "font_size": 33,
+      "target_image": [
+        0.704,
+        0.202
+      ]
+    },
+    {
+      "id": "sensor",
+      "text": "Датчик\nдавления",
+      "position": [
+        0.82,
+        0.43
+      ],
+      "line_start": [
+        0.815,
+        0.46
+      ],
+      "elbow": [
+        0.77,
+        0.46
+      ],
+      "font_size": 33,
+      "target_image": [
+        0.576,
+        0.278
+      ]
+    },
+    {
+      "id": "inlet",
+      "text": "Всасывающий\nпатрубок",
+      "position": [
+        0.025,
+        0.57
+      ],
+      "line_start": [
+        0.165,
+        0.625
+      ],
+      "font_size": 33,
+      "target_image": [
+        0.187,
+        0.68
+      ]
+    },
+    {
+      "id": "motor",
+      "text": "Двигатель\nс постоянными\nмагнитами",
+      "position": [
+        0.82,
+        0.66
+      ],
+      "line_start": [
+        0.81,
+        0.67
+      ],
+      "font_size": 33,
+      "target_image": [
+        0.77,
+        0.62
+      ]
+    },
+    {
+      "id": "impellers",
+      "text": "Три рабочих колеса\nи диффузоры",
+      "position": [
+        0.22,
+        0.91
+      ],
+      "line_start": [
+        0.35,
+        0.9
+      ],
+      "font_size": 33,
+      "target_image": [
+        0.418,
+        0.673
+      ]
+    },
+    {
+      "id": "seal",
+      "text": "Торцевое\nуплотнение вала",
+      "position": [
+        0.57,
+        0.88
+      ],
+      "line_start": [
+        0.62,
+        0.86
+      ],
+      "font_size": 33,
+      "target_image": [
+        0.594,
+        0.641
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "mechanism": "num_last_images_to_include",
+  "count": 3,
+  "images": [
+    {
+      "order": 1,
+      "role": "edit target",
+      "local_path": "attempts/003/image.png",
+      "cached": true
+    },
+    {
+      "order": 2,
+      "role": "factory reverse view: rear horizontal accumulator coupling",
+      "url": "https://aquario.ru:1111/user/pubscheme",
+      "model": "JOKER1-100VS/2700",
+      "cached": false
+    },
+    {
+      "order": 3,
+      "role": "factory rear view: stator winding ring and cup rotor",
+      "url": "https://aquario.ru:1111/user/pubscheme",
+      "model": "JOKER1-100VS/2700",
+      "cached": false
+    }
+  ],
+  "note": "Prepared before call; source screenshots context-only, not a fully reproducible local image archive"
+}

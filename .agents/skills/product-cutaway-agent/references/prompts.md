@@ -11,6 +11,10 @@ White background, clean textbook/museum lighting, readable cut surfaces. For com
 
 Mandatory dry-master constraint: empty air-filled passages and neutral cut surfaces; no depicted water or other liquid, blue volume fill, bubbles, droplets, spray, or flow arrows. Do not fill unknown passages to disguise geometry. Explain connections by visible physical walls/openings; a flow overlay is optional and separate from generation.
 
+Cut-face constraint: continue the actual substrate across the section. No red/colored bands, contour strokes, painted section faces or decorative repeating texture. Use neutral metallic faces for metal and appropriate polymer/elastomer faces for confirmed nonmetal parts. Exterior paint may remain on the exterior; do not invent substrate material from paint color.
+
+An approved reference is a separate input role: visual target, with recorded technical-review status. Compare and correct individual nodes; do not copy its water, outlines, stage count, valve position or hidden mechanism when contradicted by current constraints/sources. A smooth membrane seen through a small window is preferable to inventing a detailed folded sheet or exposed valve cartridge merely to make the image look complete; retain the reconstruction gap and do not call hidden connections verified.
+
 ## Review
 
 Given the actual candidate, applicable source excerpts/figures and fixed checklist, inspect every check. Write observed facts, region, status, and the source relationship. Distinguish invisible from contradicted. Ignore expected score, earlier praise and desired improvement. Include errors introduced outside the edited region.
@@ -18,3 +22,5 @@ Given the actual candidate, applicable source excerpts/figures and fixed checkli
 ## Revise
 
 State parent image and precise defect, cite the applicable fact, specify required replacement and preserve the already correct nodes/exterior/pose/background. One related problem per pass is preferred; regenerate from the product photo if the structure or cut plane is globally wrong. Save the exact submitted prompt and references before calling the tool.
+
+If the same defect survives an edit, narrow the target region or change the rendering instruction rather than repeating vague requests. In the AQUARIO pilot, geometry-preserving edits retained an erroneous repeating surface pattern; rebuilding plain surfaces and then cleaning only the inner tank bowl worked. Inspect all other nodes after each such edit.

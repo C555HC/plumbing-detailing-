@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "intent": "edit",
+  "parent": 7,
+  "change": "remove residual pattern in inner tank bowl",
+  "recovery_note": "Attempt8 interrupted with no recoverable PNG; new call9 counts separately"
+}

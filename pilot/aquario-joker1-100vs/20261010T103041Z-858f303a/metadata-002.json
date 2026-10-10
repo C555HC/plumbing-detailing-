@@ -1,0 +1,11 @@
+{
+  "tool": "built-in image_gen",
+  "intent": "edit",
+  "parent": 1,
+  "local_refs": [
+    "attempts/001/image.png",
+    "input/approved-reference.jpg",
+    "input/reference.png"
+  ],
+  "reference_approval": "appearance only"
+}

@@ -1,0 +1,11 @@
+{
+  "tool": "built-in image_gen",
+  "intent": "edit",
+  "parent": 3,
+  "context_manifest": "context-references-005.json",
+  "num_last_images_to_include": 3,
+  "local_refs": [
+    "attempts/003/image.png"
+  ],
+  "new_factory_fact": "rear horizontal tank pressure coupling; bottom branch removed"
+}

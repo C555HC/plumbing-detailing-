@@ -1,0 +1,52 @@
+{
+  "sources": [
+    {
+      "id": "aquario-manual",
+      "kind": "manufacturer_model",
+      "url": "https://aquario.ru/sites/default/files/manuals/Joker_0.pdf",
+      "title": "AQUARIO JOKER1-100VS, редакция 10.2024",
+      "verified": true,
+      "applicability": "Точная модель; PDF страницы 5/6/9/12/13, печатные 3/4/7/10/11. Схема, таблица и нужные разделы осмотрены."
+    },
+    {
+      "id": "user-photo",
+      "kind": "product_photo",
+      "url": "https://477477.ru/catalog/nasosy/aquario-2700",
+      "title": "Фотография товара, предоставленная пользователем",
+      "verified": true,
+      "applicability": "Пользователь приложил фото этой карточки; прямое получение страницы вернуло 403. Не утверждаем самостоятельное скачивание с магазина."
+    },
+    {
+      "id": "espa-analog",
+      "kind": "analog",
+      "url": "https://www.espa.com/download/docs/6254/instruction-manual-espa-tecnoplus-25.pdf",
+      "title": "ESPA TECNOPLUS, схема основных компонентов, страница 67",
+      "verified": true,
+      "applicability": "Только взаимное устройство рабочего колеса, диффузора, общего вала и торцевого уплотнения многоступенчатого центробежного насоса. Число ступеней, самовсасывание, двигатель/конденсатор и размеры не переносятся."
+    },
+    {
+      "id": "caleffi-analog",
+      "kind": "analog",
+      "url": "https://www.caleffi.com/sites/default/files/media/external-file/01079_EN_20.pdf",
+      "title": "Caleffi 01079/01: принцип мембранного сосуда, страница 2",
+      "verified": true,
+      "applicability": "Только разделение газа и воды мембраной. Форма бака, объём, материал мембраны, точная форма крепления и режим работы этих моделей не переносятся."
+    },
+    {
+      "id": "aquario-3d",
+      "kind": "manufacturer_model",
+      "url": "https://aquario.ru/3d-diagrams",
+      "title": "AQUARIO factory exploded 3D: JOKER1-100VS / 2700",
+      "verified": true,
+      "applicability": "Exact 2700 selected in https://aquario.ru:1111/user/pubscheme; inspected named rotor 8036 (cup-shaped), impeller 8039 (3), diffuser assembly and parts list. Shows component form/placement, not a complete sectional water path or cut diaphragm."
+    },
+    {
+      "id": "user-approved",
+      "kind": "style_reference",
+      "url": "/Users/nikitas/Documents/ChatGPT/Ворк/plumbing-detailing-/pilot/aquario-joker1-100vs/20261010T103041Z-858f303a/input/approved-reference.jpg",
+      "title": "Пользовательский утверждённый визуальный пример",
+      "verified": true,
+      "applicability": "Утверждён по внешнему виду (ответ пользователя). Форма раскрытия бака и гладкой мембраны — визуальный ориентир; не источник заводской геометрии, количества ступеней или положения клапана. Воду и красные срезы из него не переносить."
+    }
+  ]
+}

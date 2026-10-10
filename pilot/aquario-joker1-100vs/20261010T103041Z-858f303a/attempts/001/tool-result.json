@@ -1,0 +1,12 @@
+{
+  "tool": "built-in image_gen",
+  "intent": "edit of a previous run seed",
+  "local_refs": [
+    "input/parent-base.png",
+    "input/approved-reference.jpg",
+    "input/reference.png"
+  ],
+  "reference_approval": "appearance only",
+  "factory_viewer": "https://aquario.ru:1111/user/pubscheme, article2700 inspected, no viewer screenshot passed to this call",
+  "budget": "new authorized 10; previous run 10 unchanged"
+}
