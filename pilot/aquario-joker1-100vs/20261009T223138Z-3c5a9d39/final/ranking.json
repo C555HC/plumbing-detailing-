@@ -1,37 +1,75 @@
 [
   {
-    "attempt": 6,
-    "rating": 92.0,
+    "attempt": 8,
+    "rating": 82.0,
     "critical_errors": []
+  },
+  {
+    "attempt": 9,
+    "rating": 82.0,
+    "critical_errors": []
+  },
+  {
+    "attempt": 10,
+    "rating": 82.0,
+    "critical_errors": []
+  },
+  {
+    "attempt": 7,
+    "rating": 82.0,
+    "critical_errors": [
+      "C2"
+    ]
+  },
+  {
+    "attempt": 6,
+    "rating": 80.0,
+    "critical_errors": [
+      "C2",
+      "L2"
+    ]
   },
   {
     "attempt": 3,
-    "rating": 86.0,
-    "critical_errors": []
+    "rating": 74.0,
+    "critical_errors": [
+      "C2",
+      "L2"
+    ]
   },
   {
     "attempt": 4,
-    "rating": 86.0,
-    "critical_errors": []
-  },
-  {
-    "attempt": 5,
-    "rating": 68.0,
-    "critical_errors": []
+    "rating": 74.0,
+    "critical_errors": [
+      "C2",
+      "L2"
+    ]
   },
   {
     "attempt": 2,
-    "rating": 80.0,
+    "rating": 68.0,
     "critical_errors": [
+      "C2",
       "T3",
-      "T4"
+      "T4",
+      "L2"
+    ]
+  },
+  {
+    "attempt": 5,
+    "rating": 66.0,
+    "critical_errors": [
+      "C2",
+      "L2"
     ]
   },
   {
     "attempt": 1,
-    "rating": 73.0,
+    "rating": 61.0,
     "critical_errors": [
-      "T3"
+      "C2",
+      "T3",
+      "L2"
     ]
   }
 ]

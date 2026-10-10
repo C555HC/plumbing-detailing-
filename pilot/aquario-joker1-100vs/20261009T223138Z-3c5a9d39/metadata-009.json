@@ -1,0 +1,9 @@
+{
+  "tool": "built-in image_gen",
+  "context_image_count": 3,
+  "context_images": [
+    "attempts/008/image.png",
+    "input/reference.png",
+    "Factory article2700 live screenshot; supplied in conversation, not saved locally"
+  ]
+}

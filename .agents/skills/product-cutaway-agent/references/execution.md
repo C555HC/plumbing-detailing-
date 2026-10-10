@@ -16,6 +16,8 @@ python cutaway.py finalize --run RUN --reason REASON
 
 `reserve` persists the prompt, image references and attempt before a tool call. It refuses an unfinished reserved attempt and the 11th attempt. The agent must obey this protocol: the helper cannot intercept unrelated direct tool calls. Reserve copies image references into a SHA256-named cache, avoiding dependence on temporary paths. Failed calls remain in the count. After an actual failure use `fail --run RUN --attempt N --reason TEXT`; for an uncertain response add `--unknown`. Later `record` can attach a recovered result to an unknown attempt without spending a new call. Never blindly re-dispatch it.
 
+If a necessary live viewer screenshot exists only in the conversation, use the generator's conversation-reference mechanism for the smallest sufficient set of images. Before the call, save a context-reference manifest beside the prompt (image order/role, source URL, selected model/article, inspected view, and that the screenshot is not cached). Reserve all local inputs normally. The helper does not cache conversation-only screenshots; never claim a fully reproducible image-reference archive when a source view is missing. Save small execution metadata with `record` as well. Do not mix local-path and conversation-count parameters in one generation call.
+
 State writes are atomic and locked. Copies/prompts are saved before the corresponding state transition; a crash may leave an orphan directory, which blocks the next reservation instead of overwriting evidence. Inspect it and whether a tool call occurred before repairing the state. The automatic tests exercise the count, locks, recovery and ranking, not a guarantee against every power-loss ordering.
 
 ## JSON shapes

@@ -1,0 +1,10 @@
+{
+  "tool": "built-in image_gen",
+  "context_image_count": 3,
+  "context_images": [
+    "input/reference.png",
+    "attempts/006/image.png",
+    "Live screenshot https://aquario.ru:1111/user/pubscheme: article2700; screenshot supplied in conversation, not saved locally"
+  ],
+  "note": "reserve cached the two local references; the third factory viewer screenshot was passed using conversation images. No cached screenshot file is claimed."
+}

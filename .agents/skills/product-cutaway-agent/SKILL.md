@@ -7,9 +7,11 @@ description: Create and revise educational cutaway PNGs of real plumbing product
 
 Produce a recognizable product cutaway showing its main functional nodes and how they connect. Use a white background and Russian labels unless the user specifies otherwise. Deliver the best PNG, all variants, and a source-backed report. Execute in an active Codex task; this skill is not a background service.
 
+Generate a DRY device only: no water/liquid, blue-filled passages, droplets, bubbles, or flow arrows baked into the base image. Label leaders are allowed in the separate caption composition. A requested flow explanation is a separate editable overlay/output, after physical passages are verified; preserve the dry master. Read [layers.md](references/layers.md).
+
 ## Start or resume
 
-- Identify the exact model from the URL/article and photo. Ask only when a consequential ambiguity blocks identification. Read [evidence.md](references/evidence.md) to gather applicable manufacturer sources and reconstruction gaps.
+- Identify the exact model from the URL/article and photo. Ask only when a consequential ambiguity blocks identification. Read [evidence.md](references/evidence.md) to gather applicable manufacturer sources and reconstruction gaps. Check the manufacturer's service/parts/3D viewer before analogs; see [manufacturer-sources.md](references/manufacturer-sources.md). Do not assume brand-wide coverage or internal detail in a BIM model.
 - Use the built-in image generation/editing tool; inspect local reference images before passing them. Do not switch to an external paid API without authorization. Python helpers save state and calculate scores; they do not invoke this tool.
 - Use `scripts/cutaway.py` through a Python with Pillow. For commands and JSON formats, read [execution.md](references/execution.md). Create a unique run and freeze spec, sources, and checklist before the first call. For resume, read existing state and current inputs rather than reconstructing from chat.
 

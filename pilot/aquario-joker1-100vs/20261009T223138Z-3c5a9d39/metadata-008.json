@@ -1,0 +1,9 @@
+{
+  "tool": "built-in image_gen",
+  "context_image_count": 2,
+  "context_images": [
+    "attempts/007/image.png",
+    "Live screenshot https://aquario.ru:1111/user/pubscheme article2700; conversation only, not cached"
+  ],
+  "reconstruction": "Cup/stator nesting is inferred from assembled fit; precise winding and magnet geometry is not visible in the exploded viewer."
+}

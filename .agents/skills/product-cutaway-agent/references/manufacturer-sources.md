@@ -1,0 +1,22 @@
+# Manufacturer source lookup
+
+Checked 2026-10-10. These are discovery entry points, not proof that every product has internal CAD. Refresh the store's manufacturer/supplier list and identify the actual brand on each card. A supplier category may contain several brands.
+
+Search exact article + revision in this order: service/parts assembly, sectional drawing or service manual, internal CAD, technical passport, manufacturer disassembly video. Installation-only BIM/exterior CAD proves envelope/ports, not concealed parts. An exploded assembly proves visible parts/count/order, but may hide windings, magnets, passages or diaphragms. Never fill those gaps with a pass just because the render looks plausible.
+
+| Store category | Entry point and useful content |
+|---|---|
+| AQUARIO | [3D schemes](https://aquario.ru/3d-diagrams), embedded [viewer](https://aquario.ru:1111/user/pubscheme). Search the exact article; JOKER1-100VS/2700 was inspected. Check each part name and quantity. Brand-wide coverage is unverified. |
+| ESPA | [Downloads](https://www.espa.com/corp-en/support/downloads/): exploded views, manuals and 3D CAD, including Tecnoplus. Inspect the selected file and model suffix. |
+| VALTEC | [Designer library](https://valtec.ru/client/designer.html), product passports and CAD links. [VT.082 passport](https://valtec.ru/document/technical/082-2014.pdf), PDF page2, contains an inspected section and parts/materials. CAD interior detail is file-specific. |
+| TIM | Product technical passports on [tim-com.ru](https://tim-com.ru/). [BL-2804B](https://tim-com.ru/tim-pdf/BL-2804B.pdf), PDF page3, contains an inspected internal section and numbered parts/materials. Some PDFs are scans: render the relevant pages. |
+| ZOTA | [Service catalogue](https://help.zota.ru/catalog/econom_v2/) and [technical documentation](https://zota.ru/technical_documentation). Exploded views may be XLSX with embedded drawings, not PDF; inspect the drawing and match power/version. |
+| SINIKON | [Designer resources](https://www.sinikon.ru/proj/): passports, dimensions, BIM/Revit. BIM is supplied by request; do not assume automatic download or interior geometry. |
+| Гидроконтракт | [Instructions](https://gidrokontrakt.ru/instrukcii) for GIDROX/AQUASTRONG and supplier parts catalogue. Record the publisher as supplier; inspect branded manuals before classifying their provenance. |
+| АКВАБРАЙТ | [ABF-OSMO-6 card](https://aquabright.ru/ru/produktsiya/sistemy-2/abf-osmo-6) links an instruction and system information. A connection diagram does not prove the concealed geometry of a cartridge/pump. |
+| VONTRON | [Residential membrane data](https://en.vontron.com/Product/60.html) and downloads: match ULP article. Dimensions/specification do not prove every internal layer. |
+| АКВАТЕК | ATV/AquaStore products point to aq-plastic.ru, not the similarly named bath/industrial brands. Passport located in the index; direct retrieval failed certificate verification. Treat uninspected drawing content as unknown. |
+
+VIVALDO product cards were found, but internal 3D coverage was not established. VRT, PUDEKANG, Экобрайт and АЛСИС require product-specific source checks; do not borrow a lookalike brand's construction. Filtering media may need a supported layer illustration rather than an invented mechanical cutaway.
+
+When recording evidence, distinguish: entry point found; file fetched; exact revision matched; relevant geometry visually inspected. Missing download/access is a reported gap, not absence of documentation. Full research and limitations: project `docs/manufacturer-source-map.md` (outside the installed skill).

@@ -1,0 +1,8 @@
+{
+  "tool": "built-in image_gen",
+  "referenced_image_paths": [
+    "attempts/009/image.png",
+    "input/reference.png"
+  ],
+  "result": "Dry geometry retained; ornamental surface texture reduced only partly."
+}

@@ -9,6 +9,8 @@ Name exact model. Preserve silhouette, ports, controller, proportions, perspecti
 
 White background, clean textbook/museum lighting, readable cut surfaces. For composed labels: no generated text/callouts; reserve margins for title and Russian labels. Request a single image. Tool dimensions/quality are controlled only through parameters it actually supports.
 
+Mandatory dry-master constraint: empty air-filled passages and neutral cut surfaces; no depicted water or other liquid, blue volume fill, bubbles, droplets, spray, or flow arrows. Do not fill unknown passages to disguise geometry. Explain connections by visible physical walls/openings; a flow overlay is optional and separate from generation.
+
 ## Review
 
 Given the actual candidate, applicable source excerpts/figures and fixed checklist, inspect every check. Write observed facts, region, status, and the source relationship. Distinguish invisible from contradicted. Ignore expected score, earlier praise and desired improvement. Include errors introduced outside the edited region.
