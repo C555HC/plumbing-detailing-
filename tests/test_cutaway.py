@@ -41,6 +41,11 @@ class CutawayTests(unittest.TestCase):
              "critical": block == "construction", **({"partial_rule": "Part visible, connection partly obscured"} if block == "topology" else {})}
             for block, maximum in c.WEIGHTS.items()]}
         self.run = c.initialize(self.root / "runs", "test", "TEST", "https://example.org", self.image)
+        # Preserve a historical v1/10-attempt fixture; new production runs use v2/5.
+        state = c.load(self.run / "state.json")
+        state.pop("scoring_protocol_version")
+        state["limit"] = 10
+        c.atomic_json(self.run / "state.json", state)
         self.write_inputs()
         c.prepare(self.run, self.root / "spec.json", self.root / "checklist.json", self.root / "sources.json")
 
@@ -489,6 +494,181 @@ class CutawayTests(unittest.TestCase):
                                         "target":[.5,.5],"target_image":[.5,.5]}]})
         with self.assertRaisesRegex(ValueError, "not both"):
             layout.compose(self.image, labels, self.root / "out.png")
+
+
+class ScoringV2Tests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.image = self.root / "source.png"
+        Image.new("RGB", (320, 240), "white").save(self.image)
+        self.prompt = self.root / "prompt.md"
+        self.prompt.write_text("Synthetic scoring fixture, not a real technical evaluation")
+        self.sources = {"sources": [{"id": "manual", "kind": "manufacturer_model",
+                                     "url": "https://example.org/manual", "applicability": "fixture", "verified": True}]}
+        self.spec = {"model": "TEST", "nodes": [{"id": "membrane", "name": "Membrane", "evidence": "model", "source_ids": ["manual"]}]}
+        definitions = [("type_count", "construction", 10), ("shape", "construction", 15),
+                       ("attachment", "construction", 5), ("material", "construction", 15),
+                       ("placement_connections", "topology", 25), ("complete", "completeness", 15),
+                       ("exterior", "appearance", 10), ("captions", "clarity", 5)]
+        self.checklist = {"protocol_version": 2, "version": "fixture-v2", "checks": [
+            {"id": key, "node_id": "membrane" if key in c.NODE_ASPECTS else None,
+             "aspect": key if key in c.NODE_ASPECTS else "delivery", "block": block, "points": weight,
+             "requirement": "Observable fixture " + key, "essential": key in c.NODE_ASPECTS,
+             "critical": key == "type_count", "source_ids": ["manual"], "locator": "page 1, fixture figure",
+             "source_fact": "Factory fixture shows " + key, "evidence_level": "model", "evidence_supported": True}
+            for key, block, weight in definitions]}
+        self.run = c.initialize(self.root / "runs", "test", "TEST", "https://example.org", self.image)
+
+    def check(self, identifier):
+        return next(item for item in self.checklist["checks"] if item["id"] == identifier)
+
+    def prepare(self, update=False):
+        for name, value in (("spec", self.spec), ("checklist", self.checklist), ("sources", self.sources)):
+            c.atomic_json(self.root / (name + ".json"), value)
+        return c.prepare(self.run, self.root / "spec.json", self.root / "checklist.json", self.root / "sources.json", update)
+
+    def answer(self, statuses=None):
+        statuses = statuses or {}
+        return {"checklist_version": self.checklist["version"], "checks": [
+            {"id": item["id"], "status": statuses.get(item["id"], "pass"), "observation": "Synthetic image observation",
+             "region": "fixture centre", "source_observation": "Compared fixture feature to its source figure"}
+            for item in self.checklist["checks"]]}
+
+    def test_new_run_defaults_to_five_and_requires_atomic_protocol(self):
+        state = c.load(self.run / "state.json")
+        self.assertEqual((state["limit"], state["scoring_protocol_version"]), (5, 2))
+        del self.checklist["protocol_version"]
+        with self.assertRaisesRegex(ValueError, "protocol v2"):
+            self.prepare()
+
+    def test_new_run_cannot_reserve_sixth_call_even_after_failures(self):
+        self.prepare()
+        for _ in range(5):
+            number = c.reserve(self.run, self.prompt, [self.image])["attempt"]
+            c.fail(self.run, number, "Synthetic failure")
+        with self.assertRaisesRegex(ValueError, "limit exhausted"):
+            c.reserve(self.run, self.prompt, [self.image])
+        self.assertEqual(len(c.load(self.run / "state.json")["attempts"]), 5)
+
+    def test_new_run_rejects_larger_explicit_budget(self):
+        with self.assertRaisesRegex(ValueError, "1..5"):
+            c.initialize(self.root / "runs", "another", "TEST", "https://example.org", self.image, limit=6)
+
+    def test_cli_default_is_five(self):
+        command = [sys.executable, str(SCRIPTS / "cutaway.py"), "init", "--root", str(self.root / "cli"),
+                   "--product-id", "test", "--model", "TEST", "--url", "https://example.org", "--image", str(self.image)]
+        result = subprocess.run(command, capture_output=True, text=True, check=True)
+        self.assertEqual(c.load(Path(json.loads(result.stdout)["run"]) / "state.json")["limit"], 5)
+
+    def test_missing_shape_cannot_hide_behind_material_check(self):
+        shape = self.check("shape")
+        self.checklist["checks"].remove(shape)
+        self.check("material")["points"] += shape["points"]
+        with self.assertRaisesRegex(ValueError, "Cover each node aspect"):
+            self.prepare()
+
+    def test_inapplicable_aspect_requires_reason(self):
+        shape = self.check("attachment")
+        self.checklist["checks"].remove(shape)
+        self.check("material")["points"] += shape["points"]
+        self.spec["nodes"][0]["excluded_aspects"] = {"attachment": "Integral fixture; no separate attachment depicted"}
+        self.prepare()
+        self.spec["nodes"][0]["excluded_aspects"]["attachment"] = ""
+        with self.assertRaises(ValueError):
+            self.prepare(update=True)
+
+    def test_essential_geometry_cannot_be_made_optional(self):
+        self.check("shape")["essential"] = False
+        with self.assertRaisesRegex(ValueError, "cannot be optional"):
+            self.prepare()
+
+    def test_secondary_detail_does_not_force_five_extra_aspects(self):
+        self.spec["nodes"].append({"id": "fastener", "name": "Secondary fastener", "evidence": "model",
+                                   "source_ids": ["manual"], "essential": False})
+        self.prepare()
+
+    def test_documented_material_does_not_prove_membrane_shape(self):
+        self.check("shape").update(evidence_level="unknown", evidence_supported=False,
+                                   source_fact="Material listed; no membrane section or attachment drawing")
+        self.prepare()
+        with self.assertRaisesRegex(ValueError, "as unknown"):
+            c.evaluate(self.checklist, self.answer())
+        score = c.evaluate(self.checklist, self.answer({"shape": "unknown"}))
+        self.assertEqual(score["total"], 85)
+        self.assertEqual(score["evidence_summary"]["source_supported_ceiling"], 85)
+        self.assertEqual(score["evidence_summary"]["unavailable_checks"], ["shape"])
+        self.assertEqual(score["evidence_summary"]["source_basis"]["unknown"], ["shape"])
+        self.assertIn("material", score["evidence_summary"]["confirmed_facts"]["model"])
+        self.assertEqual(score["readiness"]["status"], "needs_technical_review")
+
+    def test_source_comparison_is_required_in_each_review(self):
+        self.prepare()
+        review = self.answer()
+        del review["checks"][0]["source_observation"]
+        with self.assertRaisesRegex(ValueError, "source_observation"):
+            c.evaluate(self.checklist, review)
+
+    def test_analogy_can_reconstruct_connection_but_cannot_make_it_confirmed(self):
+        self.sources["sources"].append({"id": "analog", "kind": "analog", "url": "https://example.org/analog",
+                                       "verified": True, "applicability": "fixture principle only"})
+        self.check("placement_connections").update(evidence_level="analog", source_ids=["analog"])
+        self.prepare()
+        score = c.evaluate(self.checklist, self.answer())
+        self.assertEqual(score["total"], 100)
+        self.assertEqual(score["evidence_summary"]["confirmed_facts"]["analog"], ["placement_connections"])
+        self.assertEqual(score["readiness"]["status"], "needs_technical_review")
+        self.assertFalse(score["readiness"]["technical_approval"])
+
+    def test_source_level_must_match_provenance(self):
+        self.check("shape")["evidence_level"] = "series"
+        with self.assertRaisesRegex(ValueError, "provenance"):
+            self.prepare()
+
+    def test_high_score_does_not_override_critical_defect(self):
+        self.check("type_count")["points"] = 1
+        self.check("material")["points"] += 9
+        self.prepare()
+        score = c.evaluate(self.checklist, self.answer({"type_count": "fail"}))
+        self.assertEqual(score["total"], 99)
+        self.assertEqual(score["readiness"]["status"], "best_available")
+
+    def test_high_score_with_unseen_essential_feature_needs_review(self):
+        self.prepare()
+        score = c.evaluate(self.checklist, self.answer({"attachment": "unknown"}))
+        self.assertEqual(score["total"], 95)
+        self.assertEqual(score["readiness"]["reasons"], ["attachment"])
+        self.assertEqual(score["readiness"]["status"], "needs_technical_review")
+
+    def test_complete_checks_prepare_for_review_never_approve_publication(self):
+        self.prepare()
+        score = c.evaluate(self.checklist, self.answer())
+        self.assertEqual(score["readiness"]["status"], "ready_for_technical_review")
+        self.assertFalse(score["readiness"]["technical_approval"])
+
+    def test_final_report_exposes_source_basis_ceiling_and_readiness(self):
+        self.check("shape").update(evidence_supported=False, source_fact="No shape section")
+        self.prepare()
+        n = c.reserve(self.run, self.prompt, [self.image])["attempt"]
+        c.record(self.run, n, self.image)
+        path = self.root / "review.json"
+        c.atomic_json(path, self.answer({"shape": "unknown"}))
+        result = c.review_attempt(self.run, n, path)
+        self.assertEqual(result["readiness"]["status"], "needs_technical_review")
+        final = c.finalize(self.run, "fixture done")
+        report = (self.run / "final/report.md").read_text()
+        self.assertIn("85/100", report)
+        self.assertIn("membrane / shape", report)
+        self.assertIn("Нужна техническая проверка", report)
+        self.assertEqual(final["evidence_summary"]["unavailable_points"], 15)
+        self.assertFalse(c.load(self.run / "final/ranking.json")[0]["readiness"]["technical_approval"])
+
+    def test_protocol_cannot_be_downgraded_after_freezing(self):
+        self.prepare()
+        del self.checklist["protocol_version"]
+        with self.assertRaisesRegex(ValueError, "do not downgrade"):
+            self.prepare(update=True)
 
 
 if __name__ == "__main__":

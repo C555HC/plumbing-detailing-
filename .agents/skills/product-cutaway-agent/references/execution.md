@@ -3,7 +3,7 @@
 Helpers require Python 3.10+ and Pillow; file locking currently targets macOS/Linux (`fcntl`). Use an available runtime, or install the project's requirements in a virtual environment. No API key is needed for the built-in generator. `$SCRIPT` below means the actual absolute path to `scripts/cutaway.py`; `$RUN` means the actual returned run directory, not a shell variable to assume already exists.
 
 ```text
-python cutaway.py init --root output/cutaways --product-id brand-article --model MODEL --url URL --image PHOTO --limit 10
+python cutaway.py init --root output/cutaways --product-id brand-article --model MODEL --url URL --image PHOTO --limit 5
 python cutaway.py prepare --run RUN --spec SPEC.json --checklist CHECKLIST.json --sources SOURCES.json
 python cutaway.py archive-evidence --run RUN --source-id manual --locator "PDF page 5, printed page 3, figure 2" --observation "Observed inlet and outlet positions" --file PAGE.png
 python cutaway.py reserve --run RUN --prompt-file PROMPT.md --ref PHOTO [--ref DIAGRAM] [--kind edit --parent 1]
@@ -15,7 +15,7 @@ python cutaway.py status --run RUN
 python cutaway.py finalize --run RUN --reason REASON
 ```
 
-`reserve` persists the prompt, image references and attempt before a tool call. It refuses an unfinished reserved attempt and the 11th attempt. The agent must obey this protocol: the helper cannot intercept unrelated direct tool calls. Reserve copies image references into a SHA256-named cache, avoiding dependence on temporary paths. Failed calls remain in the count. After an actual failure use `fail --run RUN --attempt N --reason TEXT`; for an uncertain response add `--unknown`. Later `record` can attach a recovered result to an unknown attempt without spending a new call. Never blindly re-dispatch it.
+New runs default to5 and accept an explicit limit1–5; the sixth call is refused. Existing historical states retain their saved limit, including earlier authorized10-call pilots. `reserve` persists the prompt, image references and attempt before a tool call. It refuses an unfinished reserved attempt and exceeding that saved limit. The agent must obey this protocol: the helper cannot intercept unrelated direct tool calls. Reserve copies image references into a SHA256-named cache, avoiding dependence on temporary paths. Failed calls remain in the count. After an actual failure use `fail --run RUN --attempt N --reason TEXT`; for an uncertain response add `--unknown`. Later `record` can attach a recovered result to an unknown attempt without spending a new call. Never blindly re-dispatch it.
 
 If a necessary live viewer screenshot exists only in the conversation, use the generator's conversation-reference mechanism for the smallest sufficient set of images. Before the call, save a context-reference manifest beside the prompt (image order/role, source URL, selected model/article, inspected view, and that the screenshot is not cached). Reserve all local inputs normally. The helper does not cache conversation-only screenshots; never claim a fully reproducible image-reference archive when a source view is missing. Save small execution metadata with `record` as well. Do not mix local-path and conversation-count parameters in one generation call.
 
@@ -30,20 +30,24 @@ Sources:
 
 Spec:
 ```json
-{"model":"MODEL","nodes":[{"id":"motor","name":"Motor","evidence":"model","source_ids":["manual"],"role":"Drive shaft"}],"connections":[],"gaps":[],"analog_assertions":[]}
+{"model":"MODEL","nodes":[{"id":"motor","name":"Motor","evidence":"model","source_ids":["manual"],"essential":true,"role":"Drive shaft","excluded_aspects":{}}],"connections":[],"gaps":[],"analog_assertions":[]}
 ```
 
 Checklist (allocate the complete weight of each nonempty block across its checks; this example shows only the shape, not a complete scored checklist):
 ```json
-{"version":"product-v1","checks":[{"id":"motor-type","block":"construction","points":9,"requirement":"Documented motor type","source_ids":["manual"],"locator":"PDF page 6, printed page 4","critical":true}]}
+{"protocol_version":2,"version":"product-v2","checks":[{"id":"motor-type","node_id":"motor","aspect":"type_count","block":"construction","points":9,"requirement":"Documented motor type","source_ids":["manual"],"locator":"PDF page 6, printed page 4","source_fact":"Manual explicitly specifies a synchronous permanent-magnet motor","evidence_level":"model","evidence_supported":true,"essential":true,"critical":true}]}
 ```
 
 Review:
 ```json
-{"checklist_version":"product-v1","checks":[{"id":"motor-type","status":"unknown","observation":"Rotor type cannot be distinguished in this cut","region":"right motor housing"}],"summary":"Motor type is unverified","next_changes":["Expose rotor"],"resolved_changes":[]}
+{"checklist_version":"product-v2","checks":[{"id":"motor-type","status":"unknown","observation":"Rotor type cannot be distinguished in this cut","region":"right motor housing","source_observation":"The manual specifies permanent magnets, but the image does not reveal that feature"}],"summary":"Motor type is unverified","next_changes":["Expose rotor"],"resolved_changes":[]}
 ```
 
 Optional `partial_rule` belongs to the checklist check and must describe a real partial condition. Every review must contain all check IDs exactly once. `review` returns rating, current leader and critical errors; full observations stay in the file. Integer/fractional point arithmetic is deterministic using Decimal.
+
+New runs require protocol v2, with every essential node's applicable aspects covered (see [review.md](review.md)); the JSON above illustrates one fact, not a complete checklist. Aspect enums are `type_count`, `shape`, `attachment`, `placement_connections`, `material`, `delivery`. Delivery checks need no node_id. Level enums are `model`, `series`, `analog`, `photo`, `style`, `unknown`. The supported level must match a cited source kind. `evidence_supported` and `essential` are required booleans, and source_fact/locator must be nonempty. A node's optional excluded_aspects maps an inapplicable aspect to its reason. Source omissions stay in checks as unsupported facts. Review JSON adds source_observation per check. Outputs from review/finalize/ranking contain readiness and evidence_summary; source-supported ceiling/unavailable points refer to checklist points only. Technical approval always remains false.
+
+Historical runs without scoring_protocol_version can use their original v1 inputs. An explicit prepare --update can upgrade them to v2 and invalidate ratings; a v2 run cannot downgrade back to v1. Normal initialization and following edits do not migrate historical pilot data.
 
 Labels use normalized coordinates relative to the base PNG, with manually verified semantic targets:
 ```json

@@ -26,6 +26,13 @@ BLOCK_NAMES = {"construction": "Конструкция", "topology": "Распо
 FACTORS = {"pass": Decimal(1), "partial": Decimal("0.5"),
            "fail": Decimal(0), "unknown": Decimal(0)}
 SOURCE_KINDS = {"manufacturer_model", "manufacturer_series", "analog", "product_photo", "style_reference"}
+DEFAULT_LIMIT = 5
+NODE_ASPECTS = {"type_count", "shape", "attachment", "placement_connections", "material"}
+READINESS_LABELS = {
+    "best_available": "Лучший доступный: есть критические ошибки",
+    "needs_technical_review": "Нужна техническая проверка: существенные признаки не подтверждены",
+    "ready_for_technical_review": "Подготовлен к технической приёмке",
+}
 
 
 def now():
@@ -80,6 +87,9 @@ def points(value):
 
 
 def validate_inputs(spec, checklist, sources):
+    protocol = checklist.get("protocol_version", 1)
+    if type(protocol) is not int or protocol not in (1, 2):
+        raise ValueError("Unsupported scoring protocol version")
     text_value(checklist.get("version"), "checklist.version")
     text_value(spec.get("model"), "spec.model")
     source_map = {}
@@ -139,10 +149,54 @@ def validate_inputs(spec, checklist, sources):
     for block, total in totals.items():
         if total not in (Decimal(0), Decimal(WEIGHTS[block])):
             raise ValueError(f"{block}: allocated {total}, expected {WEIGHTS[block]} or empty")
+    if protocol == 2:
+        covered = {nid: set() for nid in node_ids}
+        essential_nodes = set()
+        for node in nodes:
+            if type(node.get("essential", True)) is not bool:
+                raise ValueError("node.essential must be a boolean")
+            if node.get("essential", True):
+                essential_nodes.add(node["id"])
+        for check in checks:
+            aspect = check.get("aspect")
+            nid = check.get("node_id")
+            if aspect not in NODE_ASPECTS | {"delivery"}:
+                raise ValueError("Checks need an atomic node aspect or delivery aspect")
+            if aspect != "delivery" and nid not in node_ids:
+                raise ValueError("Technical checks require a functional node_id")
+            if type(check.get("essential")) is not bool or type(check.get("evidence_supported")) is not bool:
+                raise ValueError("essential and evidence_supported must be explicit booleans")
+            if aspect != "delivery" and nid in essential_nodes and not check["essential"]:
+                raise ValueError("Essential node aspects cannot be optional")
+            text_value(check.get("source_fact"), "check.source_fact")
+            level = check.get("evidence_level")
+            if level not in {"model", "series", "analog", "photo", "style", "unknown"}:
+                raise ValueError("Invalid check evidence level")
+            if aspect != "delivery" and level in {"photo", "style"}:
+                raise ValueError("Exterior/style references cannot prove an internal node aspect")
+            required = {"model": "manufacturer_model", "series": "manufacturer_series",
+                        "analog": "analog", "photo": "product_photo", "style": "style_reference"}
+            if level in required and not any(source_map[sid]["kind"] == required[level] for sid in check["source_ids"]):
+                raise ValueError("Check evidence level disagrees with source provenance")
+            if level == "unknown" and check["evidence_supported"]:
+                raise ValueError("Unknown evidence cannot be supported")
+            if aspect != "delivery":
+                covered[nid].add(aspect)
+        for node in nodes:
+            exclusions = node.get("excluded_aspects", {})
+            if not isinstance(exclusions, dict) or set(exclusions) - NODE_ASPECTS:
+                raise ValueError("Invalid node aspect exclusions")
+            for reason in exclusions.values():
+                text_value(reason, "excluded aspect reason")
+            if covered[node["id"]] & set(exclusions):
+                raise ValueError("A node aspect cannot be checked and excluded")
+            if node["id"] in essential_nodes and covered[node["id"]] | set(exclusions) != NODE_ASPECTS:
+                raise ValueError("Cover each node aspect or explain why it is inapplicable; missing sources are not an exclusion")
     return source_map
 
 
 def evaluate(checklist, review):
+    protocol = checklist.get("protocol_version", 1)
     if review.get("checklist_version") != checklist["version"]:
         raise ValueError("Review checklist version mismatch")
     answers = review.get("checks", [])
@@ -166,12 +220,19 @@ def evaluate(checklist, review):
     for check in checklist["checks"]:
         answer = by_id[check["id"]]
         status = answer["status"]
+        if protocol == 2:
+            text_value(answer.get("source_observation"), "review.source_observation")
+            if not check["evidence_supported"] and status != "unknown":
+                raise ValueError("Unsupported source facts must be reviewed as unknown")
         if status == "partial" and (not check.get("partial_rule") or check.get("critical")):
             raise ValueError("Partial score requires an explicit noncritical partial_rule")
         earned = points(check["points"]) * FACTORS[status]
         totals[check["block"]] += earned
         item = {**answer, "points": float(earned), "max_points": float(points(check["points"])),
                 "requirement": check["requirement"], "critical": check.get("critical", False)}
+        if protocol == 2:
+            item.update({key: check.get(key) for key in ("node_id", "aspect", "essential", "evidence_level",
+                        "evidence_supported", "source_fact", "source_ids", "locator")})
         breakdown.append(item)
         if status != "pass":
             issues.append(check["id"])
@@ -179,12 +240,46 @@ def evaluate(checklist, review):
             critical_errors.append(check["id"])
         if check.get("critical") and status == "unknown":
             critical_unknown.append(check["id"])
-    return {"checklist_version": checklist["version"],
+    score = {"checklist_version": checklist["version"], "protocol_version": protocol,
             "total": float(sum(totals.values())), "blocks": {k: float(v) for k, v in totals.items()},
             "critical_errors": critical_errors, "critical_unknown": critical_unknown,
             "issues": issues, "checks": breakdown,
             "unrated_blocks": [block for block in WEIGHTS if not any(
                 check["block"] == block for check in checklist["checks"])]}
+    if protocol == 2:
+        technical = [item for item in breakdown if item["aspect"] != "delivery" and (item["essential"] or item["critical"])]
+        evidence = {level: [] for level in ("model", "series", "analog", "unknown")}
+        confirmed = {level: [] for level in ("model", "series", "analog")}
+        for item in technical:
+            level = item["evidence_level"] if item["evidence_supported"] else "unknown"
+            evidence[level].append(item["id"])
+            if item["status"] == "pass" and level in confirmed:
+                confirmed[level].append(item["id"])
+        unavailable = [item for item in checklist["checks"] if not item["evidence_supported"]]
+        score["evidence_summary"] = {"scope": "essential_internal_facts", "source_basis": evidence, "confirmed_facts": confirmed,
+            "unverified": [item["id"] for item in technical if item["status"] == "unknown"],
+            "contradicted": [item["id"] for item in technical if item["status"] == "fail"],
+            "partial": [item["id"] for item in technical if item["status"] == "partial"],
+            "unavailable_checks": [item["id"] for item in unavailable],
+            "unavailable_points": float(sum(points(item["points"]) for item in unavailable)),
+            "source_supported_ceiling": float(sum(points(check["points"]) for check in checklist["checks"] if check["evidence_supported"]))}
+    score["readiness"] = readiness(score)
+    return score
+
+
+def readiness(score):
+    if score["critical_errors"]:
+        status, reasons = "best_available", score["critical_errors"]
+    elif score.get("protocol_version", 1) != 2:
+        status, reasons = "needs_technical_review", ["legacy_unstructured_checks"]
+    else:
+        reasons = [item["id"] for item in score["checks"] if (item["essential"] or item["critical"]) and
+                   (item["status"] != "pass" or not item["evidence_supported"] or
+                    (item["aspect"] != "delivery" and item["evidence_level"] not in {"model", "series"}))]
+        reasons += ["unrated_block:" + block for block in score["unrated_blocks"]]
+        status = "needs_technical_review" if reasons else "ready_for_technical_review"
+    return {"status": status, "label": READINESS_LABELS[status], "reasons": reasons,
+            "technical_approval": False}
 
 
 @contextmanager
@@ -221,11 +316,11 @@ def image_size(path):
     return image_details(path)[0]
 
 
-def initialize(root, product_id, model, url, image, limit=10):
+def initialize(root, product_id, model, url, image, limit=DEFAULT_LIMIT):
     if not re.fullmatch(r"[a-z0-9][a-z0-9_-]{0,79}", product_id):
         raise ValueError("product_id must be a short lowercase identifier")
-    if isinstance(limit, bool) or not isinstance(limit, int) or not 1 <= limit <= 10:
-        raise ValueError("Initial run limit must be 1..10")
+    if isinstance(limit, bool) or not isinstance(limit, int) or not 1 <= limit <= DEFAULT_LIMIT:
+        raise ValueError("New run limit must be 1..5; preserve older runs and use a linked revision to continue")
     image_size(image)
     run = Path(root).resolve() / product_id / (datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid4().hex[:8])
     (run / "input").mkdir(parents=True)
@@ -233,7 +328,7 @@ def initialize(root, product_id, model, url, image, limit=10):
     atomic_json(run / "state.json", {"schema_version": 1, "run_id": run.name,
         "product_id": product_id, "model": model, "url": url, "limit": limit,
         "created_at": now(), "updated_at": now(), "stage": "needs_inputs",
-        "attempts": [], "events": [], "inputs_version": 0, "best": None})
+        "attempts": [], "events": [], "inputs_version": 0, "best": None, "scoring_protocol_version": 2})
     return run
 
 
@@ -242,6 +337,8 @@ def prepare(run, spec_path, checklist_path, sources_path, update=False):
     spec, checklist, sources = map(load, (spec_path, checklist_path, sources_path))
     validate_inputs(spec, checklist, sources)
     with transaction(run) as state:
+        if checklist.get("protocol_version", 1) < state.get("scoring_protocol_version", 1):
+            raise ValueError("New runs require atomic scoring protocol v2; do not downgrade a revised run")
         if spec["model"] != state["model"]:
             raise ValueError("Spec model differs from run model")
         if any(a["status"] == "reserved" for a in state["attempts"]):
@@ -256,6 +353,7 @@ def prepare(run, spec_path, checklist_path, sources_path, update=False):
         for name, value in [("spec.json", spec), ("checklist.json", checklist), ("sources.json", sources)]:
             atomic_json(folder / name, value)
         state["inputs_version"] = version
+        state["scoring_protocol_version"] = checklist.get("protocol_version", 1)
         state["inputs_dir"] = str(folder.relative_to(run))
         state["checklist_sha256"] = digest(folder / "checklist.json")
         state["input_hashes"] = {name: digest(folder / name) for name in ("spec.json", "checklist.json", "sources.json")}
@@ -506,7 +604,8 @@ def review_attempt(run, number, review_path, preview=None, labels_path=None, lab
         state["stage"] = "ready"
         event(state, "review", attempt=number, total=score["total"])
     return {"attempt": number, "rating": score["total"], "best": state["best"],
-            "critical_errors": score["critical_errors"], "issues": score["issues"]}
+            "critical_errors": score["critical_errors"], "issues": score["issues"],
+            "readiness": score["readiness"], "evidence_summary": score.get("evidence_summary")}
 
 
 def coverage(spec):
@@ -533,6 +632,31 @@ def report_text(run, state, candidates, reason):
     for item in score["checks"]:
         if item["status"] != "pass":
             lines.append(f"- {item['id']} ({item['status']}): {item['observation']}")
+    status = score.get("readiness") or readiness(score)
+    lines += ["", "## Состояние результата", "", status["label"] + ".",
+              "Основания статуса: " + (", ".join(status["reasons"]) or "обязательные проверки пройдены") + ".",
+              "Этот статус не означает одобрение специалистом или разрешение публикации."]
+    evidence = score.get("evidence_summary")
+    if evidence:
+        lines += ["", "## Подтверждение отдельных признаков", "",
+                  "Счётчики относятся к существенным внутренним признакам, а не к проценту достоверности всего изделия. Потолок баллов учитывает весь checklist."]
+        for level, ids in evidence["source_basis"].items():
+            lines.append(f"- Основание {level}: {len(ids)} ({', '.join(ids) or 'нет'}).")
+        for level, ids in evidence["confirmed_facts"].items():
+            lines.append(f"- Совпадение изображения с основанием {level}: {len(ids)} ({', '.join(ids) or 'нет'}).")
+        for key in ("unverified", "contradicted", "partial"):
+            lines.append(f"- {key}: {', '.join(evidence[key]) or 'нет'}.")
+        lines += [f"Недоступные по текущим источникам баллы: {evidence['unavailable_points']:g}; пункты: {', '.join(evidence['unavailable_checks']) or 'нет'}.",
+                  f"Потолок по имеющимся основаниям: {evidence['source_supported_ceiling']:g}/100. Это не обещание получить данный балл.", "",
+                  "| Пункт | Узел / признак | Основание | Статус | Источник / локатор | Сопоставление |",
+                  "|---|---|---|---|---|---|"]
+        for item in score["checks"]:
+            cells = [item["id"], f"{item.get('node_id') or 'оформление'} / {item['aspect']}",
+                     item["evidence_level"] if item["evidence_supported"] else "unknown", item["status"],
+                     ', '.join(item["source_ids"]) + ": " + item["locator"], item["source_observation"]]
+            lines.append("| " + " | ".join(str(cell).replace('|', '/').replace(chr(10), ' ') for cell in cells) + " |")
+    else:
+        lines += ["", "Историческая шкала не содержит отдельной проверки всех признаков; её баллы не перенесены на протокол v2."]
     lines += ["", "## Основания и реконструкция", ""]
     for kind, names in coverage(spec).items():
         lines.append(f"- {kind}: {', '.join(names) or 'нет'}.")
@@ -632,14 +756,18 @@ def finalize(run, reason):
             elif target.exists():
                 target.unlink()
         atomic_json(final / "ranking.json", [{"attempt": a["id"], "rating": a["score"]["total"],
-                    "critical_errors": a["score"]["critical_errors"]} for a in candidates])
+                    "critical_errors": a["score"]["critical_errors"],
+                    "readiness": a["score"].get("readiness") or readiness(a["score"]),
+                    "evidence_summary": a["score"].get("evidence_summary")} for a in candidates])
         (final / "report.md").write_text(report_text(run, state, candidates, reason), encoding="utf-8")
         (final / "errors.md").write_text(error_report_text(run, state), encoding="utf-8")
         contact_sheet(run, candidates, final / "contact-sheet.jpg")
         state.update(best=best["id"], stage="complete", stop_reason=reason)
         event(state, "finalize", best=best["id"], reason=reason)
     return {"best": best["id"], "rating": best["score"]["total"], "image": str(final / "best.png"),
-            "report": str(final / "report.md"), "errors": str(final / "errors.md")}
+            "report": str(final / "report.md"), "errors": str(final / "errors.md"),
+            "readiness": best["score"].get("readiness") or readiness(best["score"]),
+            "evidence_summary": best["score"].get("evidence_summary")}
 
 
 def contact_sheet(run, candidates, target):
@@ -662,7 +790,7 @@ def main():
     p = sub.add_parser("init")
     for name in ("root", "product-id", "model", "url", "image"):
         p.add_argument("--" + name, required=True)
-    p.add_argument("--limit", type=int, default=10)
+    p.add_argument("--limit", type=int, default=DEFAULT_LIMIT)
     p = sub.add_parser("prepare")
     for name in ("run", "spec", "checklist", "sources"):
         p.add_argument("--" + name, required=True)

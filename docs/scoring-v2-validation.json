@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-11",
+  "unit_tests_passed": 68,
+  "scoring_protocol": 2,
+  "new_run_maximum": 5,
+  "new_generation_calls": 0,
+  "fixtures_are_synthetic": true,
+  "independent_visual_evaluator_added": false,
+  "usage_measurement_added": false,
+  "controlled_cases": [
+    {
+      "fixture": "unknown_shape",
+      "rating": 85.0,
+      "readiness": {
+        "status": "needs_technical_review",
+        "label": "Нужна техническая проверка: существенные признаки не подтверждены",
+        "reasons": [
+          "shape"
+        ],
+        "technical_approval": false
+      },
+      "source_supported_ceiling": 85.0
+    },
+    {
+      "fixture": "unknown_attachment",
+      "rating": 95.0,
+      "readiness": {
+        "status": "needs_technical_review",
+        "label": "Нужна техническая проверка: существенные признаки не подтверждены",
+        "reasons": [
+          "attachment"
+        ],
+        "technical_approval": false
+      },
+      "source_supported_ceiling": 100.0
+    },
+    {
+      "fixture": "critical_error",
+      "rating": 99.0,
+      "readiness": {
+        "status": "best_available",
+        "label": "Лучший доступный: есть критические ошибки",
+        "reasons": [
+          "type_count"
+        ],
+        "technical_approval": false
+      },
+      "source_supported_ceiling": 100.0
+    },
+    {
+      "fixture": "documented",
+      "rating": 100.0,
+      "readiness": {
+        "status": "ready_for_technical_review",
+        "label": "Подготовлен к технической приёмке",
+        "reasons": [],
+        "technical_approval": false
+      },
+      "source_supported_ceiling": 100.0
+    },
+    {
+      "fixture": "analogy",
+      "rating": 100.0,
+      "readiness": {
+        "status": "needs_technical_review",
+        "label": "Нужна техническая проверка: существенные признаки не подтверждены",
+        "reasons": [
+          "placement_connections"
+        ],
+        "technical_approval": false
+      },
+      "source_supported_ceiling": 100.0
+    }
+  ],
+  "real_legacy_clone": {
+    "attempts": 9,
+    "limit": 10,
+    "best": 9,
+    "rating": 92,
+    "original_run_unchanged": true,
+    "selected_png_unchanged": true,
+    "readiness": {
+      "status": "needs_technical_review",
+      "label": "Нужна техническая проверка: существенные признаки не подтверждены",
+      "reasons": [
+        "legacy_unstructured_checks"
+      ],
+      "technical_approval": false
+    }
+  }
+}
