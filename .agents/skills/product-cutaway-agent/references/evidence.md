@@ -1,5 +1,7 @@
 # Evidence and reconstruction
 
+Use [construction-plan.md](construction-plan.md) to turn inspected evidence into a saved map of assembly and visibility before writing the prompt. Research must answer specific geometry/connection questions. More source URLs without extracted facts do not improve a cutaway. Video and third-party teardown observations require publisher/model/timestamp and actually inspected frames; retain their provenance and do not promote them to manufacturer-model proof. Existing source-kind enums remain unchanged: record third-party reconstruction aids as `analog` with the precise applicability/limitation, never as an exact manufacturer document.
+
 For new products, first follow [store-card.md](store-card.md): open the exact 477477.ru card, preserve its full title and actual photo, and show both in chat. Use that card/photo for identification and exterior. Prefer a manufacturer manual, sectional drawing, exploded view, service catalogue or internal CAD for construction. Record URL, edition, PDF page index AND printed page/figure, and why the document applies to this exact model. Inspect relevant rendered pages: extracted text can miss diagram associations.
 
 Sources JSON uses `manufacturer_model`, `manufacturer_series`, `analog`, `product_photo`, or `style_reference`. `verified: true` means the agent actually inspected the source and checked applicability; it does not constitute independent expert validation. A reseller cannot be upgraded to manufacturer evidence; appearance approval cannot prove construction.

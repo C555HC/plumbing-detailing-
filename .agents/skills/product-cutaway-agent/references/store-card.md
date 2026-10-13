@@ -1,6 +1,6 @@
 # Store card intake
 
-For each new product, use the actual 477477.ru card as the origin of its name and exterior photograph. User input can be a card URL, article, name or list of products. Each product has its own input record and run; do not mix similar variants' titles, photos or documentation.
+For each new product, use the actual 477477.ru card as the origin of its name and exterior photograph. User input can be a card URL, article, name, image or list of products. With image-only input, inspect visible markings and construction features, search the store for candidates and compare card photos/variants. Resolve identity autonomously where the evidence distinguishes it; ask only if consequential ambiguity remains. The attachment is not automatically the generation photograph. Each product has its own input record and run; do not mix similar variants' titles, photos or documentation.
 
 1. Find and open the exact card. Use article, brand/model, variant and relevant specification to distinguish similar products. A search-result snippet is a discovery aid, not the copied card content. Ask only if a consequential ambiguity cannot be resolved.
 2. Copy the complete visible product heading verbatim, including model suffixes, dimensions/units and descriptive additions. Do not copy a truncated search title, SEO page title or add words from memory. Keep the canonical manufacturer model and article separately for matching documentation; they do not replace the verbatim store title.

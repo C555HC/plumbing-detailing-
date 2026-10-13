@@ -16,6 +16,14 @@ Readiness is separate from selection/rating. An observed critical fail gives `be
 
 This is an explicit evidence/observation contract, not visual recognition. The agent still decides applicability and observes images; a blind independent evaluator has not been added.
 
+## Evidence before a number
+
+Prepare checks from the new product's construction map, not by copying the pilot's checklist. Split the mechanism into observable claims about actual shapes, nesting, mating, barriers and physical connections. A smooth disc, closed block or caption may establish visible presence, but cannot establish the concealed working geometry. Unsupported detail remains unknown; a diagram-supported geometry visibly replaced by a placeholder fails that geometry check.
+
+For each important pass record the candidate region and distinguishing feature that matches the cited source view. For a fail record the conflicting feature; for unknown identify what cannot be seen or established. Do not reuse previous observations without looking at the current image. Source text proving a part exists does not prove its rendered shape or attachment. Inspect reference and candidate together at useful scale when possible; preserve the compared views in the evidence archive.
+
+Lead user-facing conclusions with documented matches, observed contradictions and remaining reconstructions. The numeric rating remains a legacy diagnostic with existing weights/gates until separately calibrated. It is not an independent measurement and does not become reliable merely because a script adds the points. Never describe a target of90+ as proof or spend edits to manufacture an increasing score sequence. Do not retroactively rewrite historical ratings without a versioned input update and re-review.
+
 Review the full frame and then important nodes at readable scale. State what is visibly present and where; compare to the source. A caption does not establish the actual part. Do not use the previous rating or the generator's assurance as evidence. `pass`=1; `partial`=.5 only with a predefined noncritical partial_rule; `fail`=0; `unknown`=0 with a reason. Count/type/critical position checks are binary. The script sums points; it does not recognize the mechanism.
 
 For placement checks, distinguish a shared axis from the complete documented assembly: a rotor and stator can be coaxial yet have the wrong radial seating. Inspect the reverse/mating view when available. If a new view reveals an omitted or underspecified fact, explicitly update frozen inputs and re-review candidates; preserve earlier ratings as history and explain the changed criterion. Keep unsupported hidden details unknown rather than replacing them with a familiar mechanism. A selective cut can leave undocumented internals of a valve or impeller closed while exposing the verified functional assembly.
