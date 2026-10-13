@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "source_id": "photo",
+  "url": "https://477477.ru/images/products/_alpha-fixed-v2/vtc.586.emnx.0602-a7a02dbcf5b2d87d-detail-46e7bcf538f9262d-62263b38a87c-detail.webp",
+  "kind": "product_photo",
+  "applicability": "Actual0606 card mainphoto sixpairs; sharedgallery not SKU-specific naming, silhouette/outerfeatures only",
+  "inputs_version": 1,
+  "locator": "Live0606primarygallery",
+  "observation": "Sixpaired outlets andstorepose",
+  "archived_at": "2026-10-13T21:28:16+00:00",
+  "path": "evidence/files/a9f0889cfeccc792692ae84cac0c1e93e68fca4f9132d92f9829b0c109d77c12.webp",
+  "sha256": "a9f0889cfeccc792692ae84cac0c1e93e68fca4f9132d92f9829b0c109d77c12"
+}

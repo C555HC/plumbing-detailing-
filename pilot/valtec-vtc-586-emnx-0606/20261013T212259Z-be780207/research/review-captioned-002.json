@@ -1,0 +1,278 @@
+{
+  "checklist_version": "valtec-586-0606-v2",
+  "checks": [
+    {
+      "id": "headers-type_count",
+      "status": "pass",
+      "region": "headers",
+      "observation": "Twoheaders andsixbranches each, counted individually.",
+      "source_observation": "Exactmanufacturer0606table and manualPDF2twoheaders. Compare: Twoheaders andsixbranches each, counted individually."
+    },
+    {
+      "id": "headers-shape",
+      "status": "pass",
+      "region": "headers",
+      "observation": "Two open rectangularrails contain onecontinuouscavity each around slimstems; no solidpillarblockingwindow.",
+      "source_observation": "ManualPDF2slenderrectangularmanifoldbodies and portthreadlist; preciseboreprofileunknown. Compare: Twoopened rectangularrails with continuouslongitudinalcavities."
+    },
+    {
+      "id": "headers-attachment",
+      "status": "pass",
+      "region": "headers",
+      "observation": "Twooffsetsteelbracketsholdbothrails.",
+      "source_observation": "PDF2assemblyitem9,PDF3count2. Compare: Twooffsetsteelbracketsholdbothrails."
+    },
+    {
+      "id": "headers-placement_connections",
+      "status": "pass",
+      "region": "headers",
+      "observation": "No fluidbridge,solidbracketsseparate.",
+      "source_observation": "PDF1separate supply/return,PDF2eachownparts; bracketsmechanical. Compare: No fluidbridge,solidbracketsseparate."
+    },
+    {
+      "id": "headers-material",
+      "status": "pass",
+      "region": "headers",
+      "observation": "Greybrushed railmetalwithoutcoloredsection.",
+      "source_observation": "PDF3materials AISI304. Compare: Greybrushed railmetalwithoutcoloredsection."
+    },
+    {
+      "id": "flowmeters-type_count",
+      "status": "pass",
+      "region": "flowmeters",
+      "observation": "Six transparenttubes/redbases onlowerheader.",
+      "source_observation": "Exact0606N6,PDF2item3on supply only. Compare: Six transparenttubes/redbases onlowerheader."
+    },
+    {
+      "id": "flowmeters-shape",
+      "status": "unknown",
+      "region": "flowmeters",
+      "observation": "Pale shaft/indicator/spring distinguishable; exactfactoryvalveprofile not sectionalinspected.",
+      "source_observation": "PDF6disassemblyphotos showstem/tube, notprecisioninternalrestriction. Compare: Tube/innerstemshown, precisefactoryrestrictionprofile unavailable."
+    },
+    {
+      "id": "flowmeters-attachment",
+      "status": "pass",
+      "region": "flowmeters",
+      "observation": "Threadedbrassbodyjoins toprailport.",
+      "source_observation": "PDF6service brassnut unscrewed,removablestem/colb. Compare: Threadedbrassbodyjoins toprailport."
+    },
+    {
+      "id": "flowmeters-placement_connections",
+      "status": "pass",
+      "region": "flowmeters",
+      "observation": "Six pale slenderrods now extendthroughcartridges to smallblackpad aboveannularlowerseat; firstcutbranchshows emptyspace around centralplug to nipplebore.",
+      "source_observation": "PDF2nipple6seat,PDF6stem/tube arrangement,flowcardindicatorwasher. Compare: Six pale slenderrods now extendthroughcartridges to smallblackpad aboveannularlowerseat; firstcutbranchshows emptyspace around centralplug to nipplebore."
+    },
+    {
+      "id": "flowmeters-material",
+      "status": "pass",
+      "region": "flowmeters",
+      "observation": "Firstrotameter palepolymerrod andotherexposedpalerods, metalcoils separate; yellowbrassbodies/blackEPDM/redABS.",
+      "source_observation": "PDF3PP-Rrod/ABSflowmeter/AISI316spring,brassbody/EPDM. Compare: Firstrotameter palepolymerrod andotherexposedpalerods, metalcoils separate; yellowbrassbodies/blackEPDM/redABS."
+    },
+    {
+      "id": "returnvalves-type_count",
+      "status": "pass",
+      "region": "returnvalves",
+      "observation": "Sixwhitecaps/valves upperheader.",
+      "source_observation": "0606N6;PDF2items2,4. Compare: Sixwhitecaps/valves upperheader."
+    },
+    {
+      "id": "returnvalves-shape",
+      "status": "unknown",
+      "region": "returnvalves",
+      "observation": "Detailedglandshape notpreciselydocumented, notscored.",
+      "source_observation": "PDF2exteriorcartridgephotos only; internalsectionabsent. Compare: Detailedglandshape notpreciselydocumented, notscored."
+    },
+    {
+      "id": "returnvalves-attachment",
+      "status": "pass",
+      "region": "returnvalves",
+      "observation": "Firstwhitecap surrounds threadgland/attachedmetalstem.",
+      "source_observation": "PDF2item2,2.1,4 shows threadedcartridge/stem/pad. Compare: Firstwhitecap surrounds threadgland/attachedmetalstem."
+    },
+    {
+      "id": "returnvalves-placement_connections",
+      "status": "pass",
+      "region": "returnvalves",
+      "observation": "Six thin stems nowendin smallblackdiscs alignedto sixbottomannularseats; firstcut exposes space aroundplug in exitnipple, no solidpillar.",
+      "source_observation": "PDF2item2movesunderhandle,5nipplehasseat. Compare: Six thin stems nowendin smallblackdiscs alignedto sixbottomannularseats; firstcut exposes space aroundplug in exitnipple, no solidpillar."
+    },
+    {
+      "id": "returnvalves-material",
+      "status": "pass",
+      "region": "returnvalves",
+      "observation": "Yellowbrassbody/blackpadandwhitecontrol matchgeneral documentedmaterialclasses.",
+      "source_observation": "PDF3brassCW617N/EPDM. Compare: Yellowbrassbody/blackpadandwhitecontrol matchgeneral documentedmaterialclasses."
+    },
+    {
+      "id": "outlets-type_count",
+      "status": "pass",
+      "region": "outlets",
+      "observation": "Twelvebottomthreadednipples, sixperheader.",
+      "source_observation": "PDF2items5/6N each;0606N6. Compare: Twelvebottomthreadednipples, sixperheader."
+    },
+    {
+      "id": "outlets-shape",
+      "status": "pass",
+      "region": "outlets",
+      "observation": "Firstcut nipple hasannularshoulder andconical-lookingmouth; borepartlyhidden.",
+      "source_observation": "PDF2nipples5/6photographs. Compare: Firstcut nipple hasannularshoulder andconical-lookingmouth; borepartlyhidden."
+    },
+    {
+      "id": "outlets-attachment",
+      "status": "pass",
+      "region": "outlets",
+      "observation": "Nipples attached below each matchingcartridge, notfloating.",
+      "source_observation": "PDF2assemblyphotos and2Nports. Compare: Nipples attached below each matchingcartridge, notfloating."
+    },
+    {
+      "id": "outlets-placement_connections",
+      "status": "pass",
+      "region": "outlets",
+      "observation": "Firsttwo cutnipples nowshow openemptybore around centraltaper/plug; otherbranches have slimstems/pads atownseat, sharedrailcavity free.",
+      "source_observation": "PDF2items5/6seatmatchingvalve and loopfitting. Compare: Firsttwo cutnipples nowshow openemptybore around centraltaper/plug; otherbranches have slimstems/pads atownseat, sharedrailcavity free."
+    },
+    {
+      "id": "outlets-material",
+      "status": "pass",
+      "region": "outlets",
+      "observation": "Yellowbrassendsthreadwithsilversurface shoulders, consistentnickelplatedbrass.",
+      "source_observation": "PDF3CW617Nfits. Compare: Yellowbrassendsthreadwithsilversurface shoulders, consistentnickelplatedbrass."
+    },
+    {
+      "id": "vents-type_count",
+      "status": "pass",
+      "region": "vents",
+      "observation": "Two upright endvents, oneeachrail.",
+      "source_observation": "PDF3item7count2 andassembly. Compare: Two upright endvents, oneeachrail."
+    },
+    {
+      "id": "vents-shape",
+      "status": "unknown",
+      "region": "vents",
+      "observation": "Two floatwindowsadded despiteplanone; actualrevisiongeometryunknown.",
+      "source_observation": "Inspected502Nsection differsfrom stockphoto topoutlet; no exactsection. Compare: Two floatwindowsadded despiteplanone; actualrevisiongeometryunknown."
+    },
+    {
+      "id": "vents-attachment",
+      "status": "pass",
+      "region": "vents",
+      "observation": "Eachvent sits onownhexshutoffadapter.",
+      "source_observation": "PDF3item11VT539count2; PDF2item11. Compare: Eachvent sits onownhexshutoffadapter."
+    },
+    {
+      "id": "vents-placement_connections",
+      "status": "pass",
+      "region": "vents",
+      "observation": "Eachvent openchamber connects down to ownrail, no crossconnection.",
+      "source_observation": "PDF2separateendservice foreachheader, not linkingthem. Compare: Eachvent openchamber connects down to ownrail, no crossconnection."
+    },
+    {
+      "id": "vents-material",
+      "status": "pass",
+      "region": "vents",
+      "observation": "Silverouter/yellowcutbody withpalepolymerfloat; exactpolymergradecannotbe visuallyproved.",
+      "source_observation": "PDF3brassnickelbody andPP-Rfloat; exactinnerseatmaterial omitted. Compare: Silverouter/yellowcutbody withpalepolymerfloat; exactpolymergradecannotbe visuallyproved."
+    },
+    {
+      "id": "drains-type_count",
+      "status": "pass",
+      "region": "drains",
+      "observation": "Twoblackcappeddrain assemblies,oneeachrightend.",
+      "source_observation": "PDF3item8count2. Compare: Twoblackcappeddrain assemblies,oneeachrightend."
+    },
+    {
+      "id": "drains-shape",
+      "status": "unknown",
+      "region": "drains",
+      "observation": "Closedouterdrainbody; exactinternalgeometryunknown.",
+      "source_observation": "PDF3describesrotatingdrain externalonly, no exactinternalsection. Compare: Closedouterdrainbody; exactinternalgeometryunknown."
+    },
+    {
+      "id": "drains-attachment",
+      "status": "pass",
+      "region": "drains",
+      "observation": "Bothdrains attachedbelowownrailend.",
+      "source_observation": "PDF2item8andPDF3description. Compare: Bothdrains attachedbelowownrailend."
+    },
+    {
+      "id": "drains-placement_connections",
+      "status": "pass",
+      "region": "drains",
+      "observation": "Separateownheaderports, no fluidbridge; concealeddrainvalveinternals notverified.",
+      "source_observation": "PDF3fill/drainrole andseparatepair. Compare: Separateownheaderports, no fluidbridge; concealeddrainvalveinternals notverified."
+    },
+    {
+      "id": "drains-material",
+      "status": "pass",
+      "region": "drains",
+      "observation": "Silveryfittingsblackcap, substrate mostlyclosed, no contradicting material cue.",
+      "source_observation": "PDF3fittings/valvedetails/EPDM. Compare: Silveryfittingsblackcap, substrate mostlyclosed, no contradicting material cue."
+    },
+    {
+      "id": "functional-open",
+      "status": "pass",
+      "region": "wholeframe / relevantdeliveryregion",
+      "observation": "Two representativebranchcuts distinguish threadedcartridge, thinrod, blackpad, lowerannularseat andemptydownwardbore. Remainingcontrols seat-specificpreciseprofiles are reconstructed.",
+      "source_observation": "PDF2valvematingseat andPDF6flowstem, distinctfunctionalnodes required. Compare: Two representativebranchcuts distinguish threadedcartridge, thinrod, blackpad, lowerannularseat andemptydownwardbore. Remainingcontrols seat-specificpreciseprofiles are reconstructed."
+    },
+    {
+      "id": "independent",
+      "status": "pass",
+      "region": "wholeframe / relevantdeliveryregion",
+      "observation": "Twoisolated commoncavities, brackets mechanical no fluidbridge.",
+      "source_observation": "Twoheaders serve separateloopends, bracketnotflowpipe. Compare: Twoisolated commoncavities, brackets mechanical no fluidbridge."
+    },
+    {
+      "id": "all-service",
+      "status": "pass",
+      "region": "wholeframe / relevantdeliveryregion",
+      "observation": "Two vents,two drains,two brackets; no inventedpump/tank.",
+      "source_observation": "PDF2–3servicecounts. Compare: Two vents,two drains,two brackets; no inventedpump/tank."
+    },
+    {
+      "id": "exterior",
+      "status": "pass",
+      "region": "wholeframe / relevantdeliveryregion",
+      "observation": "Two rectangularpolishedrails,upperreturn/lowerfrontsupply, sixpairs, rightservicepreserved; camera nearerfrontal thanstorepose.",
+      "source_observation": "Twohorizontalrectangularsteelheaders,upperwhitecaps,lowerredflowmeters,rightservice. Compare: Two rectangularpolishedrails,upperreturn/lowerfrontsupply, sixpairs, rightservicepreserved; camera nearerfrontal thanstorepose."
+    },
+    {
+      "id": "controls",
+      "status": "pass",
+      "region": "wholeframe / relevantdeliveryregion",
+      "observation": "Sixupperwhitecaps andsixlowerredtransparentmeters; colors/rowscorrect.",
+      "source_observation": "Photo upperwhite/lowertransparentred, supplierphotoimageexactlook. Compare: Sixupperwhitecaps andsixlowerredtransparentmeters; colors/rowscorrect."
+    },
+    {
+      "id": "dry",
+      "status": "pass",
+      "region": "wholeframe / relevantdeliveryregion",
+      "observation": "Cavities andtubes dry/empty, no bluefill/flowarrows.",
+      "source_observation": "Userdryrule andphysicalemptychannels. Compare: Cavities andtubes dry/empty, no bluefill/flowarrows."
+    },
+    {
+      "id": "natural",
+      "status": "pass",
+      "region": "wholeframe / relevantdeliveryregion",
+      "observation": "Naturalgrey/yellowmetal andpolymercutfaces; redrealprotectivecovers, nosectionstrip.",
+      "source_observation": "Usernaturalsubstrate,PDF3materialclasses. Compare: Naturalgrey/yellowmetal andpolymercutfaces; redrealprotectivecovers, nosectionstrip."
+    },
+    {
+      "id": "captions",
+      "status": "pass",
+      "region": "wholeframe / relevantdeliveryregion",
+      "observation": "14labels/titlecomposed, everyendpoint/name inspectedagainst applicableevidence;3initialtargets correctedbeforeaudit.",
+      "source_observation": "Names inPDF2–3andAC674card;exactgeometryuncertaintykeptinreport."
+    }
+  ],
+  "summary": "Count/topology andreadability improved, palePP-R rods. Exactfourinternalprofiles remainunknown; highscoreis notexactsectionproof.",
+  "next_changes": [],
+  "resolved_changes": [
+    "Solidcolumn placeholders replaced",
+    "PalePP-Rflowrods exposed",
+    "Seatandnipple relationships readable"
+  ]
+}

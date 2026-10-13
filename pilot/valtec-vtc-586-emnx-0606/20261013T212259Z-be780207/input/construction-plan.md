@@ -1,0 +1,19 @@
+# VALTEC VTc.586.EMNX.0606 — six-loop manifold
+## Identity/exterior
+Usergenericname; selectedrepresentativeSKU. Rejected0603becauseitsstorephoto6pairs; observed0606carduses samephoto6. Preserve actual downloadedphoto upperreturn6whitecaps,lowersupply6redtransparentmeters,rectangularsteelrails,twooffsetbrackets,endsvent/drain. Actualphoto hasbothventsright; currentmanual examplelowerleft, assemblyendorientationnotfixedfactoryexactrevision, preservephoto.
+## Evidence/source capability
+Exactcardtable0606=6andmaterials.1024passportPDF2componentphotos/assembly,PDF3materialtable,PDF6serviceAC674stem/tube photos inspected. Flow/valvecomponentmanufacturercards inspected; compatibility supportscommonrole, not innerprecisionprofile. CAD/STP321.7MB/DWG/Revit/dimensionlinks found onproductcard, not rendered; no interactive internalviewer operated. Old2013passport inspectedtext forrevisioncomparisononly, notreliedongeometry.
+Separate502N-0924section has sidevent anddifferentmakerthanIVARstockgroup, classifiedvent-analogy ONLY; genericfloat/springprinciple, not copyitsentirehousing. No unseenvideo/3D claimed.
+## Node map/nesting
+Two independent hollow stainlessrails, onebelowother, mechanicallyfastenedtosteelbrackets, notfluidbridge. No pump/tank, no loopconnectinghoses invented.
+Upperreturn: sixwhitecaps overbrass threadedcartridges. VerticalstemwithsmallEPDMsealingpadmeetsannularseat inlowernipple, pressurecapmovesstem; branchhole connectsmainrailcavitytowhenopen annularclearance/seatand3/4EKbranch.
+Lowersupply: sixtransparentdrytubeswithredprotectiverings. ThinPP-Rrod/indicatorwasherwithsmallstainlessspring inside each; valvebodythreadsintoupperrailport, lowerstem/plugmodulatesnipple seat. Sourcephotosexist forwholepart, exactprofile/depth unknown.
+Twelvebottomnipples, sixperrail, hollowconicalseating/threads, no blindsolidpins hidingbore.
+Twoendvents via2VT539isolators and2drains, each ownrailonly. Float retainedasplainpolymerinsidechamber withsimplifiedupperclosureconnection; exacttopventlinkageunknown. Draingenericlimitedstem/seatrailport, exactcartridgeunknown. Keepfarserviceclosed ifneedratherthaninventtwoidenticalunprovedinteriors.
+## Cut/visibility
+Longitudinalfrontwallwindows ineachrail show continuousdrycavityand sixbranchconnectionswithoutdisconnectingupper/lower. Localverticalwindow inoneupperreturncartridge/cap/nipple revealsstem,pad,seat,openannularpassage. One lowerflowmeterwindow showsrod,spring,indicatorandseat; other5transparenttubesdryand theirthreadedstems canbeseenincavity. Oneendventwindow revealsfloatprinciple, exactmechanismnotverified; otherventexternal. One drainselectivelyopened ifsupported, secondexternal.
+## Material/gaps
+AISI304rails greycut; nickelplatedbrassexterior brightgrey but cut yellowbrass; steelzincbrackets; EPDMblackseals; PP-Rstem/float; ABSred/whitecontrols. No artificialredbands; redrotametercovers are realexterior.
+Exactvalveprofile,flowrestrictions/shaftpositions,vents/draincurrentrevision internalsunknown6points; references instructlimitededucationalreconstruction. No scoredpassforunknowngeometry. Floatprincipleborrowedfromdifferent502Nrevision, disclosedbesideimage.
+## Observable criticals
+Exactly6returncaps/valves,6supplymeters/branches,2independentrails,2vents/2drains, correctmeterrow/valverow; no crossheaderpipe, water, or coloredsectionband. Stemmustmeet lowerseatnotfloatinyellowblock. Sourcecountconflictresolvedbeforefreeze.

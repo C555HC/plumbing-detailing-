@@ -1,0 +1,13 @@
+{
+  "id": 8,
+  "source_id": "vent-analogy",
+  "url": "https://valtec.ru/document/technical/VT.502.N-0924.pdf",
+  "kind": "analog",
+  "applicability": "Samepartfamilyname butdifferenttop/sideventshape and maker than586IVAR; floatprinciple/springmechanism reconstructionaid ONLY, not exactstockgeometry.",
+  "inputs_version": 1,
+  "locator": "502N0924PDF2",
+  "observation": "Differentventgeometry, ONLYfloatprinciplereconstructionaid",
+  "archived_at": "2026-10-13T21:28:16+00:00",
+  "path": "evidence/files/f7206824c5f7fb54e1cd33c8fafde9c3ff773ddff9a9307346d7c9c2e23c0c6d.png",
+  "sha256": "f7206824c5f7fb54e1cd33c8fafde9c3ff773ddff9a9307346d7c9c2e23c0c6d"
+}

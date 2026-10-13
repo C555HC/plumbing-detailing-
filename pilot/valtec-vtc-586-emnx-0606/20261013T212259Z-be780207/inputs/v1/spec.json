@@ -1,0 +1,103 @@
+{
+  "model": "VALTEC VTc.586.EMNX.0606",
+  "nodes": [
+    {
+      "id": "headers",
+      "name": "Два независимых коллектора",
+      "evidence": "series",
+      "source_ids": [
+        "manual"
+      ],
+      "essential": true,
+      "role": "Два независимых коллектора",
+      "excluded_aspects": {}
+    },
+    {
+      "id": "flowmeters",
+      "name": "Настроечные клапаны с расходомерами",
+      "evidence": "series",
+      "source_ids": [
+        "manual"
+      ],
+      "essential": true,
+      "role": "Настроечные клапаны с расходомерами",
+      "excluded_aspects": {}
+    },
+    {
+      "id": "returnvalves",
+      "name": "Регулирующие клапаны обратки",
+      "evidence": "series",
+      "source_ids": [
+        "manual"
+      ],
+      "essential": true,
+      "role": "Регулирующие клапаны обратки",
+      "excluded_aspects": {}
+    },
+    {
+      "id": "outlets",
+      "name": "Выходные ниппели евроконус",
+      "evidence": "series",
+      "source_ids": [
+        "manual"
+      ],
+      "essential": true,
+      "role": "Выходные ниппели евроконус",
+      "excluded_aspects": {}
+    },
+    {
+      "id": "vents",
+      "name": "Воздухоотводчики",
+      "evidence": "series",
+      "source_ids": [
+        "manual"
+      ],
+      "essential": true,
+      "role": "Воздухоотводчики",
+      "excluded_aspects": {}
+    },
+    {
+      "id": "drains",
+      "name": "Дренажные краны",
+      "evidence": "series",
+      "source_ids": [
+        "manual"
+      ],
+      "essential": true,
+      "role": "Дренажные краны",
+      "excluded_aspects": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "headers",
+      "to": "flowmeters",
+      "relation": "Lower supplyheader -> sixinline regulatingcartridges -> sixloweroutlets"
+    },
+    {
+      "from": "outlets",
+      "to": "returnvalves",
+      "relation": "Upper returnheader branchseat meets valveplunger below spindle"
+    },
+    {
+      "from": "headers",
+      "to": "vents",
+      "relation": "Each own vent and drain, no internalbridge"
+    },
+    {
+      "from": "returnvalves",
+      "to": "headers",
+      "relation": "Cap pushes stem/sealingpad onto seat inside nipple"
+    }
+  ],
+  "gaps": [
+    "Precise AC674 inner profile/restriction/clearance not documented in inspectedviews.",
+    "Precise returnvalve gland/seats currentrevision not sectionalinspected.",
+    "Installed airvent topoutlet differs from newer502N sideoutletpassport; its float/uppervalve reconstruction not exact.",
+    "Drain innergeometry not shown; render modestgenericshutoff/emptybore, not exactproved.",
+    "CAD321.7MB availablelink but not sectionrendered; no assertion allCADexterior."
+  ],
+  "analog_assertions": [
+    "Vent floatprinciple only, not exact current vent mechanismgeometry."
+  ]
+}

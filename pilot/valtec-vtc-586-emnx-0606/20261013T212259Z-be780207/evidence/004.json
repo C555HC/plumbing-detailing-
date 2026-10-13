@@ -1,0 +1,13 @@
+{
+  "id": 4,
+  "source_id": "manual",
+  "url": "https://valtec.ru/document/technical/VTc.586.EMNX-1024.pdf",
+  "kind": "manufacturer_series",
+  "applicability": "Exact586series2–12, PDF2parts/photos,3materials,6flowmeterdisassembly; assemblyshowsdifferentendserviceorientation, preservestorephoto",
+  "inputs_version": 1,
+  "locator": "PDF6section7",
+  "observation": "AC674stem/tuberemoval",
+  "archived_at": "2026-10-13T21:28:16+00:00",
+  "path": "evidence/files/a29122f7b92cc37c3f2e6e230e50168509ab9ef1d4473d0e33b2fbc3dddd4899.png",
+  "sha256": "a29122f7b92cc37c3f2e6e230e50168509ab9ef1d4473d0e33b2fbc3dddd4899"
+}

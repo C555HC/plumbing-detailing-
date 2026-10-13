@@ -1,0 +1,682 @@
+{
+  "protocol_version": 2,
+  "version": "valtec-586-0606-v2",
+  "checks": [
+    {
+      "id": "headers-type_count",
+      "node_id": "headers",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 3,
+      "requirement": "Два коллектора и6выходов каждый",
+      "source_fact": "Exactmanufacturer0606table and manualPDF2twoheaders.",
+      "source_ids": [
+        "card"
+      ],
+      "locator": "Exactmodeltable0606",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "headers-shape",
+      "node_id": "headers",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Пустые продольные полости двухбалок",
+      "source_fact": "ManualPDF2slenderrectangularmanifoldbodies and portthreadlist; preciseboreprofileunknown.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "headers-attachment",
+      "node_id": "headers",
+      "aspect": "attachment",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Обе балки закреплены на двухкронштейнах",
+      "source_fact": "PDF2assemblyitem9,PDF3count2.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "headers-placement_connections",
+      "node_id": "headers",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 4,
+      "requirement": "Коллекторы изолированы, не соединены кронштейнами",
+      "source_fact": "PDF1separate supply/return,PDF2eachownparts; bracketsmechanical.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "headers-material",
+      "node_id": "headers",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Нержавеющая сталь",
+      "source_fact": "PDF3materials AISI304.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "flowmeters-type_count",
+      "node_id": "flowmeters",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 3,
+      "requirement": "Шесть ротаметров на подаче",
+      "source_fact": "Exact0606N6,PDF2item3on supply only.",
+      "source_ids": [
+        "card"
+      ],
+      "locator": "Exactmodeltable0606",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "flowmeters-shape",
+      "node_id": "flowmeters",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Точный внутренний профиль расходомера",
+      "source_fact": "PDF6disassemblyphotos showstem/tube, notprecisioninternalrestriction.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "flowmeters-attachment",
+      "node_id": "flowmeters",
+      "aspect": "attachment",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Вставка закреплена резьбой в коллекторе",
+      "source_fact": "PDF6service brassnut unscrewed,removablestem/colb.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "flowmeters-placement_connections",
+      "node_id": "flowmeters",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 5,
+      "requirement": "Вставка соосна выходному седлу, шток/индикатор в колбе",
+      "source_fact": "PDF2nipple6seat,PDF6stem/tube arrangement,flowcardindicatorwasher.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "flowmeters-material",
+      "node_id": "flowmeters",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Материалы расходомерного узла",
+      "source_fact": "PDF3PP-Rrod/ABSflowmeter/AISI316spring,brassbody/EPDM.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "returnvalves-type_count",
+      "node_id": "returnvalves",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 3,
+      "requirement": "Шесть клапанов с белыми ручками",
+      "source_fact": "0606N6;PDF2items2,4.",
+      "source_ids": [
+        "card"
+      ],
+      "locator": "Exactmodeltable0606",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "returnvalves-shape",
+      "node_id": "returnvalves",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Точная форма внутренних сальников/седла",
+      "source_fact": "PDF2exteriorcartridgephotos only; internalsectionabsent.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "returnvalves-attachment",
+      "node_id": "returnvalves",
+      "aspect": "attachment",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Резьбовой картридж и шток под ручкой",
+      "source_fact": "PDF2item2,2.1,4 shows threadedcartridge/stem/pad.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "returnvalves-placement_connections",
+      "node_id": "returnvalves",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 4,
+      "requirement": "Шток перекрывает седло выходного ниппеля",
+      "source_fact": "PDF2item2movesunderhandle,5nipplehasseat.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "returnvalves-material",
+      "node_id": "returnvalves",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Материалы клапанов и прокладок",
+      "source_fact": "PDF3brassCW617N/EPDM.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "outlets-type_count",
+      "node_id": "outlets",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 3,
+      "requirement": "12ниппелей,6пар",
+      "source_fact": "PDF2items5/6N each;0606N6.",
+      "source_ids": [
+        "card"
+      ],
+      "locator": "Exactmodeltable0606",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "outlets-shape",
+      "node_id": "outlets",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Конический евроконус с пустым осевым отверстием",
+      "source_fact": "PDF2nipples5/6photographs.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "outlets-attachment",
+      "node_id": "outlets",
+      "aspect": "attachment",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Ниппели под клапанами на противоположной стороне балок",
+      "source_fact": "PDF2assemblyphotos and2Nports.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "outlets-placement_connections",
+      "node_id": "outlets",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 4,
+      "requirement": "Каждый выход сообщается только со своим коллектором через седло",
+      "source_fact": "PDF2items5/6seatmatchingvalve and loopfitting.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "outlets-material",
+      "node_id": "outlets",
+      "aspect": "material",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Латунь под никелированным покрытием",
+      "source_fact": "PDF3CW617Nfits.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "vents-type_count",
+      "node_id": "vents",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 2,
+      "requirement": "По одному автоматическому воздухоотводчику на балке",
+      "source_fact": "PDF3item7count2 andassembly.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "vents-shape",
+      "node_id": "vents",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Точная геометрия установленного воздухоотводчика",
+      "source_fact": "Inspected502Nsection differsfrom stockphoto topoutlet; no exactsection.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "vents-attachment",
+      "node_id": "vents",
+      "aspect": "attachment",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Воздухоотводчик на отсекающем клапане",
+      "source_fact": "PDF3item11VT539count2; PDF2item11.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "vents-placement_connections",
+      "node_id": "vents",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 4,
+      "requirement": "Полость воздухоотводчика связана только с собственной балкой",
+      "source_fact": "PDF2separateendservice foreachheader, not linkingthem.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "vents-material",
+      "node_id": "vents",
+      "aspect": "material",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Металлический корпус и полимерный поплавок",
+      "source_fact": "PDF3brassnickelbody andPP-Rfloat; exactinnerseatmaterial omitted.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "drains-type_count",
+      "node_id": "drains",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 2,
+      "requirement": "По одному дренажному крану на коллекторе",
+      "source_fact": "PDF3item8count2.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "drains-shape",
+      "node_id": "drains",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Точная внутренняя геометрия дренажа",
+      "source_fact": "PDF3describesrotatingdrain externalonly, no exactinternalsection.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "drains-attachment",
+      "node_id": "drains",
+      "aspect": "attachment",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Поворотный кран прикреплён к концу своейбалки",
+      "source_fact": "PDF2item8andPDF3description.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "drains-placement_connections",
+      "node_id": "drains",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 4,
+      "requirement": "Осушение через собственный коллектор, без мостика",
+      "source_fact": "PDF3fill/drainrole andseparatepair.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "drains-material",
+      "node_id": "drains",
+      "aspect": "material",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Никелированная латунь и EPDM",
+      "source_fact": "PDF3fittings/valvedetails/EPDM.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 parts/assembly,PDF3materials,PDF6service",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "functional-open",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 6,
+      "requirement": "Видны канал балки,седло/золотник,шток расходомера",
+      "source_fact": "PDF2valvematingseat andPDF6flowstem, distinctfunctionalnodes required.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2assembly/PDF3materials",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "independent",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 6,
+      "requirement": "Нет внутреннего соединения подачи с обраткой",
+      "source_fact": "Twoheaders serve separateloopends, bracketnotflowpipe.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2assembly/PDF3materials",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "all-service",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 3,
+      "requirement": "По2дренажа,воздухоотводчика и кронштейна; нет насосов",
+      "source_fact": "PDF2–3servicecounts.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2assembly/PDF3materials",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "exterior",
+      "aspect": "delivery",
+      "block": "appearance",
+      "points": 7,
+      "requirement": "Сохранена форма/ракурс/расположение фото",
+      "source_fact": "Twohorizontalrectangularsteelheaders,upperwhitecaps,lowerredflowmeters,rightservice.",
+      "source_ids": [
+        "photo"
+      ],
+      "locator": "Live0606card primaryphoto",
+      "evidence_level": "photo",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "controls",
+      "aspect": "delivery",
+      "block": "appearance",
+      "points": 3,
+      "requirement": "Белые ручки и красные гильзы не перепутаны",
+      "source_fact": "Photo upperwhite/lowertransparentred, supplierphotoimageexactlook.",
+      "source_ids": [
+        "photo"
+      ],
+      "locator": "Live0606card primaryphoto",
+      "evidence_level": "photo",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "dry",
+      "aspect": "delivery",
+      "block": "clarity",
+      "points": 1,
+      "requirement": "Нет воды/стрелок потока",
+      "source_fact": "Userdryrule andphysicalemptychannels.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2assembly/PDF3materials",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "natural",
+      "aspect": "delivery",
+      "block": "clarity",
+      "points": 1,
+      "requirement": "Материальные срезы без обводки",
+      "source_fact": "Usernaturalsubstrate,PDF3materialclasses.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2assembly/PDF3materials",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "captions",
+      "aspect": "delivery",
+      "block": "clarity",
+      "points": 3,
+      "requirement": "Проверенные русские подписи/точки",
+      "source_fact": "PDF2–3parts names.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2assembly/PDF3materials",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": true
+    }
+  ]
+}

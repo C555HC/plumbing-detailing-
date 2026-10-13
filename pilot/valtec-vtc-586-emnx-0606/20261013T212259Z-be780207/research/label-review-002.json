@@ -1,0 +1,149 @@
+{
+  "base_sha256": "1d3993c06e7a43f6bd00e01cd4a1cfed01a36c8203ed80bb4f1e2f28b3d2f90f",
+  "labels_sha256": "ef7daa673132999a9618c4dc85e4134e84c0d5c76489879205968ea988ab1ff4",
+  "preview_sha256": "084f2ffee58f86b67e34cd538ba70fe0c331a47c86fd4671f2d31a772a55442e",
+  "layout_checked": true,
+  "title_checked": true,
+  "checks": [
+    {
+      "id": "cap",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "586passportPDF2parts,PDF3materials,PDF6service",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Endpoint on retainedwhitecapwall, correctedfrom brassinnerstem."
+    },
+    {
+      "id": "stem",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "586passportPDF2parts,PDF3materials,PDF6service",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Endpoint on movingmetalsteminsideuppercartridge."
+    },
+    {
+      "id": "return",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "586passportPDF2parts,PDF3materials,PDF6service",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Endpoint on upperrailcavitywall; upperwhitevalverow isreturnperPDF2."
+    },
+    {
+      "id": "seal",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "586passportPDF2parts,PDF3materials,PDF6service",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Endpoint onblackpad atlowerannularseat ofrepresentativeupperbranch; combinedfunctionalcaption notprecisegeometryclaim."
+    },
+    {
+      "id": "flow",
+      "source_ids": [
+        "flow"
+      ],
+      "locator": "AC674manufacturerdescription",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Endpoint onindicatorwasherinsidefirsttransparenttube, supportsrotametername."
+    },
+    {
+      "id": "rod",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "586passportPDF2parts,PDF3materials,PDF6service",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Endpoint onpalepolymerrodinsidefirstcutbrassflowcartridge."
+    },
+    {
+      "id": "vent",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "586passportPDF2parts,PDF3materials,PDF6service",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Endpoint onupperventcasingcap, venttype/nameperassembly; exactinnervalvegeometryunverified."
+    },
+    {
+      "id": "float",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "586passportPDF2parts,PDF3materials,PDF6service",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Endpoint onpalefloat in illustrativeupperventwindow, existence/materialpergroupmanual; exactprofileisreconstructed."
+    },
+    {
+      "id": "isolator",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "586passportPDF2parts,PDF3materials,PDF6service",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Endpoint onhexadapterbelowvent, item11; hiddencheckvalve not claimed."
+    },
+    {
+      "id": "drain",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "586passportPDF2parts,PDF3materials,PDF6service",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Endpoint onblackdrainbody/capbelowupperend; nameofwholepart only."
+    },
+    {
+      "id": "bracket",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "586passportPDF2parts,PDF3materials,PDF6service",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Endpoint onrightzincsteelstrip, correctedfrommountinghole."
+    },
+    {
+      "id": "adjust",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "586passportPDF2parts,PDF3materials,PDF6service",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Endpoint onredprotectivebaseofadjustableflowcartridge; wholevalveunitnamed, notredplasticcalledseal."
+    },
+    {
+      "id": "supply",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "586passportPDF2parts,PDF3materials,PDF6service",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Endpoint onlowerrailwall, lowerflowrowonlysupplypermanual."
+    },
+    {
+      "id": "outlets",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "586passportPDF2parts,PDF3materials,PDF6service",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Endpoint onone lowerthreadedbranchnipple, commonEKconnectornameperPDF2."
+    }
+  ]
+}

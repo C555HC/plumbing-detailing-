@@ -1,0 +1,13 @@
+{
+  "id": 5,
+  "source_id": "card",
+  "url": "https://valtec.ru/catalog/sistemy_vodyanogo_teplogo_pola/kollektornye_bloki/kollektornyj_blok_iz_nerjaveyushej_stali_so_vstroennymi_rashodomerami_vtc586emnx.html",
+  "kind": "manufacturer_model",
+  "applicability": "0606 row confirms6outlets, assemblytypes and material; CADlinks discovered not interiorinspected",
+  "inputs_version": 1,
+  "locator": "Exact0606rowandCADlinks",
+  "observation": "Model6outlets,components,CADnotsectioninspected",
+  "archived_at": "2026-10-13T21:28:16+00:00",
+  "path": "evidence/files/e44cd75f7b2c772a883af928b4d0d871d97e5466d736d96e33146b23e58c6440.txt",
+  "sha256": "e44cd75f7b2c772a883af928b4d0d871d97e5466d736d96e33146b23e58c6440"
+}

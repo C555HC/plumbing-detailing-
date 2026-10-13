@@ -1,0 +1,166 @@
+{
+  "image": "/Users/nikitas/Documents/ChatGPT/Ворк/plumbing-detailing-/output/cutaways/valtec-vtc-586-emnx-0606/20261013T212259Z-be780207/research/preview-002.png",
+  "font": "/System/Library/Fonts/Supplemental/Arial.ttf",
+  "label_boxes": {
+    "title": [
+      55,
+      43,
+      734,
+      173
+    ],
+    "cap": [
+      40,
+      326,
+      337,
+      380
+    ],
+    "stem": [
+      40,
+      526,
+      227,
+      547
+    ],
+    "return": [
+      40,
+      716,
+      354,
+      776
+    ],
+    "seal": [
+      40,
+      936,
+      318,
+      994
+    ],
+    "flow": [
+      40,
+      1185,
+      206,
+      1245
+    ],
+    "rod": [
+      40,
+      1455,
+      288,
+      1515
+    ],
+    "vent": [
+      2328,
+      326,
+      2557,
+      386
+    ],
+    "float": [
+      2329,
+      526,
+      2573,
+      586
+    ],
+    "isolator": [
+      2329,
+      726,
+      2605,
+      786
+    ],
+    "drain": [
+      2329,
+      956,
+      2554,
+      983
+    ],
+    "bracket": [
+      2329,
+      1185,
+      2482,
+      1245
+    ],
+    "adjust": [
+      2329,
+      1455,
+      2612,
+      1515
+    ],
+    "supply": [
+      500,
+      1865,
+      814,
+      1925
+    ],
+    "outlets": [
+      1449,
+      1865,
+      1686,
+      1925
+    ]
+  },
+  "warnings": [],
+  "source_size": [
+    1448,
+    1086
+  ],
+  "image_bounds": [
+    470,
+    347,
+    2290,
+    1712
+  ],
+  "target_points": {
+    "cap": [
+      792,
+      556
+    ],
+    "stem": [
+      859,
+      653
+    ],
+    "return": [
+      772,
+      706
+    ],
+    "seal": [
+      861,
+      723
+    ],
+    "flow": [
+      877,
+      1071
+    ],
+    "rod": [
+      865,
+      1254
+    ],
+    "vent": [
+      1905,
+      445
+    ],
+    "float": [
+      1907,
+      558
+    ],
+    "isolator": [
+      1907,
+      644
+    ],
+    "drain": [
+      1871,
+      919
+    ],
+    "bracket": [
+      2074,
+      1163
+    ],
+    "adjust": [
+      1725,
+      1261
+    ],
+    "supply": [
+      1561,
+      1397
+    ],
+    "outlets": [
+      1518,
+      1532
+    ]
+  },
+  "semantic_targets_checked": false
+}

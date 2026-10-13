@@ -1,0 +1,52 @@
+{
+  "sources": [
+    {
+      "id": "photo",
+      "kind": "product_photo",
+      "url": "https://477477.ru/images/products/_alpha-fixed-v2/vtc.586.emnx.0602-a7a02dbcf5b2d87d-detail-46e7bcf538f9262d-62263b38a87c-detail.webp",
+      "title": "Original477477 gallery",
+      "verified": true,
+      "applicability": "Actual0606 card mainphoto sixpairs; sharedgallery not SKU-specific naming, silhouette/outerfeatures only"
+    },
+    {
+      "id": "card",
+      "kind": "manufacturer_model",
+      "url": "https://valtec.ru/catalog/sistemy_vodyanogo_teplogo_pola/kollektornye_bloki/kollektornyj_blok_iz_nerjaveyushej_stali_so_vstroennymi_rashodomerami_vtc586emnx.html",
+      "title": "VTc.586 exactmodeltable",
+      "verified": true,
+      "applicability": "0606 row confirms6outlets, assemblytypes and material; CADlinks discovered not interiorinspected"
+    },
+    {
+      "id": "manual",
+      "kind": "manufacturer_series",
+      "url": "https://valtec.ru/document/technical/VTc.586.EMNX-1024.pdf",
+      "title": "ПС47514,1024,IVAR",
+      "verified": true,
+      "applicability": "Exact586series2–12, PDF2parts/photos,3materials,6flowmeterdisassembly; assemblyshowsdifferentendserviceorientation, preservestorephoto"
+    },
+    {
+      "id": "flow",
+      "kind": "manufacturer_model",
+      "url": "https://valtec.ru/catalog/kollektornye_sistemy/komplektuyuschie_dlya_kollektorov/rashodomer_kollektornyj_vtac674.html",
+      "title": "VT.AC674",
+      "verified": true,
+      "applicability": "Exactlistedcompatiblepart, indicatorwasher, transparenttube, 0.5–5scale; no precisioninternalsection linked"
+    },
+    {
+      "id": "valve",
+      "kind": "manufacturer_model",
+      "url": "https://valtec.ru/catalog/kollektornye_sistemy/komplektuyuschie_dlya_kollektorov/zapornyj_klapan_dlya_kollektornyh_blokov_vtvtc30n.html",
+      "title": "VT.VTC30.N",
+      "verified": true,
+      "applicability": "Compatibilitytableincludes586; exactreplacement revision notproved forstockphoto, commonpartrole only"
+    },
+    {
+      "id": "vent-analogy",
+      "kind": "analog",
+      "url": "https://valtec.ru/document/technical/VT.502.N-0924.pdf",
+      "title": "VT.502.N sectionalpassport",
+      "verified": true,
+      "applicability": "Samepartfamilyname butdifferenttop/sideventshape and maker than586IVAR; floatprinciple/springmechanism reconstructionaid ONLY, not exactstockgeometry."
+    }
+  ]
+}

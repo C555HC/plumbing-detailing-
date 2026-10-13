@@ -1,0 +1,222 @@
+[
+  {
+    "attempt": 2,
+    "rating": 94.0,
+    "critical_errors": [],
+    "readiness": {
+      "status": "needs_technical_review",
+      "label": "Нужна техническая проверка: существенные признаки не подтверждены",
+      "reasons": [
+        "flowmeters-shape",
+        "returnvalves-shape",
+        "vents-shape",
+        "drains-shape"
+      ],
+      "technical_approval": false
+    },
+    "evidence_summary": {
+      "scope": "essential_internal_facts",
+      "source_basis": {
+        "model": [
+          "headers-type_count",
+          "flowmeters-type_count",
+          "returnvalves-type_count",
+          "outlets-type_count"
+        ],
+        "series": [
+          "headers-shape",
+          "headers-attachment",
+          "headers-placement_connections",
+          "headers-material",
+          "flowmeters-attachment",
+          "flowmeters-placement_connections",
+          "flowmeters-material",
+          "returnvalves-attachment",
+          "returnvalves-placement_connections",
+          "returnvalves-material",
+          "outlets-shape",
+          "outlets-attachment",
+          "outlets-placement_connections",
+          "outlets-material",
+          "vents-type_count",
+          "vents-attachment",
+          "vents-placement_connections",
+          "vents-material",
+          "drains-type_count",
+          "drains-attachment",
+          "drains-placement_connections",
+          "drains-material"
+        ],
+        "analog": [],
+        "unknown": [
+          "flowmeters-shape",
+          "returnvalves-shape",
+          "vents-shape",
+          "drains-shape"
+        ]
+      },
+      "confirmed_facts": {
+        "model": [
+          "headers-type_count",
+          "flowmeters-type_count",
+          "returnvalves-type_count",
+          "outlets-type_count"
+        ],
+        "series": [
+          "headers-shape",
+          "headers-attachment",
+          "headers-placement_connections",
+          "headers-material",
+          "flowmeters-attachment",
+          "flowmeters-placement_connections",
+          "flowmeters-material",
+          "returnvalves-attachment",
+          "returnvalves-placement_connections",
+          "returnvalves-material",
+          "outlets-shape",
+          "outlets-attachment",
+          "outlets-placement_connections",
+          "outlets-material",
+          "vents-type_count",
+          "vents-attachment",
+          "vents-placement_connections",
+          "vents-material",
+          "drains-type_count",
+          "drains-attachment",
+          "drains-placement_connections",
+          "drains-material"
+        ],
+        "analog": []
+      },
+      "unverified": [
+        "flowmeters-shape",
+        "returnvalves-shape",
+        "vents-shape",
+        "drains-shape"
+      ],
+      "contradicted": [],
+      "partial": [],
+      "unavailable_checks": [
+        "flowmeters-shape",
+        "returnvalves-shape",
+        "vents-shape",
+        "drains-shape"
+      ],
+      "unavailable_points": 6.0,
+      "source_supported_ceiling": 94.0
+    },
+    "evaluation_phase": "captioned",
+    "base_rating": 91.0
+  },
+  {
+    "attempt": 1,
+    "rating": 70.0,
+    "critical_errors": [
+      "flowmeters-placement_connections",
+      "returnvalves-placement_connections"
+    ],
+    "readiness": {
+      "status": "best_available",
+      "label": "Лучший доступный: есть критические ошибки",
+      "reasons": [
+        "flowmeters-placement_connections",
+        "returnvalves-placement_connections"
+      ],
+      "technical_approval": false
+    },
+    "evidence_summary": {
+      "scope": "essential_internal_facts",
+      "source_basis": {
+        "model": [
+          "headers-type_count",
+          "flowmeters-type_count",
+          "returnvalves-type_count",
+          "outlets-type_count"
+        ],
+        "series": [
+          "headers-shape",
+          "headers-attachment",
+          "headers-placement_connections",
+          "headers-material",
+          "flowmeters-attachment",
+          "flowmeters-placement_connections",
+          "flowmeters-material",
+          "returnvalves-attachment",
+          "returnvalves-placement_connections",
+          "returnvalves-material",
+          "outlets-shape",
+          "outlets-attachment",
+          "outlets-placement_connections",
+          "outlets-material",
+          "vents-type_count",
+          "vents-attachment",
+          "vents-placement_connections",
+          "vents-material",
+          "drains-type_count",
+          "drains-attachment",
+          "drains-placement_connections",
+          "drains-material"
+        ],
+        "analog": [],
+        "unknown": [
+          "flowmeters-shape",
+          "returnvalves-shape",
+          "vents-shape",
+          "drains-shape"
+        ]
+      },
+      "confirmed_facts": {
+        "model": [
+          "headers-type_count",
+          "flowmeters-type_count",
+          "returnvalves-type_count",
+          "outlets-type_count"
+        ],
+        "series": [
+          "headers-shape",
+          "headers-attachment",
+          "headers-placement_connections",
+          "headers-material",
+          "flowmeters-attachment",
+          "returnvalves-attachment",
+          "returnvalves-material",
+          "outlets-shape",
+          "outlets-attachment",
+          "outlets-material",
+          "vents-type_count",
+          "vents-attachment",
+          "vents-placement_connections",
+          "vents-material",
+          "drains-type_count",
+          "drains-attachment",
+          "drains-placement_connections",
+          "drains-material"
+        ],
+        "analog": []
+      },
+      "unverified": [
+        "flowmeters-shape",
+        "returnvalves-shape",
+        "vents-shape",
+        "drains-shape"
+      ],
+      "contradicted": [
+        "flowmeters-placement_connections",
+        "flowmeters-material",
+        "returnvalves-placement_connections",
+        "outlets-placement_connections"
+      ],
+      "partial": [],
+      "unavailable_checks": [
+        "flowmeters-shape",
+        "returnvalves-shape",
+        "vents-shape",
+        "drains-shape"
+      ],
+      "unavailable_points": 6.0,
+      "source_supported_ceiling": 94.0
+    },
+    "evaluation_phase": "base",
+    "base_rating": 70.0
+  }
+]

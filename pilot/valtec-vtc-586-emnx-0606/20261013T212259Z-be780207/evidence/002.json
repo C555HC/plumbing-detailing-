@@ -1,0 +1,13 @@
+{
+  "id": 2,
+  "source_id": "manual",
+  "url": "https://valtec.ru/document/technical/VTc.586.EMNX-1024.pdf",
+  "kind": "manufacturer_series",
+  "applicability": "Exact586series2–12, PDF2parts/photos,3materials,6flowmeterdisassembly; assemblyshowsdifferentendserviceorientation, preservestorephoto",
+  "inputs_version": 1,
+  "locator": "PDF2section2",
+  "observation": "Parts/seatnipples/assembly",
+  "archived_at": "2026-10-13T21:28:16+00:00",
+  "path": "evidence/files/39afd30610fa2845b5129f3a9e00b7578712d2055a51ff5cad74428ec24df7b1.png",
+  "sha256": "39afd30610fa2845b5129f3a9e00b7578712d2055a51ff5cad74428ec24df7b1"
+}
