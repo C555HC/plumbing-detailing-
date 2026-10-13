@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "source_id": "aquario-3d",
+  "url": "https://aquario.ru/3d-diagrams",
+  "kind": "manufacturer_model",
+  "applicability": "Exact 2700 selected in https://aquario.ru:1111/user/pubscheme; inspected named rotor 8036 (cup-shaped), impeller 8039 (3), diffuser assembly and parts list. Shows component form/placement, not a complete sectional water path or cut diaphragm. 2026-10-10 new rotated rear/reverse views: accumulator rear central horizontal coupling aligned with the side port of pressure tee; tank not connected through its bottom. Rear face of stator reveals copper/orange winding ring facing the cup-shaped rotor. Exact diaphragm and passages remain unverified. 13.10.2026: повторно выбрана2700, сохранены передний и обратный ракурсы factory-front.jpg/factory-rear.jpg. Виден пакет трёх колёс, чашка ротора, медного цвета пояс статора, задний порт бака; мембрана не раскрыта.",
+  "inputs_version": 1,
+  "locator": "2700: передний ракурс разнесённой заводской сборки",
+  "observation": "8039:3 рабочих колеса;8036 чашка ротора; клапан8017 в выходном патрубке",
+  "archived_at": "2026-10-13T14:59:04+00:00",
+  "path": "evidence/files/8d952094d65c5809255f11daad5b7651a15ffbe8fc2d21a25d952619e1f7d6e0.jpg",
+  "sha256": "8d952094d65c5809255f11daad5b7651a15ffbe8fc2d21a25d952619e1f7d6e0"
+}

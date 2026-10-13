@@ -1,0 +1,120 @@
+[
+  {
+    "attempt": 1,
+    "rating": 77.0,
+    "critical_errors": [
+      "motor-placement_connections"
+    ],
+    "readiness": {
+      "status": "best_available",
+      "label": "Лучший доступный: есть критические ошибки",
+      "reasons": [
+        "motor-placement_connections"
+      ],
+      "technical_approval": false
+    },
+    "evidence_summary": {
+      "scope": "essential_internal_facts",
+      "source_basis": {
+        "model": [
+          "hydraulic-type_count",
+          "hydraulic-shape",
+          "hydraulic-attachment",
+          "hydraulic-placement_connections",
+          "hydraulic-material",
+          "motor-type_count",
+          "motor-shape",
+          "motor-attachment",
+          "motor-placement_connections",
+          "controller-type_count",
+          "controller-shape",
+          "controller-attachment",
+          "controller-placement_connections",
+          "sensor-type_count",
+          "sensor-shape",
+          "sensor-attachment",
+          "sensor-placement_connections",
+          "tank-type_count",
+          "tank-placement_connections",
+          "tank-material",
+          "valve-type_count",
+          "valve-shape",
+          "valve-attachment",
+          "valve-placement_connections",
+          "valve-material",
+          "seal-type_count",
+          "seal-shape",
+          "seal-attachment",
+          "seal-placement_connections",
+          "seal-material"
+        ],
+        "series": [],
+        "analog": [],
+        "unknown": [
+          "motor-material",
+          "controller-material",
+          "sensor-material",
+          "tank-shape",
+          "tank-attachment"
+        ]
+      },
+      "confirmed_facts": {
+        "model": [
+          "hydraulic-type_count",
+          "hydraulic-attachment",
+          "hydraulic-placement_connections",
+          "hydraulic-material",
+          "motor-attachment",
+          "controller-type_count",
+          "controller-shape",
+          "controller-attachment",
+          "controller-placement_connections",
+          "sensor-type_count",
+          "sensor-shape",
+          "sensor-attachment",
+          "sensor-placement_connections",
+          "tank-type_count",
+          "tank-placement_connections",
+          "tank-material",
+          "valve-type_count",
+          "valve-attachment",
+          "valve-placement_connections",
+          "valve-material",
+          "seal-type_count",
+          "seal-shape",
+          "seal-attachment",
+          "seal-placement_connections",
+          "seal-material"
+        ],
+        "series": [],
+        "analog": []
+      },
+      "unverified": [
+        "hydraulic-shape",
+        "motor-type_count",
+        "motor-material",
+        "controller-material",
+        "sensor-material",
+        "tank-shape",
+        "tank-attachment",
+        "valve-shape"
+      ],
+      "contradicted": [
+        "motor-shape",
+        "motor-placement_connections"
+      ],
+      "partial": [],
+      "unavailable_checks": [
+        "motor-material",
+        "controller-material",
+        "sensor-material",
+        "tank-shape",
+        "tank-attachment"
+      ],
+      "unavailable_points": 9.0,
+      "source_supported_ceiling": 91.0
+    },
+    "evaluation_phase": "base",
+    "base_rating": 77.0
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "id": 3,
+  "source_id": "aquario-manual",
+  "url": "https://aquario.ru/sites/default/files/manuals/Joker_0.pdf",
+  "kind": "manufacturer_model",
+  "applicability": "Точная модель; PDF страницы 5/6/9/12/13, печатные 3/4/7/10/11. Схема, таблица и нужные разделы осмотрены.",
+  "inputs_version": 1,
+  "locator": "PDF5, печатная3, рис.2 и таблица материалов",
+  "observation": "Состав, названия, патрубки, EPDM, нержавеющие колёса/диффузоры",
+  "archived_at": "2026-10-13T14:59:04+00:00",
+  "path": "evidence/files/c900e23d78b42c00a7675a045d3d6145f65750fe00ea1e5da5b53f077a361cc7.png",
+  "sha256": "c900e23d78b42c00a7675a045d3d6145f65750fe00ea1e5da5b53f077a361cc7"
+}

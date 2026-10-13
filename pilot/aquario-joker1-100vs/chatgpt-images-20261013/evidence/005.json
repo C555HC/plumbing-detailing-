@@ -1,0 +1,13 @@
+{
+  "id": 5,
+  "source_id": "store-photo",
+  "url": "https://477477.ru/images/products/_transparent-v1/2700-7fca3b304f29f53e-detail-d65d86c209db21e7-detail.webp",
+  "kind": "product_photo",
+  "applicability": "13.10.2026: точная карточка открыта, наблюдён img src, downloadMedia сохранил исходные WEBP-байты; экстерьер, не внутренняя конструкция.",
+  "inputs_version": 1,
+  "locator": "Главное фото точной карточки2700",
+  "observation": "Наружная форма и ракурс конкретного товара",
+  "archived_at": "2026-10-13T14:59:04+00:00",
+  "path": "evidence/files/494b16cd3c9d6b24b0a9894fb14beffe9ab60df646e68560a54e186cf20ca127.webp",
+  "sha256": "494b16cd3c9d6b24b0a9894fb14beffe9ab60df646e68560a54e186cf20ca127"
+}

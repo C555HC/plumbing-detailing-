@@ -1,0 +1,29 @@
+{
+  "backend": "ordinary_chatgpt_images_browser",
+  "scope": "one_initial_generation_and_one_source_supported_edit_if_needed",
+  "attempt_limit": 2,
+  "browser_tab": "2",
+  "conversation_url": "https://chatgpt.com/c/6ace475b-35f4-83ed-a56d-4bf96942d71f",
+  "work_mode": false,
+  "started_at": "2026-10-13T14:58:00+00:00",
+  "measurement": {
+    "codex_window_minutes": 10080,
+    "codex_used_percent_before": 5,
+    "five_hour_window": "not exposed",
+    "attribution": "not controlled; other account activity and agent work may contribute",
+    "codex_used_percent_after": 6
+  },
+  "dispatch_confirmed": true,
+  "dispatch_observation": "В чате видны пользовательский промпт, пять вложений, кнопка Stop и Polishing details79%",
+  "completed_initial": true,
+  "initial_output_format": "PNG",
+  "initial_output_size": [
+    1122,
+    1402
+  ],
+  "initial_base_rating": 77,
+  "edit_status": "failed_site_protection",
+  "edit_generation_started": "not confirmed",
+  "edited_output": null,
+  "production_backend_changed": false
+}
