@@ -1,5 +1,7 @@
 # Ordinary ChatGPT Images — experimental browser route
 
+Project decision, 2026-10-13: the user has put this route aside after the slow pilot and chosen built-in Codex/imagegen for subsequent generations. Preserve the browser archive; use this route again only if the user explicitly chooses it anew. No cost or speed advantage has been established.
+
 Use only when the user selects this route and an authorized browser can access their ordinary ChatGPT account. Keep Chat selected; Work is a different route. The agent still runs the cutaway skill locally: store photo, manufacturer evidence, fixed reviews, five-call maximum, base80 caption gate and final selection are unchanged. This is a tool-guided browser workflow, not a standalone browser daemon or proof of cheaper usage.
 
 - Bind the observed tab through the available computer-use API. Let the user complete sign-in when needed. Read the current conversation/draft before any send; preserve unrelated user drafts and chats.
