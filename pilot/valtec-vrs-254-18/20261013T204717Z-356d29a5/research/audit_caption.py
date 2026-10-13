@@ -15,4 +15,3 @@ for x in review["checks"]:
  if x["id"]=="captions":
   x.update(status="pass",observation="11 Russian labels composed and each endpoint/source checked; title/layout inspected.",source_observation="Named functionalparts in factorymanual/assembly; no unsupportedprecisebladecount caption.")
 (r/f"research/review-captioned-{n}.json").write_text(json.dumps(review,ensure_ascii=False,indent=2))
-

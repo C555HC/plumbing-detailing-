@@ -28,4 +28,3 @@ for x in c["checks"]:
  status="unknown" if not x["evidence_supported"] or x.get("caption_dependent") else fail.get(x["id"],"pass")
  checks.append({"id":x["id"],"status":status,"observation":o,"region":nid or "whole frame / relevant delivery region","source_observation":x["source_fact"]+" Comparison: "+o})
 (r/"research/review-001.json").write_text(json.dumps({"checklist_version":c["version"],"checks":checks,"summary":"Nested wetrotor mechanism distinguishable. Hollow shaft/inlet eye path unverified and terminalbox moved; no captiongate yet.","next_changes":["Expose hollow ceramic shaft and inlet central-eye connection","Restore terminalbox toward storephoto left-front while preserving corecut"],"resolved_changes":[]},ensure_ascii=False,indent=2))
-

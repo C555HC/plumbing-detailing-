@@ -17,4 +17,3 @@ items=[
 labels={"color":"#073C76","canvas":{"size":[2400,1800],"image_box":[410,350,1920,1483]},"title":{"text":"VALTEC VRS 25/4-180\nВнутреннее устройство","position":xy(55,45),"font_size":49},"labels":[]}
 for i,t,x,y,sx,sy,target,src in items: labels["labels"].append({"id":i,"text":t,"position":xy(x,y),"font_size":30,"line_start":xy(sx,sy),"target_image":target,"source_id":src})
 (r/"research/labels-002.json").write_text(json.dumps(labels,ensure_ascii=False,indent=2))
-

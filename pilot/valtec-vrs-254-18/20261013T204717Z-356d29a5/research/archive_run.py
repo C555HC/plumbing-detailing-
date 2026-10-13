@@ -13,4 +13,3 @@ for a in s['attempts']:
 assert hashlib.sha256((dst/'final/best.png').read_bytes()).hexdigest()==s['attempts'][2]['preview_sha256']
 assert not list(dst.rglob('*.pdf')) and not list(dst.rglob('*.zip'))
 print('hashes_verified',3,'plus previews/final')
-

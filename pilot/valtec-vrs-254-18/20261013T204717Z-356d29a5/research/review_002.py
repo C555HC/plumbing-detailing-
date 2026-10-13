@@ -19,4 +19,3 @@ d["summary"]="Shaftbore and terminalbox improved; duplicate ventplug regression,
 d["next_changes"]=["Remove second silver ventplug","Clarify lower suction passage to central impellereye"]
 d["resolved_changes"]=["Longitudinal shaft lumen exposed","Terminalbox leftupperposition restored"]
 (r/"research/review-002.json").write_text(json.dumps(d,ensure_ascii=False,indent=2))
-

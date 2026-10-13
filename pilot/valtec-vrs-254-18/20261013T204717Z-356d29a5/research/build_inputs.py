@@ -59,4 +59,3 @@ Frozenv2 fiveaspects per6essentialnodes. Observe actual shape/nesting/attachment
 (r/"research/store-excerpt.txt").write_text("VALTEC НАСОС ЦИРКУЛЯЦИОННЫЙ VRS 25/4-180, 25/4-180\nАртикул VRS.254.18.0\nObserved via live browser; full card source and asset recorded in store-card.json.\n")
 (r/"research/manufacturer-excerpt.txt").write_text("Exact VALTEC card: VRS.254.18.0; castiron; ceramic shaft/bearings/thrustwashers; EPDM cuff; plate holes and shaft channel; three-speed wetrotor. Links passport VRS-0725.pdf and STP drawing/VRS.254.18/stp.zip.\nSTP archive retrieved but no geometry section inspected; not evidence for hidden assembly.\n")
 print(len(checks),{b:sum(c["points"] for c in checks if c["block"]==b) for b in ["construction","topology","completeness","appearance","clarity"]})
-
