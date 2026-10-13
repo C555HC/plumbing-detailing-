@@ -44,6 +44,7 @@ class CutawayTests(unittest.TestCase):
         # Preserve a historical v1/10-attempt fixture; new production runs use v2/5.
         state = c.load(self.run / "state.json")
         state.pop("scoring_protocol_version")
+        state.pop("caption_threshold")
         state["limit"] = 10
         c.atomic_json(self.run / "state.json", state)
         self.write_inputs()
@@ -669,9 +670,12 @@ class ScoringV2Tests(unittest.TestCase):
         n = c.reserve(self.run, self.prompt, [self.image])["attempt"]
         c.record(self.run, n, self.image)
         path = self.root / "review.json"
-        c.atomic_json(path, self.answer({"shape": "unknown"}))
+        c.atomic_json(path, self.answer({"shape": "unknown", "captions": "unknown"}))
         result = c.review_attempt(self.run, n, path)
         self.assertEqual(result["readiness"]["status"], "needs_technical_review")
+        preview, labels, audit, caption_review = self.composed_caption(n)
+        c.atomic_json(caption_review, self.answer({"shape": "unknown"}))
+        c.review_attempt(self.run, n, caption_review, preview, labels, audit)
         final = c.finalize(self.run, "fixture done")
         report = (self.run / "final/report.md").read_text()
         self.assertIn("85/100", report)
@@ -685,6 +689,112 @@ class ScoringV2Tests(unittest.TestCase):
         del self.checklist["protocol_version"]
         with self.assertRaisesRegex(ValueError, "do not downgrade"):
             self.prepare(update=True)
+
+    def recorded_base(self, statuses=None):
+        self.prepare()
+        n = c.reserve(self.run, self.prompt, [self.image])["attempt"]
+        c.record(self.run, n, self.image)
+        path = self.root / "base-review.json"
+        c.atomic_json(path, self.answer({"captions": "unknown", **(statuses or {})}))
+        result = c.review_attempt(self.run, n, path)
+        return n, result
+
+    def composed_caption(self, number):
+        labels = self.root / "labels.json"
+        c.atomic_json(labels, {"labels": [{"id": "membrane", "text": "Мембрана", "position": [.02,.02],
+                                          "target_image": [.5,.5], "font_size": 20}]})
+        preview = self.root / "captioned.png"
+        layout.compose(self.image, labels, preview)
+        audit = self.root / "label-audit.json"
+        c.atomic_json(audit, {"base_sha256": c.digest(self.image), "labels_sha256": c.digest(labels),
+                             "preview_sha256": c.digest(preview), "title_checked": True, "layout_checked": True,
+                             "checks": [{"id": "membrane", "source_ids": ["manual"], "locator": "fixture page 1",
+                                         "text_checked": True, "target_checked": True, "observation": "Fixture endpoint inspected"}]})
+        review = self.root / "caption-review.json"
+        c.atomic_json(review, self.answer())
+        return preview, labels, audit, review
+
+    def test_unmade_captions_cannot_earn_points(self):
+        self.prepare()
+        n = c.reserve(self.run, self.prompt, [self.image])["attempt"]
+        c.record(self.run, n, self.image)
+        path = self.root / "review.json"
+        c.atomic_json(path, self.answer())
+        with self.assertRaisesRegex(ValueError, "Absent caption-dependent"):
+            c.review_attempt(self.run, n, path)
+
+    def test_base_at_80_triggers_captions_without_extra_generation(self):
+        n, base = self.recorded_base({"shape": "unknown"})  # 100 -15 -5 =80
+        self.assertEqual(base["rating"], 80)
+        self.assertTrue(base["caption_due"])
+        preview, labels, audit, review = self.composed_caption(n)
+        c.atomic_json(review, self.answer({"shape": "unknown"}))
+        result = c.review_attempt(self.run, n, review, preview, labels, audit)
+        self.assertEqual(result["base_rating"], 80)
+        self.assertEqual(result["rating"], 85)
+        self.assertEqual(result["evaluation_phase"], "captioned")
+        self.assertFalse(result["caption_due"])
+        self.assertEqual(len(c.load(self.run / "state.json")["attempts"]), 1)
+        final = c.finalize(self.run, "fixture")
+        self.assertEqual(final["base_rating"], 80)
+        self.assertEqual(final["evaluation_phase"], "captioned")
+
+    def test_captions_cannot_raise_low_base_to_threshold(self):
+        n, base = self.recorded_base({"shape": "unknown", "attachment": "unknown"})
+        self.assertEqual(base["rating"], 75)
+        self.assertFalse(base["caption_due"])
+        preview, labels, audit, review = self.composed_caption(n)
+        with self.assertRaisesRegex(ValueError, "base review at 80"):
+            c.review_attempt(self.run, n, review, preview, labels, audit)
+        result = c.finalize(self.run, "below threshold; report actual base")
+        self.assertEqual(result["rating"], 75)
+        self.assertNotIn("preview", c.load(self.run / "state.json")["attempts"][0])
+
+    def test_threshold_result_requires_caption_audit_before_final(self):
+        self.recorded_base()
+        with self.assertRaisesRegex(ValueError, "eligible bases"):
+            c.finalize(self.run, "cannot hide missing due captions")
+
+    def test_new_inputs_clear_caption_eligibility(self):
+        n, _ = self.recorded_base()
+        self.prepare(update=True)
+        preview, labels, audit, review = self.composed_caption(n)
+        with self.assertRaisesRegex(ValueError, "base review at 80"):
+            c.review_attempt(self.run, n, review, preview, labels, audit)
+
+    def test_new_base_review_clears_old_caption_preview(self):
+        n, _ = self.recorded_base()
+        preview, labels, audit, review = self.composed_caption(n)
+        c.review_attempt(self.run, n, review, preview, labels, audit)
+        c.atomic_json(review, self.answer({"captions": "unknown", "shape": "unknown", "attachment": "unknown"}))
+        c.review_attempt(self.run, n, review)
+        state = c.load(self.run / "state.json")
+        self.assertNotIn("preview", state["attempts"][0])
+        self.assertTrue((self.run / "attempts/001/preview-02.png").exists())
+
+    def test_dry_material_check_can_be_caption_independent(self):
+        self.check("captions").update(caption_dependent=False, requirement="Dry device and natural material at cut faces",
+                                      source_fact="Fixture material and dry-master requirement")
+        self.prepare()
+        n = c.reserve(self.run, self.prompt, [self.image])["attempt"]
+        c.record(self.run, n, self.image)
+        path = self.root / "review.json"
+        c.atomic_json(path, self.answer())
+        result = c.review_attempt(self.run, n, path)
+        self.assertEqual(result["rating"], 100)
+        self.assertTrue(result["caption_due"])
+
+    def test_79_point_9_does_not_round_up_to_caption_gate(self):
+        self.check("shape")["points"] = 15.1
+        self.check("type_count")["points"] = 9.9
+        _, result = self.recorded_base({"shape": "unknown"})
+        self.assertEqual(result["rating"], 79.9)
+        self.assertFalse(result["caption_due"])
+
+    def test_caption_dependency_must_be_explicit_boolean_when_present(self):
+        self.check("captions")["caption_dependent"] = "false"
+        with self.assertRaisesRegex(ValueError, "caption_dependent"):
+            self.prepare()
 
 
 if __name__ == "__main__":

@@ -27,6 +27,7 @@ FACTORS = {"pass": Decimal(1), "partial": Decimal("0.5"),
            "fail": Decimal(0), "unknown": Decimal(0)}
 SOURCE_KINDS = {"manufacturer_model", "manufacturer_series", "analog", "product_photo", "style_reference"}
 DEFAULT_LIMIT = 5
+CAPTION_THRESHOLD = 80
 NODE_ASPECTS = {"type_count", "shape", "attachment", "placement_connections", "material"}
 READINESS_LABELS = {
     "best_available": "Лучший доступный: есть критические ошибки",
@@ -144,6 +145,8 @@ def validate_inputs(spec, checklist, sources):
             raise ValueError("Analog/photo cannot prove construction of the target model")
         if not isinstance(check.get("critical", False), bool):
             raise ValueError("critical must be a boolean")
+        if "caption_dependent" in check and type(check["caption_dependent"]) is not bool:
+            raise ValueError("caption_dependent must be a boolean")
         if check.get("critical") and check.get("partial_rule"):
             raise ValueError("Critical checks must be binary")
     for block, total in totals.items():
@@ -331,6 +334,7 @@ def initialize(root, product_id, model, url, image, limit=DEFAULT_LIMIT):
         "product_id": product_id, "model": model, "url": url, "limit": limit,
         "created_at": now(), "updated_at": now(), "stage": "needs_inputs",
         "attempts": [], "events": [], "inputs_version": 0, "best": None, "scoring_protocol_version": 2,
+        "caption_threshold": CAPTION_THRESHOLD,
         "input_image": {"path": str(reference.relative_to(run)), "sha256": digest(reference),
                         "format": image_format, "size": size}})
     return run
@@ -365,6 +369,7 @@ def prepare(run, spec_path, checklist_path, sources_path, update=False):
             if "score" in attempt:
                 attempt.setdefault("score_history", []).append(attempt.pop("score"))
             attempt.pop("caption_audit", None)
+            attempt.pop("base_score", None)
         state["best"] = None
         state["stage"] = "ready"
         event(state, "prepare", version=version, checklist=checklist["version"])
@@ -568,6 +573,23 @@ def review_attempt(run, number, review_path, preview=None, labels_path=None, lab
         verify_inputs(run, state)
         verify_evidence(run, state)
         score = evaluate(checklist, review)
+        threshold = state.get("caption_threshold")
+        if threshold is not None:
+            if preview:
+                base_score = attempt.get("base_score", {})
+                if base_score.get("checklist_sha256") != state["checklist_sha256"] or base_score.get("total", -1) < threshold:
+                    raise ValueError("Caption preview requires a current base review at 80 or above")
+                if not (labels_path and label_review_path):
+                    raise ValueError("New caption previews require labels and their inspected audit")
+                score["evaluation_phase"] = "captioned"
+                score["base_rating"] = base_score["total"]
+            else:
+                answers = {item["id"]: item for item in review["checks"]}
+                for check in checklist["checks"]:
+                    if check.get("caption_dependent", check["block"] == "clarity") and answers[check["id"]]["status"] != "unknown":
+                        raise ValueError("Absent caption-dependent checks must be unknown before composition")
+                score["evaluation_phase"] = "base"
+                score["base_rating"] = score["total"]
         if labels_path or label_review_path:
             if not (preview and labels_path and label_review_path):
                 raise ValueError("Caption review requires preview, labels and label-review together")
@@ -600,6 +622,11 @@ def review_attempt(run, number, review_path, preview=None, labels_path=None, lab
         atomic_json(review_file, review)
         attempt.setdefault("reviews", []).append(str(review_file.relative_to(run)))
         score.update(checklist_sha256=state["checklist_sha256"], evaluated_at=now())
+        if threshold is not None and not preview:
+            attempt["base_score"] = score.copy()
+            # Preserve old files/reviews, but never select an old preview for a new base-only evaluation.
+            for key in ("preview", "preview_sha256", "caption_audit"):
+                attempt.pop(key, None)
         if "score" in attempt:
             attempt.setdefault("score_history", []).append(attempt["score"])
         attempt["score"] = score
@@ -609,7 +636,9 @@ def review_attempt(run, number, review_path, preview=None, labels_path=None, lab
         event(state, "review", attempt=number, total=score["total"])
     return {"attempt": number, "rating": score["total"], "best": state["best"],
             "critical_errors": score["critical_errors"], "issues": score["issues"],
-            "readiness": score["readiness"], "evidence_summary": score.get("evidence_summary")}
+            "readiness": score["readiness"], "evidence_summary": score.get("evidence_summary"),
+            "evaluation_phase": score.get("evaluation_phase"), "base_rating": score.get("base_rating"),
+            "caption_due": threshold is not None and score.get("evaluation_phase") == "base" and score["total"] >= threshold}
 
 
 def coverage(spec):
@@ -631,6 +660,9 @@ def report_text(run, state, candidates, reason):
         "Технический специалист ещё не подтвердил результат.", "", "![Лучший вариант](best.png)", "", "## Проверка выбранного варианта", ""]
     for block in WEIGHTS:
         lines.append(f"- {BLOCK_NAMES[block]}: {score['blocks'][block]:g}/{WEIGHTS[block]}.")
+    if score.get("evaluation_phase"):
+        lines += [f"- Этап оценки: {score['evaluation_phase']}; разрез без подписей: {score['base_rating']:g}/100.",
+                  "Баллы, добавленные за подписи, не означают улучшение внутренней конструкции."]
     lines += ["", f"Критические противоречия: {', '.join(score['critical_errors']) or 'не обнаружены в проведённой проверке'}.",
               f"Непроверенные критические пункты: {', '.join(score['critical_unknown']) or 'нет'}."]
     for item in score["checks"]:
@@ -668,7 +700,7 @@ def report_text(run, state, candidates, reason):
         lines.append(f"- Ограничение: {gap}")
     for assumption in spec.get("analog_assertions", []):
         lines.append(f"- Реконструкция по аналогам: {assumption}")
-    lines += ["", "## История вариантов", "", "| Версия | Рейтинг | Критические ошибки | Замечания и исправления |", "|---|---:|---|---|"]
+    lines += ["", "## История вариантов", "", "| Версия | Рейтинг | Этап / база | Критические ошибки | Замечания и исправления |", "|---|---:|---|---|---|"]
     for a in state["attempts"]:
         s = a.get("score")
         if s:
@@ -677,9 +709,10 @@ def report_text(run, state, candidates, reason):
             changes = review.get("resolved_changes", [])
             if changes:
                 notes += " Исправлено: " + "; ".join(changes)
-            lines.append(f"| {a['id']} | {s['total']:g} | {', '.join(s['critical_errors']) or '—'} | {notes.replace('|', '/').replace(chr(10), ' ')} |")
+            phase = s.get("evaluation_phase", "historical") + (f" / {s['base_rating']:g}" if "base_rating" in s else "")
+            lines.append(f"| {a['id']} | {s['total']:g} | {phase} | {', '.join(s['critical_errors']) or '—'} | {notes.replace('|', '/').replace(chr(10), ' ')} |")
         else:
-            lines.append(f"| {a['id']} | — | — | {a['status']}: {a.get('error', 'не оценено')} |")
+            lines.append(f"| {a['id']} | — | — | — | {a['status']}: {a.get('error', 'не оценено')} |")
     lines += ["", "## Источники", ""]
     for source in sources:
         lines.append(f"- [{source.get('title', source['id'])}]({source['url']}): {source['kind']}; {source['applicability']}")
@@ -745,6 +778,10 @@ def finalize(run, reason):
             if candidate.get("preview") and digest(run / candidate["preview"]) != candidate["preview_sha256"]:
                 raise ValueError("Candidate preview changed after evaluation")
         best = candidates[0]
+        if state.get("caption_threshold") is not None:
+            due = [a["id"] for a in candidates if a.get("base_score", {}).get("total", -1) >= state["caption_threshold"] and not a.get("caption_audit")]
+            if due:
+                raise ValueError(f"Compose and inspect captions for eligible bases before finalizing: {due}")
         selected = run / best.get("preview", best["image"])
         expected = best.get("preview_sha256", best["image_sha256"])
         if digest(selected) != expected:
@@ -762,7 +799,8 @@ def finalize(run, reason):
         atomic_json(final / "ranking.json", [{"attempt": a["id"], "rating": a["score"]["total"],
                     "critical_errors": a["score"]["critical_errors"],
                     "readiness": a["score"].get("readiness") or readiness(a["score"]),
-                    "evidence_summary": a["score"].get("evidence_summary")} for a in candidates])
+                    "evidence_summary": a["score"].get("evidence_summary"),
+                    "evaluation_phase": a["score"].get("evaluation_phase"), "base_rating": a["score"].get("base_rating")} for a in candidates])
         (final / "report.md").write_text(report_text(run, state, candidates, reason), encoding="utf-8")
         (final / "errors.md").write_text(error_report_text(run, state), encoding="utf-8")
         contact_sheet(run, candidates, final / "contact-sheet.jpg")
@@ -771,7 +809,8 @@ def finalize(run, reason):
     return {"best": best["id"], "rating": best["score"]["total"], "image": str(final / "best.png"),
             "report": str(final / "report.md"), "errors": str(final / "errors.md"),
             "readiness": best["score"].get("readiness") or readiness(best["score"]),
-            "evidence_summary": best["score"].get("evidence_summary")}
+            "evidence_summary": best["score"].get("evidence_summary"),
+            "evaluation_phase": best["score"].get("evaluation_phase"), "base_rating": best["score"].get("base_rating")}
 
 
 def contact_sheet(run, candidates, target):
