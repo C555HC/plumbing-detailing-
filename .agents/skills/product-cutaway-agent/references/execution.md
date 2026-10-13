@@ -13,7 +13,7 @@ python cutaway.py reserve --run RUN --prompt-file PROMPT.md --ref PHOTO [--ref D
 python cutaway.py record --run RUN --attempt 1 --image RETURNED.png [--metadata SMALL-METADATA.json]
 python compose_png.py --image BASE.png --labels LABELS.json --output PREVIEW.png [--font FONT.ttf]
 python cutaway.py review --run RUN --attempt 1 --review-file REVIEW.json [--preview PREVIEW.png --labels LABELS.json --label-review LABEL-REVIEW.json]
-python cutaway.py status --run RUN
+python cutaway.py status --run RUN --compact
 python cutaway.py finalize --run RUN --reason REASON
 ```
 
@@ -26,6 +26,8 @@ If a necessary live viewer screenshot exists only in the conversation, use the g
 State writes are atomic and locked. Copies/prompts are saved before the corresponding state transition; a crash may leave an orphan directory, which blocks the next reservation instead of overwriting evidence. Inspect it and whether a tool call occurred before repairing the state. The automatic tests exercise the count, locks, recovery and ranking, not a guarantee against every power-loss ordering.
 
 ## JSON shapes
+
+Block enums are exactly `construction`, `topology`, `completeness`, `appearance`, `clarity`. Exterior similarity is `appearance` in JSON, not `exterior`. Scores include `assessment_method.image_semantics_checked_by_helper: false`: calculation validates submitted observations and arithmetic, not whether the depicted mechanism is correct. A deliberately false pass review can produce a high score for a defective image. Keep such isolated evaluator probes outside registered production reviews and preserve their failure finding.
 
 Sources:
 ```json
@@ -78,6 +80,8 @@ Pass preview, labels and protocol together. `review` validates coverage, source 
 For labels outside the product, optionally set `canvas: {"size":[2000,1800],"image_box":[300,270,1650,1620]}`. The source is fitted with its aspect ratio preserved. Prefer `target_image: [x,y]` relative to the source PNG for leader endpoints; `position`, `line_start` and `elbow` remain relative to the output canvas. This automatically accounts for white bands around non-square images. Use either target_image or target, not both. The layout report records actual image_bounds and target_points. Changing a cut plane still requires identifying new semantic targets; geometry conversion is not object recognition.
 
 ## Changing evidence / finishing
+
+Use `status --compact` for normal resume/progress. It preserves attempt accounting, pending/uncertain calls, current input paths/hash, leader, ratings and readiness while omitting full observations and history. Read the relevant immutable review/spec files only when needed. The historical `status` without the flag still returns the full saved state; do not routinely load that large output into context.
 
 `prepare --update` creates a new immutable input version, preserves previous inputs and score history, and removes active ratings. Re-review every available image under the new checklist before finalizing. Never edit frozen inputs in place.
 

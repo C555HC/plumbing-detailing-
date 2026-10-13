@@ -1,0 +1,683 @@
+{
+  "protocol_version": 2,
+  "version": "aquastrong-smart2-32-v2-1",
+  "checks": [
+    {
+      "id": "motor-type_count",
+      "node_id": "motor",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 6,
+      "requirement": "Permanent-magnet motor rather than turbine/engine",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Catalogue specifies permanent-magnet motor; magnet number unexposed",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "motor-shape",
+      "node_id": "motor",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 4,
+      "requirement": "Rotor nested radially inside cylindrical stator and housing",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Parts19–21 show rotor entering cylindrical stator/housing",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "motor-material",
+      "node_id": "motor",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Exact motor substrates",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Catalogue omits complete winding/magnet/housing materials",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "hydraulics-type_count",
+      "node_id": "hydraulics",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 4,
+      "requirement": "Exact stage count of SMART2-32",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Family diagram shows repeated stages but exact model count not specified",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "hydraulics-shape",
+      "node_id": "hydraulics",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 5,
+      "requirement": "Distinct closed wheels/guides, seal at motor boundary",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Parts8/9/16 show annular package and compact shaft seal; precise vanes hidden",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "hydraulics-material",
+      "node_id": "hydraulics",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Exact wheel/diffuser/seal substrates",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Supplier says stainless wheel; branded sources lack applicable material table",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "manifold-type_count",
+      "node_id": "manifold",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 3,
+      "requirement": "One check valve, pressure sensor, temperature probe",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Key12/13/25 explicitly distinguishes these parts",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "manifold-shape",
+      "node_id": "manifold",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 3,
+      "requirement": "Vertical branched fitting and axial valve cartridge",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Parts13/14/15 show branched body/vertical cartridge",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "manifold-material",
+      "node_id": "manifold",
+      "aspect": "material",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Exact fitting/valve/sensor substrates",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Catalogue omits material specification",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "tank-type_count",
+      "node_id": "tank",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 2,
+      "requirement": "One compact accumulator, no large remote tank",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Assembly10 is small vessel attached to fitting",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "tank-shape",
+      "node_id": "tank",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Actual internal diaphragm shape",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Tank10 is closed component; diaphragm unexposed",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "tank-material",
+      "node_id": "tank",
+      "aspect": "material",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Exact tank and membrane substrates",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Manufacturer sources omit materials",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "controller-type_count",
+      "node_id": "controller",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 3,
+      "requirement": "Electronic controller, not mechanical pressure switch",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Part3 and variable-speed description establish controller",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "controller-shape",
+      "node_id": "controller",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 3,
+      "requirement": "Rectangular horizontal board under protected top covers",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Parts1–3 show board under top covers",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "controller-material",
+      "node_id": "controller",
+      "aspect": "material",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Exact board/cover substrates",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Applicable material facts omitted",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "cooling-type_count",
+      "node_id": "cooling",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 1,
+      "requirement": "One rear shaft fan",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Part24 is separate rear fan",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "cooling-shape",
+      "node_id": "cooling",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Small bladed fan distinct from hydraulic wheels",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Part24 differs from8/9 and sits at rear",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "cooling-material",
+      "node_id": "cooling",
+      "aspect": "material",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Exact fan substrate",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "No material table for24",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "motor-attachment",
+      "node_id": "motor",
+      "aspect": "attachment",
+      "block": "topology",
+      "points": 2,
+      "requirement": "Rotor in stator/housing, bearing and shaft support",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Assembly shows coarse relationship: Rotor in stator/housing, bearing and shaft support",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "motor-placement_connections",
+      "node_id": "motor",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 2,
+      "requirement": "Motor left/rear of hydraulic package on one horizontal axis",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Assembly shows coarse relationship: Motor left/rear of hydraulic package on one horizontal axis",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "hydraulics-attachment",
+      "node_id": "hydraulics",
+      "aspect": "attachment",
+      "block": "topology",
+      "points": 2,
+      "requirement": "Wheels on shaft, surrounding stationary guides and drive-boundary seal",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Assembly shows coarse relationship: Wheels on shaft, surrounding stationary guides and drive-boundary seal",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "hydraulics-placement_connections",
+      "node_id": "hydraulics",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 3,
+      "requirement": "Hydraulic package right/front of motor within same case",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Assembly shows coarse relationship: Hydraulic package right/front of motor within same case",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "manifold-attachment",
+      "node_id": "manifold",
+      "aspect": "attachment",
+      "block": "topology",
+      "points": 2,
+      "requirement": "Valve in vertical branch, sensors side/body, fitting on pump casing",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Assembly shows coarse relationship: Valve in vertical branch, sensors side/body, fitting on pump casing",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "manifold-placement_connections",
+      "node_id": "manifold",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 3,
+      "requirement": "Upper right fitting to upper port; lower port to suction chamber",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Assembly shows coarse relationship: Upper right fitting to upper port; lower port to suction chamber",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "tank-attachment",
+      "node_id": "tank",
+      "aspect": "attachment",
+      "block": "topology",
+      "points": 2,
+      "requirement": "Compact tank side branch to discharge fitting",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Assembly shows coarse relationship: Compact tank side branch to discharge fitting",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "tank-placement_connections",
+      "node_id": "tank",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 2,
+      "requirement": "Tank inside case above hydraulic body, beside fitting",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Assembly shows coarse relationship: Tank inside case above hydraulic body, beside fitting",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "controller-attachment",
+      "node_id": "controller",
+      "aspect": "attachment",
+      "block": "topology",
+      "points": 2,
+      "requirement": "Board protected and separated from hydraulic passages",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Assembly shows coarse relationship: Board protected and separated from hydraulic passages",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "controller-placement_connections",
+      "node_id": "controller",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 2,
+      "requirement": "Board above motor, not immersed in fluid chamber",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Assembly shows coarse relationship: Board above motor, not immersed in fluid chamber",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "cooling-attachment",
+      "node_id": "cooling",
+      "aspect": "attachment",
+      "block": "topology",
+      "points": 1,
+      "requirement": "Fan coaxial with rear shaft",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Assembly shows coarse relationship: Fan coaxial with rear shaft",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "cooling-placement_connections",
+      "node_id": "cooling",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 2,
+      "requirement": "Fan opposite hydraulic package at rear motor end",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Catalogue PDF/printed28, SMART assembly/key",
+      "source_fact": "Assembly shows coarse relationship: Fan opposite hydraulic package at rear motor end",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "nodes-visible",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 6,
+      "requirement": "All six functional nodes identifiable",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Applicable source image / project presentation requirement",
+      "source_fact": "Assembly node identities; text cannot replace visibility",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "mechanism-readable",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 6,
+      "requirement": "Distinct wheel/guide and rotor/stator relationships, no featureless placeholders",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Applicable source image / project presentation requirement",
+      "source_fact": "Parts8/9 and19/20/21 are distinct; internal blade details reconstructed",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "physical-boundaries",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 3,
+      "requirement": "Physical passages and membrane separation; no impossible fluid passage through motor/electronics",
+      "source_ids": [
+        "catalog",
+        "tank-principle"
+      ],
+      "locator": "Applicable source image / project presentation requirement",
+      "source_fact": "Assembly constrains endpoints; Grundfos supports compartment separation only",
+      "evidence_level": "analog",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "store-identity",
+      "aspect": "delivery",
+      "block": "appearance",
+      "points": 6,
+      "requirement": "Rectangular envelope/proportions and vented black base",
+      "source_ids": [
+        "store"
+      ],
+      "locator": "Applicable source image / project presentation requirement",
+      "source_fact": "Exact store photo exterior observed",
+      "evidence_level": "photo",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "store-ports",
+      "aspect": "delivery",
+      "block": "appearance",
+      "points": 4,
+      "requirement": "Two stacked right-side ports, retained top cap, no external large tank",
+      "source_ids": [
+        "store"
+      ],
+      "locator": "Applicable source image / project presentation requirement",
+      "source_fact": "Exact store photo has two ports and top cap",
+      "evidence_level": "photo",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "dry",
+      "aspect": "delivery",
+      "block": "clarity",
+      "points": 1,
+      "requirement": "No liquid, blue fill or flow arrows",
+      "source_ids": [
+        "presentation"
+      ],
+      "locator": "Applicable source image / project presentation requirement",
+      "source_fact": "User-authorized dry master",
+      "evidence_level": "style",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "natural-cuts",
+      "aspect": "delivery",
+      "block": "clarity",
+      "points": 1,
+      "requirement": "Natural cut faces, no painted red bands",
+      "source_ids": [
+        "presentation"
+      ],
+      "locator": "Applicable source image / project presentation requirement",
+      "source_fact": "User-authorized natural sections",
+      "evidence_level": "style",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "captions",
+      "aspect": "delivery",
+      "block": "clarity",
+      "points": 3,
+      "requirement": "Readable Russian title and correct names/leader endpoints",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Applicable source image / project presentation requirement",
+      "source_fact": "Part-key names; exact title from store",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": 4,
+  "source_id": "catalog",
+  "url": "https://gidrokontrakt.ru/f/katalog_aquastrong_bytovye_nasosy_2025.pdf",
+  "kind": "manufacturer_series",
+  "applicability": "PDF/printed28 has common SMART assembly/key and exact SMART2-32 table. PDF29 Z/30 SMART45 inspected to exclude. Family drawing does not prove exact count/dimensions for2-32",
+  "inputs_version": 1,
+  "locator": "Crop from PDF28, large assembly/key",
+  "observation": "Selected technical reference for generator; same source, not new evidence",
+  "archived_at": "2026-10-13T19:25:51+00:00",
+  "path": "evidence/files/6ecae44e4b734e17d2c6dfaa0f6caf11257d0a3ed2d2c375041be8fc31b3db3c.png",
+  "sha256": "6ecae44e4b734e17d2c6dfaa0f6caf11257d0a3ed2d2c375041be8fc31b3db3c"
+}

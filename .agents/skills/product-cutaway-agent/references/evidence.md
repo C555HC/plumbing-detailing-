@@ -20,6 +20,8 @@ Create product-specific checks before seeing candidates. Use atomic observable f
 
 ## Preserve the evidence actually inspected
 
+When the manual contains only operating instructions, inspect the technical catalogue's contents and relevant family pages before declaring construction unavailable. Scanned PDFs may have empty extracted text; render the contents and targeted pages instead of repeatedly searching that empty text or loading the entire catalogue. A common family assembly may establish topology while leaving the exact model's stage count unknown. Packaging/secondary gallery photos can depict a different suffix; verify the marking and exclude such variants even when they appear on the exact supplier card.
+
 After preparing inputs and before relying on a source, use `archive-evidence` to save the relevant rendered PDF page, original document, photograph or actual exported viewer screenshot. Each record links a source ID, immutable input version, exact page/figure or selected model/view, and the observation it supports. Keep local files and manifests hashed. Prefer relevant pages to repeatedly loading full documents; preserve the document URL/edition too.
 
 For each relied-on source, archive the inspected views/pages, not just one arbitrary file. Rotated views should describe camera side and mating faces. If export or local capture is unavailable, record `--gap` with the concrete limitation and describe the inspected view. Do not invent a screenshot path or bypass browser restrictions to obtain a file. A context-only view remains incomplete archival evidence. A source archive does not automatically award any score.

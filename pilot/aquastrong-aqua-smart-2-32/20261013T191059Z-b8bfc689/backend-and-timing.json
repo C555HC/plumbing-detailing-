@@ -1,0 +1,18 @@
+{
+  "backend": "Codex built-in imagegen",
+  "browser_image_generation": false,
+  "paid_api": false,
+  "attempts": 3,
+  "working_images": 2,
+  "controlled_negative_images": 1,
+  "reported_tool_call_wall_seconds": [
+    30.6,
+    44.9,
+    37.9
+  ],
+  "tool_call_wall_seconds_total": 113.4,
+  "five_hour_usage_change_measured": false,
+  "source_preparation_seconds": 892.0,
+  "recorded_run_seconds": 2736.0,
+  "timing_limitations": "Tool-call durations are returned wall times, not an account-limit measurement. Run interval excludes earlier browsing setup and subsequent GitHub publishing; preparation/testing were substantial."
+}

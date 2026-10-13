@@ -1,0 +1,108 @@
+{
+  "model": "AQUASTRONG Aqua SMART 2-32",
+  "nodes": [
+    {
+      "id": "motor",
+      "name": "Двигатель",
+      "evidence": "series",
+      "source_ids": [
+        "catalog"
+      ],
+      "essential": true,
+      "excluded_aspects": {}
+    },
+    {
+      "id": "hydraulics",
+      "name": "Гидравлическая часть и торцевое уплотнение",
+      "evidence": "series",
+      "source_ids": [
+        "catalog"
+      ],
+      "essential": true,
+      "excluded_aspects": {}
+    },
+    {
+      "id": "manifold",
+      "name": "Напорный узел, клапан и датчики",
+      "evidence": "series",
+      "source_ids": [
+        "catalog"
+      ],
+      "essential": true,
+      "excluded_aspects": {}
+    },
+    {
+      "id": "tank",
+      "name": "Гидроаккумулятор",
+      "evidence": "series",
+      "source_ids": [
+        "catalog"
+      ],
+      "essential": true,
+      "excluded_aspects": {}
+    },
+    {
+      "id": "controller",
+      "name": "Частотный контроллер",
+      "evidence": "series",
+      "source_ids": [
+        "catalog"
+      ],
+      "essential": true,
+      "excluded_aspects": {}
+    },
+    {
+      "id": "cooling",
+      "name": "Вентилятор",
+      "evidence": "series",
+      "source_ids": [
+        "catalog"
+      ],
+      "essential": true,
+      "excluded_aspects": {}
+    }
+  ],
+  "connections": [
+    {
+      "node_id": "motor",
+      "attachment": "Rotor in stator/housing, bearing and shaft support",
+      "placement": "Motor left/rear of hydraulic package on one horizontal axis"
+    },
+    {
+      "node_id": "hydraulics",
+      "attachment": "Wheels on shaft, surrounding stationary guides and drive-boundary seal",
+      "placement": "Hydraulic package right/front of motor within same case"
+    },
+    {
+      "node_id": "manifold",
+      "attachment": "Valve in vertical branch, sensors side/body, fitting on pump casing",
+      "placement": "Upper right fitting to upper port; lower port to suction chamber"
+    },
+    {
+      "node_id": "tank",
+      "attachment": "Compact tank side branch to discharge fitting",
+      "placement": "Tank inside case above hydraulic body, beside fitting"
+    },
+    {
+      "node_id": "controller",
+      "attachment": "Board protected and separated from hydraulic passages",
+      "placement": "Board above motor, not immersed in fluid chamber"
+    },
+    {
+      "node_id": "cooling",
+      "attachment": "Fan coaxial with rear shaft",
+      "placement": "Fan opposite hydraulic package at rear motor end"
+    }
+  ],
+  "gaps": [
+    "Exact SMART2-32 stage count unknown; four illustrative stages chosen from series drawing as reconstruction.",
+    "Rotor magnet pattern, exact internal hydraulic channels and vane shape unexposed.",
+    "Tank diaphragm form/clamp/material unexposed; separation reconstructed from Grundfos principle.",
+    "Most manufacturer material specifications unavailable; supplier statements kept separately.",
+    "No usable exact internal CAD/3D in inspected entry points; video found but not viewed or used."
+  ],
+  "analog_assertions": [
+    "Supplier parts constrain tank, valve and board visual profiles, not manufacturer confirmation.",
+    "Only flexible diaphragm separation principle from Grundfos; no size/material/clamp transfer."
+  ]
+}

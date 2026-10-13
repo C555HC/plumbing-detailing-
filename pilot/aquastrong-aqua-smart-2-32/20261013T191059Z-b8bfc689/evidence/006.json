@@ -1,0 +1,13 @@
+{
+  "id": 6,
+  "source_id": "parts",
+  "url": "https://gidrokontrakt.ru/magazin/product/chastotnaya-nasosnaya-stanciya-aquastrong-aqua-smart-2-32",
+  "kind": "analog",
+  "applicability": "Linked exact SMART2-32 tank, valve13, board3 photos inspected; reconstruction aids only, supplier materials not manufacturer proof",
+  "inputs_version": 1,
+  "locator": "Supplier linked valve13 photograph",
+  "observation": "Spring-loaded black cage with two green O-rings",
+  "archived_at": "2026-10-13T19:25:51+00:00",
+  "path": "evidence/files/00d8be48f2a1264dd5d59962eac7391e085d65203ab57ed59ef6631e467d1c29.png",
+  "sha256": "00d8be48f2a1264dd5d59962eac7391e085d65203ab57ed59ef6631e467d1c29"
+}

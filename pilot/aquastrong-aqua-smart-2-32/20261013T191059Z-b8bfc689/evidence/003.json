@@ -1,0 +1,13 @@
+{
+  "id": 3,
+  "source_id": "catalog",
+  "url": "https://gidrokontrakt.ru/f/katalog_aquastrong_bytovye_nasosy_2025.pdf",
+  "kind": "manufacturer_series",
+  "applicability": "PDF/printed28 has common SMART assembly/key and exact SMART2-32 table. PDF29 Z/30 SMART45 inspected to exclude. Family drawing does not prove exact count/dimensions for2-32",
+  "inputs_version": 1,
+  "locator": "PDF/printed28 SMART assembly/key",
+  "observation": "Coarse assembly of motor/hydraulic package/upper fitting/tank/board/fan",
+  "archived_at": "2026-10-13T19:25:51+00:00",
+  "path": "evidence/files/aa882d92b97d933120afb26d881e7a597430efdaa46107e7c071d936859ae6ce.png",
+  "sha256": "aa882d92b97d933120afb26d881e7a597430efdaa46107e7c071d936859ae6ce"
+}

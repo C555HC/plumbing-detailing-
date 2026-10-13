@@ -74,6 +74,30 @@ class CutawayTests(unittest.TestCase):
         self.assertEqual(score["total"], 82.5)
         self.assertEqual(score["blocks"]["topology"], 12.5)
 
+    def test_compact_status_preserves_resume_budget_failures_and_evidence(self):
+        good = self.candidate()
+        bad = self.candidate({"construction": "fail"})
+        uncertain = c.reserve(self.run, self.prompt, [self.image], parent=good, kind="edit")["attempt"]
+        c.fail(self.run, uncertain, "response lost", unknown=True)
+        c.archive_evidence(self.run, "manual", "figure1", "Inspected component", file=self.image)
+        state_path = self.run / "state.json"
+        before = state_path.read_bytes()
+        full = c.load(state_path)
+        result = subprocess.run([sys.executable, str(SCRIPTS / "cutaway.py"), "status",
+                                 "--run", str(self.run), "--compact"], capture_output=True,
+                                text=True, check=True)
+        brief = json.loads(result.stdout)
+        self.assertEqual(brief["used"], 3)
+        self.assertEqual(brief["remaining"], full["limit"] - 3)
+        self.assertEqual(brief["pending"], [uncertain])
+        self.assertEqual(brief["best"], good)
+        self.assertEqual(brief["evidence_records"], 1)
+        self.assertEqual(brief["checklist_sha256"], full["checklist_sha256"])
+        bad_summary = next(a for a in brief["attempts"] if a["id"] == bad)
+        self.assertEqual(bad_summary["critical_errors"], ["construction"])
+        self.assertLess(len(result.stdout), len(before))
+        self.assertEqual(state_path.read_bytes(), before)
+
     def test_reference_formats_preserve_bytes_and_real_suffix(self):
         for fmt, suffix in (("JPEG", ".jpg"), ("WEBP", ".webp")):
             with self.subTest(format=fmt):

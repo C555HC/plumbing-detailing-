@@ -1,0 +1,12 @@
+{
+  "id": 8,
+  "source_id": "tank-principle",
+  "url": "https://www.grundfos.com/solutions/learn/research-and-insights/diaphragm-tank",
+  "kind": "analog",
+  "applicability": "Inspected flexible diaphragm, gas side and manifold principle; no dimensions, materials, clamp or exact target shape transferred",
+  "inputs_version": 1,
+  "locator": "Grundfos diaphragm-tank page, inspected text",
+  "observation": "Flexible separation and gas side; no shape transferable",
+  "archived_at": "2026-10-13T19:25:51+00:00",
+  "gap": "Text read via web tool; no actual section image supplied"
+}

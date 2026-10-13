@@ -16,6 +16,8 @@ Readiness is separate from selection/rating. An observed critical fail gives `be
 
 This is an explicit evidence/observation contract, not visual recognition. The agent still decides applicability and observes images; a blind independent evaluator has not been added.
 
+For an explicitly requested evaluator test, compare actual rendered controls to applicable source views before scoring. Record which intended defects actually appeared and incidental regressions. Separate a visual detection trial from a sensitivity calculation that merely changes review flags. Include a false-assessor probe when useful: if erroneous pass observations yield a high score for a clearly defective frame, report the semantic limitation rather than claiming the arithmetic engine detects pixels. Never register that false review as a real candidate assessment. Repeated inspection by the agent who prepared the control is not blind independent validation; label it accordingly.
+
 ## Evidence before a number
 
 Prepare checks from the new product's construction map, not by copying the pilot's checklist. Split the mechanism into observable claims about actual shapes, nesting, mating, barriers and physical connections. A smooth disc, closed block or caption may establish visible presence, but cannot establish the concealed working geometry. Unsupported detail remains unknown; a diagram-supported geometry visibly replaced by a placeholder fails that geometry check.

@@ -1,0 +1,13 @@
+{
+  "id": 2,
+  "source_id": "manual",
+  "url": "https://gidrokontrakt.ru/f/smart_smartz_smartmini.pdf",
+  "kind": "manufacturer_series",
+  "applicability": "PDF1–7 visually inspected; exact SMART2-32 on PDF3 printed2–3, no internal section; date/edition not specified",
+  "inputs_version": 1,
+  "locator": "PDF3 printed2–3",
+  "observation": "SMART2-32 non-Z listed, 370W, exterior dimensions",
+  "archived_at": "2026-10-13T19:25:51+00:00",
+  "path": "evidence/files/c59c778aeb358adfeaf1ddd22e8a14afadec4582d67b5687123841e80aa083bd.png",
+  "sha256": "c59c778aeb358adfeaf1ddd22e8a14afadec4582d67b5687123841e80aa083bd"
+}

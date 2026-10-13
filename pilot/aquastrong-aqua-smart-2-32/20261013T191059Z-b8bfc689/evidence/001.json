@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "source_id": "store",
+  "url": "https://477477.ru/images/products/_transparent-v1/gk-1016090708-47f509ec51af0e39-detail-2ca2d171b2813ed0-detail.webp",
+  "kind": "product_photo",
+  "applicability": "Exact card GK-1016090708 observed and photo downloaded; exterior only",
+  "inputs_version": 1,
+  "locator": "Exact store card photo, GK-1016090708",
+  "observation": "Exterior photo fixes silhouette/two stacked ports/top cap",
+  "archived_at": "2026-10-13T19:25:51+00:00",
+  "path": "evidence/files/87cbe369520ea9e5bdcad26e7b4d0e8b61d8ece895f6c8e54b7e8a9e00a1a930.webp",
+  "sha256": "87cbe369520ea9e5bdcad26e7b4d0e8b61d8ece895f6c8e54b7e8a9e00a1a930"
+}

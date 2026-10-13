@@ -1,0 +1,54 @@
+{
+  "checklist_version": "aquastrong-smart2-32-v2-1",
+  "full_frame_actual_reviews": {
+    "image1_base": 67.0,
+    "image2_base": 83.0,
+    "image3_control_base": 58.0
+  },
+  "actual_control_defects": {
+    "wrong_valve_branch": "detected",
+    "wrong_fan_end": "detected",
+    "missing_controller": "detected",
+    "unrequested_decorative_texture": "detected"
+  },
+  "sensitivity": [
+    {
+      "case": "valve_wrong_branch",
+      "kind": "score_sensitivity_only_not_separate_render",
+      "rating": 78.0,
+      "critical_errors": [
+        "manifold-attachment"
+      ],
+      "readiness": "best_available"
+    },
+    {
+      "case": "fan_wrong_end",
+      "kind": "score_sensitivity_only_not_separate_render",
+      "rating": 80.0,
+      "critical_errors": [],
+      "readiness": "needs_technical_review"
+    },
+    {
+      "case": "controller_missing",
+      "kind": "score_sensitivity_only_not_separate_render",
+      "rating": 67.0,
+      "critical_errors": [],
+      "readiness": "needs_technical_review"
+    }
+  ],
+  "false_pass_probe": {
+    "defective_image": "attempts/003/image.png",
+    "supplied_review": "rating-tests/false-pass-assessor.json",
+    "accepted_rating": 83.0,
+    "finding": "Numeric engine has no visual recognition: false agent observations can assign83 to the defective image. Never registered this probe in run state."
+  },
+  "unsupported_fact_guard": {
+    "result": "rejected",
+    "reason": "Unsupported source facts must be reviewed as unknown"
+  },
+  "limits": [
+    "Same agent constructed and inspected the control; not blind, not independent expert validation.",
+    "Three deliberately introduced defects plus one incidental texture regression; no general sensitivity/specificity claim.",
+    "Four-stage count remains unknown for the exact model, regardless of how many stages are rendered."
+  ]
+}

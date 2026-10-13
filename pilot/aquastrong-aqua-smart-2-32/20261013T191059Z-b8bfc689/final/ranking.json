@@ -1,0 +1,351 @@
+[
+  {
+    "attempt": 2,
+    "rating": 86.0,
+    "critical_errors": [],
+    "readiness": {
+      "status": "needs_technical_review",
+      "label": "Нужна техническая проверка: существенные признаки не подтверждены",
+      "reasons": [
+        "motor-material",
+        "hydraulics-type_count",
+        "hydraulics-material",
+        "manifold-material",
+        "tank-shape",
+        "tank-material",
+        "controller-material",
+        "cooling-material"
+      ],
+      "technical_approval": false
+    },
+    "evidence_summary": {
+      "scope": "essential_internal_facts",
+      "source_basis": {
+        "model": [],
+        "series": [
+          "motor-type_count",
+          "motor-shape",
+          "hydraulics-shape",
+          "manifold-type_count",
+          "manifold-shape",
+          "tank-type_count",
+          "controller-type_count",
+          "controller-shape",
+          "cooling-type_count",
+          "cooling-shape",
+          "motor-attachment",
+          "motor-placement_connections",
+          "hydraulics-attachment",
+          "hydraulics-placement_connections",
+          "manifold-attachment",
+          "manifold-placement_connections",
+          "tank-attachment",
+          "tank-placement_connections",
+          "controller-attachment",
+          "controller-placement_connections",
+          "cooling-attachment",
+          "cooling-placement_connections"
+        ],
+        "analog": [],
+        "unknown": [
+          "motor-material",
+          "hydraulics-type_count",
+          "hydraulics-material",
+          "manifold-material",
+          "tank-shape",
+          "tank-material",
+          "controller-material",
+          "cooling-material"
+        ]
+      },
+      "confirmed_facts": {
+        "model": [],
+        "series": [
+          "motor-type_count",
+          "motor-shape",
+          "hydraulics-shape",
+          "manifold-type_count",
+          "manifold-shape",
+          "tank-type_count",
+          "controller-type_count",
+          "controller-shape",
+          "cooling-type_count",
+          "cooling-shape",
+          "motor-attachment",
+          "motor-placement_connections",
+          "hydraulics-attachment",
+          "hydraulics-placement_connections",
+          "manifold-attachment",
+          "manifold-placement_connections",
+          "tank-attachment",
+          "tank-placement_connections",
+          "controller-attachment",
+          "controller-placement_connections",
+          "cooling-attachment",
+          "cooling-placement_connections"
+        ],
+        "analog": []
+      },
+      "unverified": [
+        "motor-material",
+        "hydraulics-type_count",
+        "hydraulics-material",
+        "manifold-material",
+        "tank-shape",
+        "tank-material",
+        "controller-material",
+        "cooling-material"
+      ],
+      "contradicted": [],
+      "partial": [],
+      "unavailable_checks": [
+        "motor-material",
+        "hydraulics-type_count",
+        "hydraulics-material",
+        "manifold-material",
+        "tank-shape",
+        "tank-material",
+        "controller-material",
+        "cooling-material"
+      ],
+      "unavailable_points": 14.0,
+      "source_supported_ceiling": 86.0
+    },
+    "evaluation_phase": "captioned",
+    "base_rating": 83.0
+  },
+  {
+    "attempt": 1,
+    "rating": 67.0,
+    "critical_errors": [],
+    "readiness": {
+      "status": "needs_technical_review",
+      "label": "Нужна техническая проверка: существенные признаки не подтверждены",
+      "reasons": [
+        "motor-material",
+        "hydraulics-type_count",
+        "hydraulics-shape",
+        "hydraulics-material",
+        "manifold-material",
+        "tank-shape",
+        "tank-material",
+        "controller-material",
+        "cooling-material",
+        "hydraulics-attachment",
+        "mechanism-readable",
+        "physical-boundaries",
+        "captions"
+      ],
+      "technical_approval": false
+    },
+    "evidence_summary": {
+      "scope": "essential_internal_facts",
+      "source_basis": {
+        "model": [],
+        "series": [
+          "motor-type_count",
+          "motor-shape",
+          "hydraulics-shape",
+          "manifold-type_count",
+          "manifold-shape",
+          "tank-type_count",
+          "controller-type_count",
+          "controller-shape",
+          "cooling-type_count",
+          "cooling-shape",
+          "motor-attachment",
+          "motor-placement_connections",
+          "hydraulics-attachment",
+          "hydraulics-placement_connections",
+          "manifold-attachment",
+          "manifold-placement_connections",
+          "tank-attachment",
+          "tank-placement_connections",
+          "controller-attachment",
+          "controller-placement_connections",
+          "cooling-attachment",
+          "cooling-placement_connections"
+        ],
+        "analog": [],
+        "unknown": [
+          "motor-material",
+          "hydraulics-type_count",
+          "hydraulics-material",
+          "manifold-material",
+          "tank-shape",
+          "tank-material",
+          "controller-material",
+          "cooling-material"
+        ]
+      },
+      "confirmed_facts": {
+        "model": [],
+        "series": [
+          "motor-type_count",
+          "motor-shape",
+          "manifold-type_count",
+          "manifold-shape",
+          "tank-type_count",
+          "controller-type_count",
+          "controller-shape",
+          "cooling-type_count",
+          "cooling-shape",
+          "motor-attachment",
+          "motor-placement_connections",
+          "hydraulics-placement_connections",
+          "manifold-attachment",
+          "manifold-placement_connections",
+          "tank-attachment",
+          "tank-placement_connections",
+          "controller-attachment",
+          "controller-placement_connections",
+          "cooling-attachment",
+          "cooling-placement_connections"
+        ],
+        "analog": []
+      },
+      "unverified": [
+        "motor-material",
+        "hydraulics-type_count",
+        "hydraulics-material",
+        "manifold-material",
+        "tank-shape",
+        "tank-material",
+        "controller-material",
+        "cooling-material"
+      ],
+      "contradicted": [
+        "hydraulics-shape",
+        "hydraulics-attachment"
+      ],
+      "partial": [],
+      "unavailable_checks": [
+        "motor-material",
+        "hydraulics-type_count",
+        "hydraulics-material",
+        "manifold-material",
+        "tank-shape",
+        "tank-material",
+        "controller-material",
+        "cooling-material"
+      ],
+      "unavailable_points": 14.0,
+      "source_supported_ceiling": 86.0
+    },
+    "evaluation_phase": "base",
+    "base_rating": 67.0
+  },
+  {
+    "attempt": 3,
+    "rating": 58.0,
+    "critical_errors": [
+      "manifold-attachment",
+      "natural-cuts"
+    ],
+    "readiness": {
+      "status": "best_available",
+      "label": "Лучший доступный: есть критические ошибки",
+      "reasons": [
+        "manifold-attachment",
+        "natural-cuts"
+      ],
+      "technical_approval": false
+    },
+    "evidence_summary": {
+      "scope": "essential_internal_facts",
+      "source_basis": {
+        "model": [],
+        "series": [
+          "motor-type_count",
+          "motor-shape",
+          "hydraulics-shape",
+          "manifold-type_count",
+          "manifold-shape",
+          "tank-type_count",
+          "controller-type_count",
+          "controller-shape",
+          "cooling-type_count",
+          "cooling-shape",
+          "motor-attachment",
+          "motor-placement_connections",
+          "hydraulics-attachment",
+          "hydraulics-placement_connections",
+          "manifold-attachment",
+          "manifold-placement_connections",
+          "tank-attachment",
+          "tank-placement_connections",
+          "controller-attachment",
+          "controller-placement_connections",
+          "cooling-attachment",
+          "cooling-placement_connections"
+        ],
+        "analog": [],
+        "unknown": [
+          "motor-material",
+          "hydraulics-type_count",
+          "hydraulics-material",
+          "manifold-material",
+          "tank-shape",
+          "tank-material",
+          "controller-material",
+          "cooling-material"
+        ]
+      },
+      "confirmed_facts": {
+        "model": [],
+        "series": [
+          "motor-type_count",
+          "motor-shape",
+          "hydraulics-shape",
+          "manifold-type_count",
+          "tank-type_count",
+          "cooling-type_count",
+          "cooling-shape",
+          "motor-attachment",
+          "motor-placement_connections",
+          "hydraulics-attachment",
+          "hydraulics-placement_connections",
+          "manifold-placement_connections",
+          "tank-attachment",
+          "tank-placement_connections"
+        ],
+        "analog": []
+      },
+      "unverified": [
+        "motor-material",
+        "hydraulics-type_count",
+        "hydraulics-material",
+        "manifold-material",
+        "tank-shape",
+        "tank-material",
+        "controller-shape",
+        "controller-material",
+        "cooling-material",
+        "controller-attachment",
+        "controller-placement_connections"
+      ],
+      "contradicted": [
+        "manifold-shape",
+        "controller-type_count",
+        "manifold-attachment",
+        "cooling-attachment",
+        "cooling-placement_connections"
+      ],
+      "partial": [],
+      "unavailable_checks": [
+        "motor-material",
+        "hydraulics-type_count",
+        "hydraulics-material",
+        "manifold-material",
+        "tank-shape",
+        "tank-material",
+        "controller-material",
+        "cooling-material"
+      ],
+      "unavailable_points": 14.0,
+      "source_supported_ceiling": 86.0
+    },
+    "evaluation_phase": "base",
+    "base_rating": 58.0
+  }
+]

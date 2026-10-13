@@ -1,0 +1,129 @@
+{
+  "base_sha256": "edb438bceb22e6a528e4e422a3351f7ffe0a92ed92af2a6e7e1811bd464de5ea",
+  "labels_sha256": "5dfb1f15cb7b4a3f859d26981883e81cc910e8a895afea223381413296cf2c66",
+  "preview_sha256": "54ebdb8738c67e170a2d48a98e45a2d0d923007b7df4f476b192739344570bd4",
+  "layout_checked": true,
+  "title_checked": true,
+  "checks": [
+    {
+      "id": "controller",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Каталог PDF/печатная28, узлы1–25; название модели из карточки477477.ru",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Выноска на плату, не кабель; название контроллера из3 и частотной функции."
+    },
+    {
+      "id": "tank",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Каталог PDF/печатная28, узлы1–25; название модели из карточки477477.ru",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Выноска внутри окна компактного бака10; не утверждает заводскую форму мембраны."
+    },
+    {
+      "id": "valve",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Каталог PDF/печатная28, узлы1–25; название модели из карточки477477.ru",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Выноска на пружинный картридж13 в вертикальной ветви."
+    },
+    {
+      "id": "outlet",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Каталог PDF/печатная28, узлы1–25; название модели из карточки477477.ru",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Выноска на верхний наружный порт напорного узла14."
+    },
+    {
+      "id": "pressure",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Каталог PDF/печатная28, узлы1–25; название модели из карточки477477.ru",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "На чёрный боковой датчик12 с проводом, не на фитинг."
+    },
+    {
+      "id": "temperature",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Каталог PDF/печатная28, узлы1–25; название модели из карточки477477.ru",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "На небольшой корпус датчика25 на насосном корпусе, геометрия реконструирована."
+    },
+    {
+      "id": "inlet",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Каталог PDF/печатная28, узлы1–25; название модели из карточки477477.ru",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "На нижний внешний порт насосной камеры."
+    },
+    {
+      "id": "fan",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Каталог PDF/печатная28, узлы1–25; название модели из карточки477477.ru",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "На лопасти чёрного заднего вентилятора24."
+    },
+    {
+      "id": "stator",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Каталог PDF/печатная28, узлы1–25; название модели из карточки477477.ru",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "На медную обмоточную часть статора19, не ротор."
+    },
+    {
+      "id": "rotor",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Каталог PDF/печатная28, узлы1–25; название модели из карточки477477.ru",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "На центральный ротор20 с тёмными вставками; число магнитов не заявляется."
+    },
+    {
+      "id": "seal",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Каталог PDF/печатная28, узлы1–25; название модели из карточки477477.ru",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "На компактный уплотнительный узел16 вокруг общего вала у границы насоса."
+    },
+    {
+      "id": "hydraulics",
+      "source_ids": [
+        "catalog"
+      ],
+      "locator": "Каталог PDF/печатная28, узлы1–25; название модели из карточки477477.ru",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "На раскрытую группу колёс8 и окружающих диффузоров9; точное число ступеней не подписано."
+    }
+  ]
+}

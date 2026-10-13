@@ -1,0 +1,274 @@
+{
+  "checklist_version": "aquastrong-smart2-32-v2-1",
+  "checks": [
+    {
+      "id": "motor-type_count",
+      "status": "pass",
+      "observation": "Внизу слева один двигатель с обмоткой и тёмными вставками центрального ротора.",
+      "region": "motor",
+      "source_observation": "Наличие PM-двигателя из текста каталога согласуется с показанными магнитными вставками; их число не подтверждено."
+    },
+    {
+      "id": "motor-shape",
+      "status": "pass",
+      "observation": "Цилиндрический ротор находится внутри медного кольца статора, вал по общей горизонтальной оси.",
+      "region": "motor",
+      "source_observation": "Согласуется с вложением19/20/21 на деталировке, без подтверждения точных размеров."
+    },
+    {
+      "id": "motor-material",
+      "status": "unknown",
+      "observation": "Этот факт не установлен источниками.",
+      "region": "motor",
+      "source_observation": "Применимость источника не доказывает конкретный факт: Catalogue omits complete winding/magnet/housing materials"
+    },
+    {
+      "id": "hydraulics-type_count",
+      "status": "unknown",
+      "observation": "Этот факт не установлен источниками.",
+      "region": "hydraulics",
+      "source_observation": "Применимость источника не доказывает конкретный факт: Family diagram shows repeated stages but exact model count not specified"
+    },
+    {
+      "id": "hydraulics-shape",
+      "status": "pass",
+      "observation": "Внизу справа различимы четыре кольцевых направляющих корпуса и светлые колёса с небольшими раскрытыми лопаточными зонами.",
+      "region": "hydraulics",
+      "source_observation": "Общие профили8/9 теперь различимы и разделены. Точная форма лопаток и каналов остаётся реконструкцией, число ступеней unknown."
+    },
+    {
+      "id": "hydraulics-material",
+      "status": "unknown",
+      "observation": "Этот факт не установлен источниками.",
+      "region": "hydraulics",
+      "source_observation": "Применимость источника не доказывает конкретный факт: Supplier says stainless wheel; branded sources lack applicable material table"
+    },
+    {
+      "id": "manifold-type_count",
+      "status": "pass",
+      "observation": "Один клапанный картридж виден внизу справа, датчики сохранены.",
+      "region": "manifold",
+      "source_observation": "Число/наличие узлов13/12/25 соответствует перечню; неправильное положение клапана проверено отдельно."
+    },
+    {
+      "id": "manifold-shape",
+      "status": "fail",
+      "observation": "Верхняя вертикальная ветвь коллектора пуста, клапан с зелёными кольцами перенесён в нижний патрубок.",
+      "region": "manifold",
+      "source_observation": "В деталировке13 расположен в верхней вертикальной ветви14, не в нижнем горизонтальном патрубке."
+    },
+    {
+      "id": "manifold-material",
+      "status": "unknown",
+      "observation": "Этот факт не установлен источниками.",
+      "region": "manifold",
+      "source_observation": "Применимость источника не доказывает конкретный факт: Catalogue omits material specification"
+    },
+    {
+      "id": "tank-type_count",
+      "status": "pass",
+      "observation": "Один небольшой круглый бак внутри корпуса сверху справа, без внешнего большого резервуара.",
+      "region": "tank",
+      "source_observation": "Компактный узел10 на деталировке и фото запчасти, число один."
+    },
+    {
+      "id": "tank-shape",
+      "status": "unknown",
+      "observation": "Этот факт не установлен источниками.",
+      "region": "tank",
+      "source_observation": "Применимость источника не доказывает конкретный факт: Tank10 is closed component; diaphragm unexposed"
+    },
+    {
+      "id": "tank-material",
+      "status": "unknown",
+      "observation": "Этот факт не установлен источниками.",
+      "region": "tank",
+      "source_observation": "Применимость источника не доказывает конкретный факт: Manufacturer sources omit materials"
+    },
+    {
+      "id": "controller-type_count",
+      "status": "fail",
+      "observation": "Верхний левый отсек пуст: платы, крупного конденсатора и трансформатора нет.",
+      "region": "controller",
+      "source_observation": "Деталировка3 и частотная функция требуют электронный контроллер; в открытом отсеке его отсутствие наблюдается прямо."
+    },
+    {
+      "id": "controller-shape",
+      "status": "unknown",
+      "observation": "Плата отсутствует, её форму невозможно сопоставить.",
+      "region": "controller",
+      "source_observation": "Каталог показывает прямоугольный компонент3; его присутствие провалено отдельно, форма не видна."
+    },
+    {
+      "id": "controller-material",
+      "status": "unknown",
+      "observation": "Этот факт не установлен источниками.",
+      "region": "controller",
+      "source_observation": "Применимость источника не доказывает конкретный факт: Applicable material facts omitted"
+    },
+    {
+      "id": "cooling-type_count",
+      "status": "pass",
+      "observation": "Один чёрный вентилятор сохранён, теперь в середине.",
+      "region": "cooling",
+      "source_observation": "Число один из24; присутствие не доказывает правильное место."
+    },
+    {
+      "id": "cooling-shape",
+      "status": "pass",
+      "observation": "Чёрные лопатки охлаждения всё ещё отличимы от гидравлических колёс.",
+      "region": "cooling",
+      "source_observation": "Тип/форма24 визуально различимы; расположение оценено отдельно."
+    },
+    {
+      "id": "cooling-material",
+      "status": "unknown",
+      "observation": "Этот факт не установлен источниками.",
+      "region": "cooling",
+      "source_observation": "Применимость источника не доказывает конкретный факт: No material table for24"
+    },
+    {
+      "id": "motor-attachment",
+      "status": "pass",
+      "observation": "Ротор внутри корпуса, виден вал и подшипниковый узел у правого конца мотора.",
+      "region": "motor",
+      "source_observation": "Поддержанная деталировкой вложенная сборка, не два раздельных цилиндра."
+    },
+    {
+      "id": "motor-placement_connections",
+      "status": "pass",
+      "observation": "Мотор слева от насосных колёс, обе части вдоль общего горизонтального вала.",
+      "region": "motor",
+      "source_observation": "Общая взаимная компоновка по схеме; точные зазоры неизвестны."
+    },
+    {
+      "id": "hydraulics-attachment",
+      "status": "pass",
+      "observation": "Колёса на общем валу; тёмные кольцевые корпуса направляющих опираются на насосный корпус.",
+      "region": "hydraulics",
+      "source_observation": "Различимы колесо–вал и отдельный стационарный направляющий элемент9; точные внутренние сопряжения не доказаны."
+    },
+    {
+      "id": "hydraulics-placement_connections",
+      "status": "pass",
+      "observation": "Насосный пакет справа от двигателя в собственном общем корпусе.",
+      "region": "hydraulics",
+      "source_observation": "Относительное расположение согласуется со схемой, без подтверждения всех каналов."
+    },
+    {
+      "id": "manifold-attachment",
+      "status": "fail",
+      "observation": "Картридж вставлен в нижнее всасывающее соединение, верхняя сервисная ветвь без клапана.",
+      "region": "manifold",
+      "source_observation": "Прямое противоречие сопряжению13–14 на деталировке; это существенная ошибка положения, не неизвестность."
+    },
+    {
+      "id": "manifold-placement_connections",
+      "status": "pass",
+      "observation": "Нижний порт у гидравлической камеры, верхний у вертикального коллектора.",
+      "region": "manifold",
+      "source_observation": "Сохранены нижний/верхний патрубки и расположение верхнего узла; скрытая трасса не доказана."
+    },
+    {
+      "id": "tank-attachment",
+      "status": "pass",
+      "observation": "Бак соединён справа короткой горизонтальной шейкой с напорным узлом.",
+      "region": "tank",
+      "source_observation": "Видимое боковое присоединение10 к14."
+    },
+    {
+      "id": "tank-placement_connections",
+      "status": "pass",
+      "observation": "Круглый бак внутри корпуса над гидравлической частью и слева от коллектора.",
+      "region": "tank",
+      "source_observation": "Общая компоновка10/14, без внешнего резервуара."
+    },
+    {
+      "id": "controller-attachment",
+      "status": "unknown",
+      "observation": "Есть пустая полка и провода без платы; крепление реального контроллера не видно.",
+      "region": "controller",
+      "source_observation": "Не наблюдается прикреплённый компонент3; не засчитывается за имеющуюся полку."
+    },
+    {
+      "id": "controller-placement_connections",
+      "status": "unknown",
+      "observation": "В верхнем отсеке нет контроллера; провода подходят к пустому месту.",
+      "region": "controller",
+      "source_observation": "Соединение/положение узла3 нельзя подтвердить по одним проводам."
+    },
+    {
+      "id": "cooling-attachment",
+      "status": "fail",
+      "observation": "Вентилятор насажен у переднего конца мотора между ним и насосом; задний конец пуст.",
+      "region": "cooling",
+      "source_observation": "Каталог24 присоединяет вентилятор к заднему концу, со стороны23, не у уплотнения16."
+    },
+    {
+      "id": "cooling-placement_connections",
+      "status": "fail",
+      "observation": "Вентилятор между двигателем и насосной частью, противоположное заднее место без вентилятора.",
+      "region": "cooling",
+      "source_observation": "Заводская последовательность24/23/21/19/20/18/16 нарушена."
+    },
+    {
+      "id": "nodes-visible",
+      "status": "fail",
+      "observation": "Видны мотор, гидропакет, напорный узел, бак и вентилятор; контроллера нет.",
+      "region": "whole frame",
+      "source_observation": "Одна из шести существенных групп3 отсутствует; провода не заменяют электронику."
+    },
+    {
+      "id": "mechanism-readable",
+      "status": "pass",
+      "observation": "В моторе виден центральный ротор в обмотке; в насосе отдельно светлые лопаточные колёса и окружающие тёмные направляющие.",
+      "region": "whole frame",
+      "source_observation": "Основные отношения19/20/21 и8/9 наглядны. Это функциональная различимость, не совпадение каждой лопатки с заводом."
+    },
+    {
+      "id": "physical-boundaries",
+      "status": "pass",
+      "observation": "В небольшом окне бака виден тонкий непрерывный профиль мембраны с пустыми областями по обе стороны; в насосе и электронике отдельные стенки.",
+      "region": "whole frame",
+      "source_observation": "Соответствует реконструируемому принципу разделения полостей Grundfos и общей сборке каталога. Точная трасса и мембрана SMART2-32 остаются unknown."
+    },
+    {
+      "id": "store-identity",
+      "status": "pass",
+      "observation": "Сохранены графитовая прямоугольная оболочка, верхняя панель и чёрное вентиляционное основание, выбранный боковой вид.",
+      "region": "whole frame",
+      "source_observation": "Рамка наружного облика сопоставлена с магазинным фото; окно намеренно удаляет панель."
+    },
+    {
+      "id": "store-ports",
+      "status": "pass",
+      "observation": "Два вертикально расположенных правых патрубка и верхняя чёрная крышка.",
+      "region": "whole frame",
+      "source_observation": "Фото магазина, без третьего наружного порта/внешнего бака."
+    },
+    {
+      "id": "dry",
+      "status": "pass",
+      "observation": "Все видимые камеры пустые, нет воды, синего заполнения и стрелок.",
+      "region": "whole frame",
+      "source_observation": "Согласованная сухая база соблюдена."
+    },
+    {
+      "id": "natural-cuts",
+      "status": "fail",
+      "observation": "На ранее нейтральных стенках/рамке появились повторяющиеся завитки и узорная фактура.",
+      "region": "whole frame",
+      "source_observation": "Помимо заданных дефектов возникла регрессия оформления: декоративный повторяющийся рисунок запрещён действующим промптом/требованием."
+    },
+    {
+      "id": "captions",
+      "status": "unknown",
+      "observation": "В базе нет подписей или заголовка.",
+      "region": "whole frame",
+      "source_observation": "До композиции баллы за подписи не начисляются."
+    }
+  ],
+  "summary": "Контрольный ошибочный PNG: клапан не в той ветви, вентилятор на противоположном конце мотора, контроллер отсутствует; дополнительно появился декоративный узор. Проверены реальные пиксели, не только текст тестового задания.",
+  "next_changes": [],
+  "resolved_changes": []
+}

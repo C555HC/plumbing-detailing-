@@ -1,0 +1,146 @@
+{
+  "image": "/Users/nikitas/Documents/ChatGPT/Ворк/plumbing-detailing-/output/cutaways/aquastrong-aqua-smart-2-32/20261013T191059Z-b8bfc689/previews/002.png",
+  "font": "/System/Library/Fonts/Supplemental/Arial.ttf",
+  "label_boxes": {
+    "title": [
+      64,
+      58,
+      1191,
+      186
+    ],
+    "controller": [
+      50,
+      406,
+      225,
+      470
+    ],
+    "tank": [
+      1369,
+      221,
+      1646,
+      250
+    ],
+    "valve": [
+      2169,
+      346,
+      2322,
+      404
+    ],
+    "outlet": [
+      2169,
+      526,
+      2322,
+      590
+    ],
+    "pressure": [
+      2169,
+      756,
+      2313,
+      819
+    ],
+    "temperature": [
+      2169,
+      956,
+      2367,
+      1020
+    ],
+    "inlet": [
+      2169,
+      1215,
+      2384,
+      1279
+    ],
+    "fan": [
+      50,
+      856,
+      232,
+      919
+    ],
+    "stator": [
+      50,
+      656,
+      216,
+      714
+    ],
+    "rotor": [
+      570,
+      1695,
+      894,
+      1753
+    ],
+    "seal": [
+      1140,
+      1695,
+      1315,
+      1759
+    ],
+    "hydraulics": [
+      1669,
+      1695,
+      1909,
+      1759
+    ]
+  },
+  "warnings": [],
+  "source_size": [
+    1448,
+    1086
+  ],
+  "image_bounds": [
+    450,
+    312,
+    2110,
+    1557
+  ],
+  "target_points": {
+    "controller": [
+      923,
+      611
+    ],
+    "tank": [
+      1479,
+      635
+    ],
+    "valve": [
+      1731,
+      523
+    ],
+    "outlet": [
+      1993,
+      611
+    ],
+    "pressure": [
+      1802,
+      757
+    ],
+    "temperature": [
+      1616,
+      867
+    ],
+    "inlet": [
+      1993,
+      1108
+    ],
+    "fan": [
+      677,
+      1017
+    ],
+    "stator": [
+      893,
+      917
+    ],
+    "rotor": [
+      958,
+      1021
+    ],
+    "seal": [
+      1215,
+      1042
+    ],
+    "hydraulics": [
+      1553,
+      1052
+    ]
+  },
+  "semantic_targets_checked": false
+}

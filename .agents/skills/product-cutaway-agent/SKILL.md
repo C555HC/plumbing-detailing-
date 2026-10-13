@@ -34,6 +34,8 @@ Cut faces retain the part's material: metal at a metal section, polymer at a pol
 
 During generation say: `Генерируется 3/5. Картинка 2: 70/100. Исправляю: …` using actual numbers and the saved run's actual limit. Keep detailed observations and prompts in files. Cache sources/spec and load relevant pages rather than entire PDFs or all prior images each time. Whole-image regression inspection remains necessary.
 
+Use `status --compact` to resume and inspect progress; load only the needed current spec/review files instead of dumping state.json and repeated score history into context. The compact view preserves pending calls and the saved budget.
+
 Distinguish the unlabelled base score from the captioned deliverable score; caption points are not construction improvements. At80+, show the captioned draft immediately so the user can check node names/positions and steer ongoing work. At completion choose one main image and keep all alternatives. If no base reaches80, disclose that and return the best unlabelled available result rather than inflating ratings or secretly spending additional calls. Historical completed pilots and caption-only edits retain their original records/mode.
 
 At completion show the best PNG inline, its rating and readiness, a brief source-confirmation summary, a compact table of other versions, and links to all variants/report. Disclose analogs and missing evidence in the adjacent report, not on the image. A score is a comparative rating, never a probability of correctness. Human technical approval is a separate status.

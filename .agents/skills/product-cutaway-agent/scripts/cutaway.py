@@ -133,8 +133,10 @@ def validate_inputs(spec, checklist, sources):
         text_value(check.get("requirement"), "check.requirement")
         text_value(check.get("locator"), "check.locator")
         block = check.get("block")
-        if cid in ids or block not in WEIGHTS:
-            raise ValueError("Duplicate check ID or invalid block")
+        if cid in ids:
+            raise ValueError(f"Duplicate check ID: {cid}")
+        if block not in WEIGHTS:
+            raise ValueError(f"Invalid block for {cid}: {block!r}; expected one of {', '.join(WEIGHTS)}")
         ids.add(cid)
         totals[block] += points(check.get("points"))
         refs = check.get("source_ids", [])
@@ -244,6 +246,8 @@ def evaluate(checklist, review):
         if check.get("critical") and status == "unknown":
             critical_unknown.append(check["id"])
     score = {"checklist_version": checklist["version"], "protocol_version": protocol,
+            "assessment_method": {"calculation": "weighted_agent_observations",
+                                  "image_semantics_checked_by_helper": False},
             "total": float(sum(totals.values())), "blocks": {k: float(v) for k, v in totals.items()},
             "critical_errors": critical_errors, "critical_unknown": critical_unknown,
             "issues": issues, "checks": breakdown,
@@ -656,6 +660,7 @@ def report_text(run, state, candidates, reason):
     sources = load(run / state["inputs_dir"] / "sources.json")["sources"]
     lines = [f"# {state['model']}: итог пилота", "", f"Лучший вариант: **{best['id']}**, рейтинг **{score['total']:g}/100**.",
         "Рейтинг сравнивает варианты, а не измеряет вероятность технической правильности.",
+        "Скрипт складывает наблюдения проверяющего агента и не распознаёт изображение: ошибочные отметки могут дать высокий балл неверному разрезу.",
         f"Попытки: {len(state['attempts'])}/{state['limit']}. Причина остановки: {reason}.",
         "Технический специалист ещё не подтвердил результат.", "", "![Лучший вариант](best.png)", "", "## Проверка выбранного варианта", ""]
     for block in WEIGHTS:
@@ -827,6 +832,30 @@ def contact_sheet(run, candidates, target):
     canvas.save(target, quality=90)
 
 
+def status_summary(state):
+    """Resume essentials without repeating observations and historical reviews."""
+    attempts = state.get("attempts", [])
+    result = {key: state.get(key) for key in (
+        "run_id", "product_id", "model", "stage", "limit", "best",
+        "created_at", "updated_at", "inputs_dir", "inputs_version",
+        "checklist_sha256", "caption_threshold", "input_image")}
+    result.update(used=len(attempts), remaining=max(0, state["limit"] - len(attempts)),
+                  pending=[a["id"] for a in attempts if a["status"] in {"reserved", "unknown"}],
+                  evidence_records=len(state.get("evidence_archives", [])))
+    result["attempts"] = []
+    for attempt in attempts:
+        score = attempt.get("score", {})
+        item = {key: attempt.get(key) for key in ("id", "kind", "parent", "status", "image", "prompt")}
+        item.update(rating=score.get("total"), base_rating=score.get("base_rating"),
+                    evaluation_phase=score.get("evaluation_phase"),
+                    critical_errors=score.get("critical_errors", []),
+                    issue_count=len(score.get("issues", [])),
+                    readiness=score.get("readiness"),
+                    caption_audited=bool(attempt.get("caption_audit")))
+        result["attempts"].append(item)
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -860,6 +889,7 @@ def main():
     p = sub.add_parser("finalize")
     p.add_argument("--run", required=True); p.add_argument("--reason", required=True)
     p = sub.add_parser("status"); p.add_argument("--run", required=True)
+    p.add_argument("--compact", action="store_true", help="Resume essentials without full review history")
     args = parser.parse_args()
     try:
         if args.command == "init":
@@ -880,7 +910,8 @@ def main():
         elif args.command == "finalize":
             result = finalize(args.run, args.reason)
         else:
-            result = load(Path(args.run) / "state.json")
+            state = load(Path(args.run) / "state.json")
+            result = status_summary(state) if args.compact else state
         print(json.dumps(result, ensure_ascii=False, allow_nan=False))
         return 0
     except (ValueError, OSError, KeyError, TypeError) as exc:

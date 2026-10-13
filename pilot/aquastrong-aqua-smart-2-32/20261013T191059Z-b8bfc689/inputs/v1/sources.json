@@ -1,0 +1,51 @@
+{
+  "sources": [
+    {
+      "id": "store",
+      "kind": "product_photo",
+      "url": "https://477477.ru/images/products/_transparent-v1/gk-1016090708-47f509ec51af0e39-detail-2ca2d171b2813ed0-detail.webp",
+      "verified": true,
+      "applicability": "Exact card GK-1016090708 observed and photo downloaded; exterior only"
+    },
+    {
+      "id": "manual",
+      "kind": "manufacturer_series",
+      "url": "https://gidrokontrakt.ru/f/smart_smartz_smartmini.pdf",
+      "title": "AQUASTRONG SMART branded manual, supplier-hosted",
+      "publisher": "AQUASTRONG document / Гидроконтракт hosting",
+      "verified": true,
+      "applicability": "PDF1–7 visually inspected; exact SMART2-32 on PDF3 printed2–3, no internal section; date/edition not specified"
+    },
+    {
+      "id": "catalog",
+      "kind": "manufacturer_series",
+      "url": "https://gidrokontrakt.ru/f/katalog_aquastrong_bytovye_nasosy_2025.pdf",
+      "title": "AQUASTRONG branded domestic technical catalogue2025",
+      "publisher": "Гидроконтракт distributor of branded catalogue",
+      "verified": true,
+      "applicability": "PDF/printed28 has common SMART assembly/key and exact SMART2-32 table. PDF29 Z/30 SMART45 inspected to exclude. Family drawing does not prove exact count/dimensions for2-32"
+    },
+    {
+      "id": "parts",
+      "kind": "analog",
+      "url": "https://gidrokontrakt.ru/magazin/product/chastotnaya-nasosnaya-stanciya-aquastrong-aqua-smart-2-32",
+      "verified": true,
+      "publisher": "Гидроконтракт supplier, not manufacturer",
+      "applicability": "Linked exact SMART2-32 tank, valve13, board3 photos inspected; reconstruction aids only, supplier materials not manufacturer proof"
+    },
+    {
+      "id": "tank-principle",
+      "kind": "analog",
+      "url": "https://www.grundfos.com/solutions/learn/research-and-insights/diaphragm-tank",
+      "verified": true,
+      "applicability": "Inspected flexible diaphragm, gas side and manifold principle; no dimensions, materials, clamp or exact target shape transferred"
+    },
+    {
+      "id": "presentation",
+      "kind": "style_reference",
+      "url": "https://github.com/C555HC/plumbing-detailing-/blob/main/.agents/skills/product-cutaway-agent/references/layers.md",
+      "verified": true,
+      "applicability": "Current user-authorized dry natural cutaway presentation contract; no internal evidence"
+    }
+  ]
+}

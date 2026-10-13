@@ -1,0 +1,13 @@
+{
+  "id": 5,
+  "source_id": "parts",
+  "url": "https://gidrokontrakt.ru/magazin/product/chastotnaya-nasosnaya-stanciya-aquastrong-aqua-smart-2-32",
+  "kind": "analog",
+  "applicability": "Linked exact SMART2-32 tank, valve13, board3 photos inspected; reconstruction aids only, supplier materials not manufacturer proof",
+  "inputs_version": 1,
+  "locator": "Supplier linked SMART2-32 accumulator photograph",
+  "observation": "Compact round puck exterior; membrane unexposed",
+  "archived_at": "2026-10-13T19:25:51+00:00",
+  "path": "evidence/files/0bdb86fded29989065fcdc313953b941b026f059a1722bc09c29c06f97931187.png",
+  "sha256": "0bdb86fded29989065fcdc313953b941b026f059a1722bc09c29c06f97931187"
+}
