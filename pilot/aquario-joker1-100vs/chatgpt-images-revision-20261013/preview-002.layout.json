@@ -1,0 +1,146 @@
+{
+  "image": "/Users/nikitas/Documents/ChatGPT/Ворк/plumbing-detailing-/output/chatgpt-images-aquario-revision/runs/aquario-joker1-100vs/20261013T170639Z-cedd51e9/preview-002.png",
+  "font": "/System/Library/Fonts/Supplemental/Arial.ttf",
+  "label_boxes": {
+    "title": [
+      59,
+      64,
+      1096,
+      172
+    ],
+    "tank": [
+      60,
+      425,
+      327,
+      488
+    ],
+    "nipple": [
+      60,
+      700,
+      308,
+      722
+    ],
+    "membrane": [
+      60,
+      942,
+      309,
+      970
+    ],
+    "inlet": [
+      60,
+      1271,
+      268,
+      1334
+    ],
+    "impellers": [
+      60,
+      1645,
+      396,
+      1708
+    ],
+    "diffusers": [
+      60,
+      1909,
+      261,
+      1972
+    ],
+    "outlet": [
+      1895,
+      392,
+      2204,
+      449
+    ],
+    "sensor": [
+      1943,
+      755,
+      2188,
+      782
+    ],
+    "controller": [
+      1967,
+      1019,
+      2133,
+      1082
+    ],
+    "stator": [
+      1967,
+      1337,
+      2148,
+      1394
+    ],
+    "rotor": [
+      1967,
+      1645,
+      2186,
+      1708
+    ],
+    "seal": [
+      1919,
+      1909,
+      2163,
+      1972
+    ]
+  },
+  "warnings": [],
+  "source_size": [
+    1122,
+    1402
+  ],
+  "image_bounds": [
+    483,
+    210,
+    1916,
+    2000
+  ],
+  "target_points": {
+    "tank": [
+      855,
+      532
+    ],
+    "nipple": [
+      547,
+      716
+    ],
+    "membrane": [
+      852,
+      711
+    ],
+    "inlet": [
+      605,
+      1403
+    ],
+    "impellers": [
+      997,
+      1373
+    ],
+    "diffusers": [
+      1082,
+      1550
+    ],
+    "outlet": [
+      1198,
+      514
+    ],
+    "sensor": [
+      1298,
+      706
+    ],
+    "controller": [
+      1614,
+      741
+    ],
+    "stator": [
+      1508,
+      1124
+    ],
+    "rotor": [
+      1631,
+      1344
+    ],
+    "seal": [
+      1283,
+      1389
+    ]
+  },
+  "semantic_targets_checked": false
+}

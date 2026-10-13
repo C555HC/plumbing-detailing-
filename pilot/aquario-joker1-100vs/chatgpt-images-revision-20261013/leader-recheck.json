@@ -1,0 +1,9 @@
+{
+  "method": "same agent, whole frame and source views; prior numeric scores not used as evidence, not independent/blind expert review",
+  "checklist_version": "aquario-web-pilot-v2-placement-20261013",
+  "observations": {
+    "4": "Геометрия узлов сопоставима с5; остаточные повторяющиеся линии на входных плоскостях/опоре нарушают материал.",
+    "5": "Входные плоскости/опора очищены; чашка/внутренний статор, три диска, компактная выходная вставка, бак/задний порт, сухость и12подписей сохранены. Точная мембрана/прижим/некоторые материалы и скрытые каналы не подтверждаются."
+  },
+  "selection_basis": "5 avoids the observed surface defect of4; unsupported facts stay unknown"
+}

@@ -1,0 +1,837 @@
+{
+  "protocol_version": 2,
+  "version": "aquario-web-pilot-v2-placement-20261013",
+  "checks": [
+    {
+      "id": "hydraulic-type_count",
+      "node_id": "hydraulic",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 5,
+      "requirement": "Гидравлическая часть, три рабочих колеса: type_count",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF5/6/9 (печатные3/4/7)",
+      "source_fact": "Паспорт: три центробежных рабочих колеса.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "hydraulic-shape",
+      "node_id": "hydraulic",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Гидравлическая часть, три рабочих колеса: shape",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "3D2700: соосный пакет колёс8039 и диффузоров8037/8038.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "hydraulic-attachment",
+      "node_id": "hydraulic",
+      "aspect": "attachment",
+      "block": "topology",
+      "points": 1,
+      "requirement": "Гидравлическая часть, три рабочих колеса: attachment",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "Входной фланец и задний диффузор стянуты четырьмя продольными винтами.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "hydraulic-placement_connections",
+      "node_id": "hydraulic",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 7,
+      "requirement": "Гидравлическая часть, три рабочих колеса: placement_connections",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "Спереди вход, сзади гидропакета выход в верхний напорный стояк; точные скрытые каналы не раскрыты.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "hydraulic-material",
+      "node_id": "hydraulic",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Изображён подходящий класс материала; химический состав по пикселям не устанавливается: Паспорт: рабочие колёса, диффузоры и вал — нержавеющая сталь.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF5/6/9 (печатные3/4/7)",
+      "source_fact": "Паспорт: рабочие колёса, диффузоры и вал — нержавеющая сталь.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "motor-type_count",
+      "node_id": "motor",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Синхронный двигатель с постоянными магнитами: type_count",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF5/6/9 (печатные3/4/7)",
+      "source_fact": "Паспорт: синхронный двигатель с постоянными магнитами.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "motor-shape",
+      "node_id": "motor",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Синхронный двигатель с постоянными магнитами: shape",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "3D8036: чашеобразный вал-ротор,8044: кольцевой статор, задний ракурс показывает пояс обмотки; число магнитов не установлено.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "motor-attachment",
+      "node_id": "motor",
+      "aspect": "attachment",
+      "block": "topology",
+      "points": 1,
+      "requirement": "Синхронный двигатель с постоянными магнитами: attachment",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "3D: вал-ротор соосен пакету и установлен между опорами двигателя.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "motor-placement_connections",
+      "node_id": "motor",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 1,
+      "requirement": "Воспроизведена соосная посадка чашки8036 относительно неподвижного статора8044 и общего вала по заводским двум ракурсам, без обычного малого внутреннего ротора.",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "2700: увеличенные передний/обратный ракурсы8036/8044, осмотр13.10.2026",
+      "source_fact": "Заводская8036 — чашка, которая при осевой сборке охватывает внутреннюю неподвижную часть статора8044; обмоточный пояс находится в предусмотренном чашкой/корпусом объёме, не на произвольном наружном кольце вокруг малого внутреннего ротора. Общий вал и узлы соосны.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "motor-material",
+      "node_id": "motor",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Изображён подходящий класс материала; химический состав по пикселям не устанавливается: Паспорт не задаёт точные марки материалов магнитов и обмотки; цвет 3D не доказывает материал.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF5/6/9 (печатные3/4/7)",
+      "source_fact": "Паспорт не задаёт точные марки материалов магнитов и обмотки; цвет 3D не доказывает материал.",
+      "evidence_level": "model",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "controller-type_count",
+      "node_id": "controller",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Частотный контроллер: type_count",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF5/6/9 (печатные3/4/7)",
+      "source_fact": "Паспорт: частотный контроллер управления по датчику давления.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "controller-shape",
+      "node_id": "controller",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Частотный контроллер: shape",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "3D/паспорт: прямоугольный блок сверху двигателя; плата в базе не раскрывается.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "controller-attachment",
+      "node_id": "controller",
+      "aspect": "attachment",
+      "block": "topology",
+      "points": 1,
+      "requirement": "Частотный контроллер: attachment",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "3D: корпус контроллера установлен над мотором на монтажной части.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "controller-placement_connections",
+      "node_id": "controller",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 1,
+      "requirement": "Частотный контроллер: placement_connections",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "Паспорт: кабельный ввод питания, провод датчика и связь контроллера с мотором.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "controller-material",
+      "node_id": "controller",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Изображён подходящий класс материала; химический состав по пикселям не устанавливается: Точный полимер корпуса и материалы внутренних элементов не установлены.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF5/6/9 (печатные3/4/7)",
+      "source_fact": "Точный полимер корпуса и материалы внутренних элементов не установлены.",
+      "evidence_level": "model",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "sensor-type_count",
+      "node_id": "sensor",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Датчик давления: type_count",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF5/6/9 (печатные3/4/7)",
+      "source_fact": "Паспорт/3D6335: один датчик давления.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "sensor-shape",
+      "node_id": "sensor",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Датчик давления: shape",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "3D6335: цилиндрический датчик с шестигранным монтажным основанием и кабелем; внутреннее устройство не раскрывается.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "sensor-attachment",
+      "node_id": "sensor",
+      "aspect": "attachment",
+      "block": "topology",
+      "points": 1,
+      "requirement": "Датчик давления: attachment",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "3D: резьбовое основание датчика в боковой ветви напорного стояка.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "sensor-placement_connections",
+      "node_id": "sensor",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 3,
+      "requirement": "Датчик давления: placement_connections",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "Паспорт/3D: датчик в напорной части, провод к контроллеру.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "sensor-material",
+      "node_id": "sensor",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Изображён подходящий класс материала; химический состав по пикселям не устанавливается: Точные материалы корпуса/чувствительного элемента не названы в осмотренном паспорте.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF5/6/9 (печатные3/4/7)",
+      "source_fact": "Точные материалы корпуса/чувствительного элемента не названы в осмотренном паспорте.",
+      "evidence_level": "model",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "tank-type_count",
+      "node_id": "tank",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Гидроаккумулятор с мембраной EPDM: type_count",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF5/6/9 (печатные3/4/7)",
+      "source_fact": "Паспорт: один гидроаккумулятор с мембраной EPDM, газовый ниппель.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "tank-shape",
+      "node_id": "tank",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Гидроаккумулятор с мембраной EPDM: shape",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "Заводская3D показывает бак целиком; точная форма мембраны и камер не раскрыта.",
+      "evidence_level": "model",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "tank-attachment",
+      "node_id": "tank",
+      "aspect": "attachment",
+      "block": "topology",
+      "points": 1,
+      "requirement": "Гидроаккумулятор с мембраной EPDM: attachment",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "Заводская3D не раскрывает точное крепление мембраны в корпусе бака.",
+      "evidence_level": "model",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "tank-placement_connections",
+      "node_id": "tank",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 4,
+      "requirement": "Гидроаккумулятор с мембраной EPDM: placement_connections",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "3D обратный ракурс: центральный задний горизонтальный водяной штуцер бака напротив боковой ветви напорного стояка; передний газовый ниппель. Нижнего водяного порта нет.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "tank-material",
+      "node_id": "tank",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Изображён подходящий класс материала; химический состав по пикселям не устанавливается: Паспорт: мембрана EPDM; материал чёрного внешнего корпуса не установлен, покрытие не равно пластик.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF5/6/9 (печатные3/4/7)",
+      "source_fact": "Паспорт: мембрана EPDM; материал чёрного внешнего корпуса не установлен, покрытие не равно пластик.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "valve-type_count",
+      "node_id": "valve",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Тестовый обратный клапан в выходном патрубке: type_count",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF5/6/9 (печатные3/4/7)",
+      "source_fact": "Паспорт: один встроенный тестовый обратный клапан, для постоянной эксплуатации нужен внешний.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "valve-shape",
+      "node_id": "valve",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Тестовый обратный клапан в выходном патрубке: shape",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "3D8017: компактная вставка клапана в верхнем выходном патрубке.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "valve-attachment",
+      "node_id": "valve",
+      "aspect": "attachment",
+      "block": "topology",
+      "points": 1,
+      "requirement": "Тестовый обратный клапан в выходном патрубке: attachment",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "3D8017: клапан вставлен в выходной патрубок, без переноса на всасывание.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "valve-placement_connections",
+      "node_id": "valve",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 1,
+      "requirement": "Тестовый обратный клапан в выходном патрубке: placement_connections",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "Паспорт рис.2 иPDF9: клапан в выходной магистрали, а не во входном фланце.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "valve-material",
+      "node_id": "valve",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Изображён подходящий класс материала; химический состав по пикселям не устанавливается: Паспорт: полимер PPO и эластомер NBR.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF5/6/9 (печатные3/4/7)",
+      "source_fact": "Паспорт: полимер PPO и эластомер NBR.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "seal-type_count",
+      "node_id": "seal",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Торцевое уплотнение вала: type_count",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF5/6/9 (печатные3/4/7)",
+      "source_fact": "Паспорт/3D8856: торцевое уплотнение вала.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "seal-shape",
+      "node_id": "seal",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Торцевое уплотнение вала: shape",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "3D8856: компактный соосный кольцевой узел; не крупный клапан.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "seal-attachment",
+      "node_id": "seal",
+      "aspect": "attachment",
+      "block": "topology",
+      "points": 1,
+      "requirement": "Торцевое уплотнение вала: attachment",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "3D: уплотнение охватывает вал у границы двигателя и гидравлической части.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "seal-placement_connections",
+      "node_id": "seal",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 1,
+      "requirement": "Торцевое уплотнение вала: placement_connections",
+      "source_ids": [
+        "aquario-3d"
+      ],
+      "locator": "Заводская2700: передний/обратный ракурсы, список деталей",
+      "source_fact": "3D/паспорт: уплотнение на общем валу между гидравликой и мотором.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "seal-material",
+      "node_id": "seal",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Изображён подходящий класс материала; химический состав по пикселям не устанавливается: Паспорт: графит/керамика Al2O3 и эластомер NBR.",
+      "source_ids": [
+        "aquario-manual"
+      ],
+      "locator": "PDF5/6/9 (печатные3/4/7)",
+      "source_fact": "Паспорт: графит/керамика Al2O3 и эластомер NBR.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "hydraulic-visible",
+      "node_id": "hydraulic",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 2,
+      "requirement": "Узел различим в полном кадре: Гидравлическая часть, три рабочих колеса",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "Паспорт рис.2/таблица1 и3D2700",
+      "source_fact": "Перечисленный функциональный узел присутствует в документации.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "motor-visible",
+      "node_id": "motor",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 2,
+      "requirement": "Узел различим в полном кадре: Синхронный двигатель с постоянными магнитами",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "Паспорт рис.2/таблица1 и3D2700",
+      "source_fact": "Перечисленный функциональный узел присутствует в документации.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "controller-visible",
+      "node_id": "controller",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 2,
+      "requirement": "Узел различим в полном кадре: Частотный контроллер",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "Паспорт рис.2/таблица1 и3D2700",
+      "source_fact": "Перечисленный функциональный узел присутствует в документации.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "sensor-visible",
+      "node_id": "sensor",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 2,
+      "requirement": "Узел различим в полном кадре: Датчик давления",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "Паспорт рис.2/таблица1 и3D2700",
+      "source_fact": "Перечисленный функциональный узел присутствует в документации.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "tank-visible",
+      "node_id": "tank",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 2,
+      "requirement": "Узел различим в полном кадре: Гидроаккумулятор с мембраной EPDM",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "Паспорт рис.2/таблица1 и3D2700",
+      "source_fact": "Перечисленный функциональный узел присутствует в документации.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "valve-visible",
+      "node_id": "valve",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 2,
+      "requirement": "Узел различим в полном кадре: Тестовый обратный клапан в выходном патрубке",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "Паспорт рис.2/таблица1 и3D2700",
+      "source_fact": "Перечисленный функциональный узел присутствует в документации.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "seal-visible",
+      "node_id": "seal",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 2,
+      "requirement": "Узел различим в полном кадре: Торцевое уплотнение вала",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "Паспорт рис.2/таблица1 и3D2700",
+      "source_fact": "Перечисленный функциональный узел присутствует в документации.",
+      "evidence_level": "model",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "dry",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 1,
+      "requirement": "Нет воды, капель, пузырей, залитых синим каналов и стрелок потока.",
+      "source_ids": [
+        "render-policy"
+      ],
+      "locator": "Согласованные требования выдачи",
+      "source_fact": "Нет воды, капель, пузырей, залитых синим каналов и стрелок потока.",
+      "evidence_level": "style",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "exterior",
+      "aspect": "delivery",
+      "block": "appearance",
+      "points": 7,
+      "requirement": "Сохранены узнаваемые пропорции/ракурс/размещение корпуса, бака, патрубков, электроники и опор.",
+      "source_ids": [
+        "store-photo"
+      ],
+      "locator": "Главная фотография карточки2700",
+      "source_fact": "Сохранены узнаваемые пропорции/ракурс/размещение корпуса, бака, патрубков, электроники и опор.",
+      "evidence_level": "photo",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "natural-sections",
+      "aspect": "delivery",
+      "block": "appearance",
+      "points": 3,
+      "requirement": "Срезы естественного материала без красных/цветных полос, неоновой обводки, орнамента.",
+      "source_ids": [
+        "render-policy"
+      ],
+      "locator": "Согласованные требования выдачи",
+      "source_fact": "Срезы естественного материала без красных/цветных полос, неоновой обводки, орнамента.",
+      "evidence_level": "style",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "captions",
+      "aspect": "delivery",
+      "block": "clarity",
+      "points": 5,
+      "requirement": "Заголовок и русские названия/выноски читаемы; концы попадают в соответствующие подтверждённые узлы.",
+      "source_ids": [
+        "render-policy"
+      ],
+      "locator": "Согласованные требования выдачи",
+      "source_fact": "Заголовок и русские названия/выноски читаемы; концы попадают в соответствующие подтверждённые узлы.",
+      "evidence_level": "style",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": true
+    }
+  ]
+}

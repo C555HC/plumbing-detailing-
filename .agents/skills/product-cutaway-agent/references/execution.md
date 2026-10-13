@@ -9,7 +9,7 @@ python cutaway.py init --root output/cutaways --product-id brand-article --model
 python cutaway.py prepare --run RUN --spec SPEC.json --checklist CHECKLIST.json --sources SOURCES.json
 python cutaway.py archive-evidence --run RUN --source-id manual --locator "PDF page 5, printed page 3, figure 2" --observation "Observed inlet and outlet positions" --file PAGE.png
 python cutaway.py reserve --run RUN --prompt-file PROMPT.md --ref PHOTO [--ref DIAGRAM] [--kind edit --parent 1]
-# Agent now invokes the built-in image generator with exactly those references and prompt.
+# Agent now invokes the selected image backend with exactly those references and prompt.
 python cutaway.py record --run RUN --attempt 1 --image RETURNED.png [--metadata SMALL-METADATA.json]
 python compose_png.py --image BASE.png --labels LABELS.json --output PREVIEW.png [--font FONT.ttf]
 python cutaway.py review --run RUN --attempt 1 --review-file REVIEW.json [--preview PREVIEW.png --labels LABELS.json --label-review LABEL-REVIEW.json]
@@ -18,6 +18,8 @@ python cutaway.py finalize --run RUN --reason REASON
 ```
 
 New runs default to5 and accept an explicit limit1–5; the sixth call is refused. Existing historical states retain their saved limit, including earlier authorized10-call pilots. `reserve` persists the prompt, image references and attempt before a tool call. It refuses an unfinished reserved attempt and exceeding that saved limit. The agent must obey this protocol: the helper cannot intercept unrelated direct tool calls. Reserve copies image references into a SHA256-named cache, avoiding dependence on temporary paths. Failed calls remain in the count. After an actual failure use `fail --run RUN --attempt N --reason TEXT`; for an uncertain response add `--unknown`. Later `record` can attach a recovered result to an unknown attempt without spending a new call. Never blindly re-dispatch it.
+
+These helpers remain backend-neutral. For an explicitly selected ordinary ChatGPT Images request, use [chatgpt-images.md](chatgpt-images.md): reserve before each browser send, save the actual prompt/files/conversation, and record the downloaded real PNG before reviewing it. Browser failures use the same saved counter; the scripts do not sign in, send messages or download images themselves.
 
 If a necessary live viewer screenshot exists only in the conversation, use the generator's conversation-reference mechanism for the smallest sufficient set of images. Before the call, save a context-reference manifest beside the prompt (image order/role, source URL, selected model/article, inspected view, and that the screenshot is not cached). Reserve all local inputs normally. The helper does not cache conversation-only screenshots; never claim a fully reproducible image-reference archive when a source view is missing. Save small execution metadata with `record` as well. Do not mix local-path and conversation-count parameters in one generation call.
 

@@ -1,0 +1,141 @@
+{
+  "base_sha256": "07e74ed56fd80802398fa77fa47594a7b5a1337b7cfbb34ce0fbc165602cb4d6",
+  "labels_sha256": "1b8221ffa0ec92b3f9b724937eea6f001468377402f4a3a86ae3787ed1ade2db",
+  "preview_sha256": "1baeac9abba0800bf74ac4adfab314e8fb26f7f80868b558c50086978a539837",
+  "layout_checked": true,
+  "title_checked": true,
+  "checks": [
+    {
+      "id": "tank",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "ПаспортPDF5/6/9; заводская2700/8036/8044/8856 и общий вид",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Конец на чёрном внешнем ободе бака, не на пустой камере."
+    },
+    {
+      "id": "nipple",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "ПаспортPDF5/6/9; заводская2700/8036/8044/8856 и общий вид",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Конец на выступающем переднем газовом ниппеле."
+    },
+    {
+      "id": "membrane",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "ПаспортPDF5/6/9; заводская2700/8036/8044/8856 и общий вид",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Конец на тёмной эластичной перегородке; EPDM задан паспортом, точная форма реконструирована."
+    },
+    {
+      "id": "inlet",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "ПаспортPDF5/6/9; заводская2700/8036/8044/8856 и общий вид",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Конец на переднем резьбовом входе."
+    },
+    {
+      "id": "impellers",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "ПаспортPDF5/6/9; заводская2700/8036/8044/8856 и общий вид",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Конец на среднем из трёх колёс; серебристый класс материала согласован с паспортом."
+    },
+    {
+      "id": "diffusers",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "ПаспортPDF5/6/9; заводская2700/8036/8044/8856 и общий вид",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Конец на неподвижной межступенчатой стенке/направляющем элементе за колесом; точные лопатки не подтверждены."
+    },
+    {
+      "id": "outlet",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "ПаспортPDF5/6/9; заводская2700/8036/8044/8856 и общий вид",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Конец на верхней выходной вставке; название тестового клапана из паспорта, неподтверждённая пружинная деталировка отдельно остаётся unknown."
+    },
+    {
+      "id": "sensor",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "ПаспортPDF5/6/9; заводская2700/8036/8044/8856 и общий вид",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Конец на боковом резьбовом датчике у напорного стояка."
+    },
+    {
+      "id": "controller",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "ПаспортPDF5/6/9; заводская2700/8036/8044/8856 и общий вид",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Конец на основном закрытом блоке контроллера, не на проводе/кабельном вводе."
+    },
+    {
+      "id": "stator",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "ПаспортPDF5/6/9; заводская2700/8036/8044/8856 и общий вид",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Конец на неподвижной верхней ламинированной части с прилегающей обмоткой."
+    },
+    {
+      "id": "rotor",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "ПаспортPDF5/6/9; заводская2700/8036/8044/8856 и общий вид",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Конец на стенке чашеобразного ротора; не на наружном кожухе."
+    },
+    {
+      "id": "seal",
+      "source_ids": [
+        "aquario-manual",
+        "aquario-3d"
+      ],
+      "locator": "ПаспортPDF5/6/9; заводская2700/8036/8044/8856 и общий вид",
+      "text_checked": true,
+      "target_checked": true,
+      "observation": "Конец на компактном кольцевом уплотнении общего вала у границы гидравлики/мотора."
+    }
+  ]
+}
