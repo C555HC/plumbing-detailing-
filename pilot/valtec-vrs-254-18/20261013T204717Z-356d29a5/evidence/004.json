@@ -1,0 +1,13 @@
+{
+  "id": 4,
+  "source_id": "card",
+  "url": "https://valtec.ru/catalog/nasosnoe_oborudovanie/nasosy_cirkulyacionnye/nasos_cirkulyacionnyj_vrs_254_180.html",
+  "kind": "manufacturer_model",
+  "applicability": "Exact model, current description and CAD links",
+  "inputs_version": 1,
+  "locator": "Exact model description and CAD links",
+  "observation": "Materials and coolant route; CAD not section-inspected",
+  "archived_at": "2026-10-13T20:51:07+00:00",
+  "path": "evidence/files/956b472c1908760bf8867c7a204fae9bfd6f88020daee1c09f349101a8ba83b0.txt",
+  "sha256": "956b472c1908760bf8867c7a204fae9bfd6f88020daee1c09f349101a8ba83b0"
+}

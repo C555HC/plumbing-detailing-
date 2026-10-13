@@ -1,0 +1,105 @@
+{
+  "model": "VALTEC VRS.254.18.0",
+  "nodes": [
+    {
+      "id": "housing",
+      "name": "Чугунный гидравлический корпус",
+      "evidence": "series",
+      "source_ids": [
+        "manual",
+        "assembly"
+      ],
+      "essential": true,
+      "role": "Чугунный гидравлический корпус",
+      "excluded_aspects": {}
+    },
+    {
+      "id": "impeller",
+      "name": "Крыльчатка",
+      "evidence": "series",
+      "source_ids": [
+        "manual",
+        "assembly"
+      ],
+      "essential": true,
+      "role": "Крыльчатка",
+      "excluded_aspects": {}
+    },
+    {
+      "id": "rotor",
+      "name": "Ротор",
+      "evidence": "series",
+      "source_ids": [
+        "manual",
+        "assembly"
+      ],
+      "essential": true,
+      "role": "Ротор",
+      "excluded_aspects": {}
+    },
+    {
+      "id": "stator",
+      "name": "Статор с обмоткой",
+      "evidence": "series",
+      "source_ids": [
+        "manual",
+        "assembly"
+      ],
+      "essential": true,
+      "role": "Статор с обмоткой",
+      "excluded_aspects": {}
+    },
+    {
+      "id": "barrier",
+      "name": "Водонепроницаемая обойма",
+      "evidence": "series",
+      "source_ids": [
+        "manual",
+        "assembly"
+      ],
+      "essential": true,
+      "role": "Водонепроницаемая обойма",
+      "excluded_aspects": {}
+    },
+    {
+      "id": "shaft",
+      "name": "Керамический вал и опоры",
+      "evidence": "series",
+      "source_ids": [
+        "manual",
+        "assembly"
+      ],
+      "essential": true,
+      "role": "Керамический вал и опоры",
+      "excluded_aspects": {}
+    }
+  ],
+  "connections": [
+    {
+      "from": "rotor",
+      "to": "impeller",
+      "relation": "drive through ceramic shaft"
+    },
+    {
+      "from": "stator",
+      "to": "rotor",
+      "relation": "concentric, separated by impermeable steel can"
+    },
+    {
+      "from": "housing",
+      "to": "impeller",
+      "relation": "single wheel inside volute, lower port to eye / peripheral chamber to upper port"
+    },
+    {
+      "from": "shaft",
+      "to": "rotor",
+      "relation": "coaxial two-end ceramic bearing support / axial channel"
+    }
+  ],
+  "gaps": [
+    "Exact current impeller blade profile/count unavailable; educational curved-channel reconstruction.",
+    "Rotor alloy and stator winding/core exact materials not specified in relied-on sources.",
+    "Current exact cross-section/CAD internals not visually inspected; historical2015 family geometry is qualified, no production-revision guarantee."
+  ],
+  "analog_assertions": []
+}

@@ -1,0 +1,277 @@
+{
+  "checklist_version": "valtec-vrs254-v2",
+  "checks": [
+    {
+      "id": "housing-type_count",
+      "status": "pass",
+      "observation": "Single left volute castiron body with upper/lower opposing connections.",
+      "region": "housing",
+      "source_observation": "Одноступенчатый моноблочный центробежный корпус в PDF2 exploded. Comparison: Single left volute castiron body with upper/lower opposing connections."
+    },
+    {
+      "id": "housing-shape",
+      "status": "pass",
+      "observation": "Deep curved dark hydraulic cavity and threaded vertical necks.",
+      "region": "housing",
+      "source_observation": "PDF2 illustration shows paired inline connections and volute. Comparison: Deep curved dark hydraulic cavity and threaded vertical necks."
+    },
+    {
+      "id": "housing-attachment",
+      "status": "pass",
+      "observation": "Body joins motor through vertical mating flange, no floating gap.",
+      "region": "housing",
+      "source_observation": "PDF2 exploded order and section5.11 four fixing screws. Comparison: Body joins motor through vertical mating flange, no floating gap."
+    },
+    {
+      "id": "housing-placement_connections",
+      "status": "pass",
+      "observation": "Lower cavity shown continuous peripheral around wheel; central-eye connection not established.",
+      "region": "housing",
+      "source_observation": "PDF2 exploded chamber behind single impeller; current photo vertical opposed ports. Comparison: Lower cavity shown continuous peripheral around wheel; central-eye connection not established."
+    },
+    {
+      "id": "housing-material",
+      "status": "pass",
+      "observation": "Grey rough cut substrate and exterior red paint.",
+      "region": "housing",
+      "source_observation": "Manual4.3 cast iron. Comparison: Grey rough cut substrate and exterior red paint."
+    },
+    {
+      "id": "impeller-type_count",
+      "status": "pass",
+      "observation": "One pale shallow polymer centrifugal wheel at left.",
+      "region": "impeller",
+      "source_observation": "PDF2 exploded single impeller and assembly figure6. Comparison: One pale shallow polymer centrifugal wheel at left."
+    },
+    {
+      "id": "impeller-shape",
+      "status": "unknown",
+      "observation": "Precise curved-blade profile cannot be compared to manufacturer; omitted there.",
+      "region": "impeller",
+      "source_observation": "Sources omit precise current blade profile/count. Comparison: Precise curved-blade profile cannot be compared to manufacturer; omitted there."
+    },
+    {
+      "id": "impeller-attachment",
+      "status": "pass",
+      "observation": "White shaft enters central wheel hub through plate.",
+      "region": "impeller",
+      "source_observation": "Historical assembly item6 coaxial with2 and current PDF2 order. Comparison: White shaft enters central wheel hub through plate."
+    },
+    {
+      "id": "impeller-placement_connections",
+      "status": "unknown",
+      "observation": "Wheel behind perforatedplate at left hydraulicend, but lower inlet connection to central eye obscured.",
+      "region": "impeller",
+      "source_observation": "PDF2 exploded housing-wheel-rotor sequence. Comparison: Wheel behind perforatedplate at left hydraulicend, but lower inlet connection to central eye obscured."
+    },
+    {
+      "id": "impeller-material",
+      "status": "pass",
+      "observation": "Pale nonmetal wheel contrasting metalplate, consistent PP-GF appearance only.",
+      "region": "impeller",
+      "source_observation": "Manual4.3 glass reinforced polypropylene. Comparison: Pale nonmetal wheel contrasting metalplate, consistent PP-GF appearance only."
+    },
+    {
+      "id": "rotor-type_count",
+      "status": "pass",
+      "observation": "One central smooth cylindrical rotor, not permanentmagnet cup.",
+      "region": "rotor",
+      "source_observation": "Manual4.1–4.2 and PDF2 exploded. Comparison: One central smooth cylindrical rotor, not permanentmagnet cup."
+    },
+    {
+      "id": "rotor-shape",
+      "status": "pass",
+      "observation": "Grey cylinder extends axially between ceramic collars.",
+      "region": "rotor",
+      "source_observation": "PDF2 rotor is cylinder; historical assembly1 cylindrical. Comparison: Grey cylinder extends axially between ceramic collars."
+    },
+    {
+      "id": "rotor-attachment",
+      "status": "pass",
+      "observation": "Rotor coaxial to white shaft, same drive axis as wheel.",
+      "region": "rotor",
+      "source_observation": "Assembly1–2 common axis; PDF2 order. Comparison: Rotor coaxial to white shaft, same drive axis as wheel."
+    },
+    {
+      "id": "rotor-placement_connections",
+      "status": "pass",
+      "observation": "Cylinder inside thin enclosing can; stator outside can.",
+      "region": "rotor",
+      "source_observation": "Manual exploded rotor nested in stator/can assembly. Comparison: Cylinder inside thin enclosing can; stator outside can."
+    },
+    {
+      "id": "rotor-material",
+      "status": "unknown",
+      "observation": "Exact rotor alloy unconfirmed.",
+      "region": "rotor",
+      "source_observation": "Relied-on sources omit alloy. Comparison: Exact rotor alloy unconfirmed."
+    },
+    {
+      "id": "stator-type_count",
+      "status": "pass",
+      "observation": "Upper/lower winding/core portions of one annular fixed stator.",
+      "region": "stator",
+      "source_observation": "Manual4.4 specifies winding, exploded shows annular stator. Comparison: Upper/lower winding/core portions of one annular fixed stator."
+    },
+    {
+      "id": "stator-shape",
+      "status": "pass",
+      "observation": "Section of surrounding ring, winding end turns and long lamination stack.",
+      "region": "stator",
+      "source_observation": "Manual PDF2 exploded circular stator. Comparison: Section of surrounding ring, winding end turns and long lamination stack."
+    },
+    {
+      "id": "stator-attachment",
+      "status": "pass",
+      "observation": "Fixed core rests within outermotorcasing, not floating onshaft.",
+      "region": "stator",
+      "source_observation": "Manual PDF2 exploded sequence and4.3 housing. Comparison: Fixed core rests within outermotorcasing, not floating onshaft."
+    },
+    {
+      "id": "stator-placement_connections",
+      "status": "pass",
+      "observation": "Coils outside thin metalcan; no intrusion into rotor cavity.",
+      "region": "stator",
+      "source_observation": "Assembly text impermeable stainless can separates rotor/stator. Comparison: Coils outside thin metalcan; no intrusion into rotor cavity."
+    },
+    {
+      "id": "stator-material",
+      "status": "unknown",
+      "observation": "Copper-looking winding and grey stack, materials not specified in relied-on source.",
+      "region": "stator",
+      "source_observation": "Exact winding/core materials not specified in these sources. Comparison: Copper-looking winding and grey stack, materials not specified in relied-on source."
+    },
+    {
+      "id": "barrier-type_count",
+      "status": "pass",
+      "observation": "One thin metal separator surrounding rotor.",
+      "region": "barrier",
+      "source_observation": "Assembly printed12 text impermeable can. Comparison: One thin metal separator surrounding rotor."
+    },
+    {
+      "id": "barrier-shape",
+      "status": "pass",
+      "observation": "U-shaped axial cut outline round rotor, coherent cylindrical sleeve.",
+      "region": "barrier",
+      "source_observation": "Manual PDF2 exploded circular can around rotor; no precision thickness. Comparison: U-shaped axial cut outline round rotor, coherent cylindrical sleeve."
+    },
+    {
+      "id": "barrier-attachment",
+      "status": "pass",
+      "observation": "Sleeve wall closes outer compartment boundary; small end opening represented.",
+      "region": "barrier",
+      "source_observation": "Assembly text impermeable barrier. Comparison: Sleeve wall closes outer compartment boundary; small end opening represented."
+    },
+    {
+      "id": "barrier-placement_connections",
+      "status": "pass",
+      "observation": "Thin sleeve between rotor and stator clearly visible above/below.",
+      "region": "barrier",
+      "source_observation": "Assembly text separation and manual nested ordering. Comparison: Thin sleeve between rotor and stator clearly visible above/below."
+    },
+    {
+      "id": "barrier-material",
+      "status": "pass",
+      "observation": "Neutral polished thin metalwall; specific stainless grade not distinguishable, fits general appearance.",
+      "region": "barrier",
+      "source_observation": "Assembly printed12 text. Comparison: Neutral polished thin metalwall; specific stainless grade not distinguishable, fits general appearance."
+    },
+    {
+      "id": "shaft-type_count",
+      "status": "pass",
+      "observation": "Pale shaft, front/rear pale collars and small black elastic ring visible.",
+      "region": "shaft",
+      "source_observation": "Assembly2,3,4; current exact card ceramic shaft/bearings/thrustwashers. Comparison: Pale shaft, front/rear pale collars and small black elastic ring visible."
+    },
+    {
+      "id": "shaft-shape",
+      "status": "pass",
+      "observation": "Straight shaft and annular collars at both ends; bore hidden.",
+      "region": "shaft",
+      "source_observation": "Assembly2 white cylinder,3 bearing collar,4 thrustwasher. Comparison: Straight shaft and annular collars at both ends; bore hidden."
+    },
+    {
+      "id": "shaft-attachment",
+      "status": "pass",
+      "observation": "Front blackcuff backed with palethrust element against plate; rear collar mates to shaft.",
+      "region": "shaft",
+      "source_observation": "Assembly4–5 and current card describe elastic EPDM cuff. Comparison: Front blackcuff backed with palethrust element against plate; rear collar mates to shaft."
+    },
+    {
+      "id": "shaft-placement_connections",
+      "status": "unknown",
+      "observation": "Common horizontal axis, but longitudinal shaft channel not exposed.",
+      "region": "shaft",
+      "source_observation": "Assembly text plate7 holes -> rotor compartment -> channel shaft2. Comparison: Common horizontal axis, but longitudinal shaft channel not exposed."
+    },
+    {
+      "id": "shaft-material",
+      "status": "pass",
+      "observation": "Offwhite supports/shaft, blackelastic cuff consistent ceramic/EPDM visual roles.",
+      "region": "shaft",
+      "source_observation": "Exact card and assembly ceramic bearings/shaft/washers, EPDM cuff. Comparison: Offwhite supports/shaft, blackelastic cuff consistent ceramic/EPDM visual roles."
+    },
+    {
+      "id": "nodes-visible",
+      "status": "pass",
+      "observation": "Housing/wheel/rotor/stator/can/shaft/collars clearly separated in readable full window.",
+      "region": "whole frame / relevant delivery region",
+      "source_observation": "Manufacturer exploded assembly differentiates housing/wheel/rotor/can/stator/shaft. Comparison: Housing/wheel/rotor/stator/can/shaft/collars clearly separated in readable full window."
+    },
+    {
+      "id": "cooling-path",
+      "status": "fail",
+      "observation": "Plate apertures are visible, but solid-looking shaft has no visible hollow returnbore.",
+      "region": "whole frame / relevant delivery region",
+      "source_observation": "Assembly text plate7 holes and shaft2 axial return; geometry simplified. Comparison: Plate apertures are visible, but solid-looking shaft has no visible hollow returnbore."
+    },
+    {
+      "id": "no-extra",
+      "status": "pass",
+      "observation": "No tank/fan/multistage stack, one wetrotor assembly.",
+      "region": "whole frame / relevant delivery region",
+      "source_observation": "Manual VRS single wet-rotor assembly. Comparison: No tank/fan/multistage stack, one wetrotor assembly."
+    },
+    {
+      "id": "silhouette",
+      "status": "pass",
+      "observation": "Red compact inline body/opposed necks/vent screw preserved, although view shifted to profile.",
+      "region": "whole frame / relevant delivery region",
+      "source_observation": "Red short motor front silver vent screw, vertical rear hydraulic body. Comparison: Red compact inline body/opposed necks/vent screw preserved, although view shifted to profile."
+    },
+    {
+      "id": "controls",
+      "status": "fail",
+      "observation": "Terminalbox migrated to far right ofmotor rather than frontleft store position; cable shortened offcrop.",
+      "region": "whole frame / relevant delivery region",
+      "source_observation": "Actual card left black terminal box, speed switch, cable. Comparison: Terminalbox migrated to far right ofmotor rather than frontleft store position; cable shortened offcrop."
+    },
+    {
+      "id": "dry",
+      "status": "pass",
+      "observation": "Empty cavities; no water. Blue terminal wire is electrical insulation, not liquid.",
+      "region": "whole frame / relevant delivery region",
+      "source_observation": "User dry-master delivery rule; sources used for empty physical passages. Comparison: Empty cavities; no water. Blue terminal wire is electrical insulation, not liquid."
+    },
+    {
+      "id": "natural",
+      "status": "pass",
+      "observation": "Neutralmetal/polymer/ceramic sectionfaces without coloredcontourstrip; exteriorredpaint allowed.",
+      "region": "whole frame / relevant delivery region",
+      "source_observation": "User natural-substrate rule; manual4.3 castiron/aluminium/polymer. Comparison: Neutralmetal/polymer/ceramic sectionfaces without coloredcontourstrip; exteriorredpaint allowed."
+    },
+    {
+      "id": "captions",
+      "status": "unknown",
+      "observation": "Unlabelledbase, captioncheck unknown.",
+      "region": "whole frame / relevant delivery region",
+      "source_observation": "Main functional parts named in current manual/assembly. Comparison: Unlabelledbase, captioncheck unknown."
+    }
+  ],
+  "summary": "Nested wetrotor mechanism distinguishable. Hollow shaft/inlet eye path unverified and terminalbox moved; no captiongate yet.",
+  "next_changes": [
+    "Expose hollow ceramic shaft and inlet central-eye connection",
+    "Restore terminalbox toward storephoto left-front while preserving corecut"
+  ],
+  "resolved_changes": []
+}

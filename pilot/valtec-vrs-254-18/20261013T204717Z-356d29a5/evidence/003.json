@@ -1,0 +1,13 @@
+{
+  "id": 3,
+  "source_id": "assembly",
+  "url": "https://valtec.ru/document/Valtec-new-2015.pdf",
+  "kind": "manufacturer_series",
+  "applicability": "Historical VRS assembly 1–7 matches current described ceramic shaft/supports/EPDM and wet rotor. Supports family arrangement only, not exact current blade profile or tolerances.",
+  "inputs_version": 1,
+  "locator": "PDF13 / printed12 figure1–7",
+  "observation": "Ceramic supports, EPDM and shaft channel",
+  "archived_at": "2026-10-13T20:51:07+00:00",
+  "path": "evidence/files/1ea5b6a34698b19d99b92920fc00f6ec48dc8a26ebfec797a1568c13be4dd3cd.png",
+  "sha256": "1ea5b6a34698b19d99b92920fc00f6ec48dc8a26ebfec797a1568c13be4dd3cd"
+}

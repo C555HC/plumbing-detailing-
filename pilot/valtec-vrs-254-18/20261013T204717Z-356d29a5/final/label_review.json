@@ -1,0 +1,119 @@
+{
+  "base_sha256": "f54eee0c6427c6e5a38e6c960bea1570ae8d52645f83889583951d91da218b9c",
+  "labels_sha256": "625000a8959391125e5658a76ceedda790c84e43547c3bc3afe63e3cf106af2a",
+  "preview_sha256": "deb030d90131c0fb43b6abc0c1c5206de678126ade3d955420d0057990d0cd00",
+  "layout_checked": true,
+  "title_checked": true,
+  "checks": [
+    {
+      "id": "housing",
+      "text_checked": true,
+      "target_checked": true,
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration/§6.4 ventplug",
+      "observation": "Endpoint on grey castiron inner neck wall, not background; corrected misplaced firstdraftendpoint."
+    },
+    {
+      "id": "impeller",
+      "text_checked": true,
+      "target_checked": true,
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration/§6.4 ventplug",
+      "observation": "Endpoint on pale polymer wheel web, not retainingplate."
+    },
+    {
+      "id": "plate",
+      "text_checked": true,
+      "target_checked": true,
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 printed12 figure1–7 and text",
+      "observation": "Endpoint on perforated metaldisc, matches item7."
+    },
+    {
+      "id": "frontbearing",
+      "text_checked": true,
+      "target_checked": true,
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 printed12 figure1–7 and text",
+      "observation": "Endpoint on palecollar/blackEPDM assembly, matches3–5; combined functionalcaption."
+    },
+    {
+      "id": "shaft",
+      "text_checked": true,
+      "target_checked": true,
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 printed12 figure1–7 and text",
+      "observation": "Endpoint on exposed pale ceramic-lined axialslot, not rotor metalwall."
+    },
+    {
+      "id": "rotor",
+      "text_checked": true,
+      "target_checked": true,
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration/§6.4 ventplug",
+      "observation": "Endpoint on grey cylindricalrotor wall above inspectionwindow."
+    },
+    {
+      "id": "stator",
+      "text_checked": true,
+      "target_checked": true,
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration/§6.4 ventplug",
+      "observation": "Endpoint on fixed laminationstack contiguous to visible coilendturns."
+    },
+    {
+      "id": "can",
+      "text_checked": true,
+      "target_checked": true,
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 printed12 figure1–7 and text",
+      "observation": "Endpoint on thin metalcan boundary outside rotor and inside stator."
+    },
+    {
+      "id": "rear",
+      "text_checked": true,
+      "target_checked": true,
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 printed12 figure1–7 and text",
+      "observation": "Endpoint on pale rearbearingcollar at shaftend."
+    },
+    {
+      "id": "box",
+      "text_checked": true,
+      "target_checked": true,
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration/§6.4 ventplug",
+      "observation": "Endpoint on rotaryswitch on blackterminalbox."
+    },
+    {
+      "id": "vent",
+      "text_checked": true,
+      "target_checked": true,
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration/§6.4 ventplug",
+      "observation": "Endpoint on retained main slotted ventplug; secondplug defect inbase noted separately for draft002."
+    }
+  ]
+}

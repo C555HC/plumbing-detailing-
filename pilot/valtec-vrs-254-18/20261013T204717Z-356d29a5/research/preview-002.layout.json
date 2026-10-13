@@ -1,0 +1,136 @@
+{
+  "image": "/Users/nikitas/Documents/ChatGPT/Ворк/plumbing-detailing-/output/cutaways/valtec-vrs-254-18/20261013T204717Z-356d29a5/research/preview-002.png",
+  "font": "/System/Library/Fonts/Supplemental/Arial.ttf",
+  "label_boxes": {
+    "title": [
+      55,
+      54,
+      591,
+      151
+    ],
+    "housing": [
+      40,
+      366,
+      275,
+      422
+    ],
+    "impeller": [
+      40,
+      596,
+      266,
+      658
+    ],
+    "plate": [
+      40,
+      816,
+      204,
+      872
+    ],
+    "frontbearing": [
+      40,
+      1035,
+      332,
+      1091
+    ],
+    "shaft": [
+      370,
+      1565,
+      630,
+      1621
+    ],
+    "rotor": [
+      900,
+      1565,
+      1155,
+      1627
+    ],
+    "stator": [
+      1959,
+      736,
+      2115,
+      792
+    ],
+    "can": [
+      1959,
+      975,
+      2195,
+      1031
+    ],
+    "rear": [
+      1959,
+      1205,
+      2159,
+      1267
+    ],
+    "box": [
+      1000,
+      216,
+      1394,
+      278
+    ],
+    "vent": [
+      1529,
+      1565,
+      1754,
+      1627
+    ]
+  },
+  "warnings": [],
+  "source_size": [
+    1448,
+    1086
+  ],
+  "image_bounds": [
+    410,
+    350,
+    1920,
+    1482
+  ],
+  "target_points": {
+    "housing": [
+      765,
+      672
+    ],
+    "impeller": [
+      795,
+      814
+    ],
+    "plate": [
+      919,
+      826
+    ],
+    "frontbearing": [
+      973,
+      921
+    ],
+    "shaft": [
+      1175,
+      955
+    ],
+    "rotor": [
+      1210,
+      887
+    ],
+    "stator": [
+      1293,
+      774
+    ],
+    "can": [
+      1451,
+      949
+    ],
+    "rear": [
+      1406,
+      978
+    ],
+    "box": [
+      1075,
+      520
+    ],
+    "vent": [
+      1542,
+      1014
+    ]
+  },
+  "semantic_targets_checked": false
+}

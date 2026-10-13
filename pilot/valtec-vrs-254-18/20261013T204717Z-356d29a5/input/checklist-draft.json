@@ -1,0 +1,682 @@
+{
+  "protocol_version": 2,
+  "version": "valtec-vrs254-v2",
+  "checks": [
+    {
+      "id": "housing-type_count",
+      "node_id": "housing",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 3,
+      "requirement": "Один гидравлический корпус",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "Одноступенчатый моноблочный центробежный корпус в PDF2 exploded.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "housing-shape",
+      "node_id": "housing",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Улитка с двумя противоположными патрубками",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "PDF2 illustration shows paired inline connections and volute.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "housing-attachment",
+      "node_id": "housing",
+      "aspect": "attachment",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Корпус соединён с моторным фланцем",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "PDF2 exploded order and section5.11 four fixing screws.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "housing-placement_connections",
+      "node_id": "housing",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 4,
+      "requirement": "Патрубки сообщаются с рабочей камерой",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "PDF2 exploded chamber behind single impeller; current photo vertical opposed ports.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "housing-material",
+      "node_id": "housing",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Чугунный срез корпуса",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "Manual4.3 cast iron.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "impeller-type_count",
+      "node_id": "impeller",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 3,
+      "requirement": "Одно рабочее колесо",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "PDF2 exploded single impeller and assembly figure6.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "impeller-shape",
+      "node_id": "impeller",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Точный профиль лопаток модели",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "Sources omit precise current blade profile/count.",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "impeller-attachment",
+      "node_id": "impeller",
+      "aspect": "attachment",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Крыльчатка закреплена на конце вала",
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 / printed12 figure1–7 and text",
+      "source_fact": "Historical assembly item6 coaxial with2 and current PDF2 order.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "impeller-placement_connections",
+      "node_id": "impeller",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 5,
+      "requirement": "Колесо внутри улитки перед ротором",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "PDF2 exploded housing-wheel-rotor sequence.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "impeller-material",
+      "node_id": "impeller",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Полимерная крыльчатка",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "Manual4.3 glass reinforced polypropylene.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "rotor-type_count",
+      "node_id": "rotor",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 3,
+      "requirement": "Один ротор мокрого двигателя",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "Manual4.1–4.2 and PDF2 exploded.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "rotor-shape",
+      "node_id": "rotor",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Цилиндрическая форма ротора",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "PDF2 rotor is cylinder; historical assembly1 cylindrical.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "rotor-attachment",
+      "node_id": "rotor",
+      "aspect": "attachment",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Ротор соединён с валом",
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 / printed12 figure1–7 and text",
+      "source_fact": "Assembly1–2 common axis; PDF2 order.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "rotor-placement_connections",
+      "node_id": "rotor",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 4,
+      "requirement": "Ротор внутри обоймы, соосен колесу",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "Manual exploded rotor nested in stator/can assembly.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "rotor-material",
+      "node_id": "rotor",
+      "aspect": "material",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Точный материал ротора",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "Relied-on sources omit alloy.",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "stator-type_count",
+      "node_id": "stator",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 3,
+      "requirement": "Один статор с обмоткой",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "Manual4.4 specifies winding, exploded shows annular stator.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "stator-shape",
+      "node_id": "stator",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Кольцевой статор вокруг ротора",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "Manual PDF2 exploded circular stator.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "stator-attachment",
+      "node_id": "stator",
+      "aspect": "attachment",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Статор неподвижен внутри моторного кожуха",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "Manual PDF2 exploded sequence and4.3 housing.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "stator-placement_connections",
+      "node_id": "stator",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 4,
+      "requirement": "Обмотка вне роторного отсека",
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 / printed12 figure1–7 and text",
+      "source_fact": "Assembly text impermeable stainless can separates rotor/stator.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "stator-material",
+      "node_id": "stator",
+      "aspect": "material",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Точный материал сердечника и обмотки",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "Exact winding/core materials not specified in these sources.",
+      "evidence_level": "unknown",
+      "evidence_supported": false,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "barrier-type_count",
+      "node_id": "barrier",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Одна разделительная обойма",
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 / printed12 figure1–7 and text",
+      "source_fact": "Assembly printed12 text impermeable can.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "barrier-shape",
+      "node_id": "barrier",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Тонкая цилиндрическая обойма",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 illustration",
+      "source_fact": "Manual PDF2 exploded circular can around rotor; no precision thickness.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "barrier-attachment",
+      "node_id": "barrier",
+      "aspect": "attachment",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Обойма замыкает границу роторного отсека",
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 / printed12 figure1–7 and text",
+      "source_fact": "Assembly text impermeable barrier.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "barrier-placement_connections",
+      "node_id": "barrier",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 4,
+      "requirement": "Обойма между ротором и статором",
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 / printed12 figure1–7 and text",
+      "source_fact": "Assembly text separation and manual nested ordering.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "barrier-material",
+      "node_id": "barrier",
+      "aspect": "material",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Обойма из нержавеющей стали",
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 / printed12 figure1–7 and text",
+      "source_fact": "Assembly printed12 text.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "shaft-type_count",
+      "node_id": "shaft",
+      "aspect": "type_count",
+      "block": "construction",
+      "points": 2,
+      "requirement": "Керамический вал с опорами и упорными элементами",
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 / printed12 figure1–7 and text",
+      "source_fact": "Assembly2,3,4; current exact card ceramic shaft/bearings/thrustwashers.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "shaft-shape",
+      "node_id": "shaft",
+      "aspect": "shape",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Осевой вал и кольцевые опоры",
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 / printed12 figure1–7 and text",
+      "source_fact": "Assembly2 white cylinder,3 bearing collar,4 thrustwasher.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "shaft-attachment",
+      "node_id": "shaft",
+      "aspect": "attachment",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Опоры удерживают вал; EPDM подпружинивает шайбу",
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 / printed12 figure1–7 and text",
+      "source_fact": "Assembly4–5 and current card describe elastic EPDM cuff.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "shaft-placement_connections",
+      "node_id": "shaft",
+      "aspect": "placement_connections",
+      "block": "topology",
+      "points": 4,
+      "requirement": "Соосные опоры и продольный канал вала",
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 / printed12 figure1–7 and text",
+      "source_fact": "Assembly text plate7 holes -> rotor compartment -> channel shaft2.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "shaft-material",
+      "node_id": "shaft",
+      "aspect": "material",
+      "block": "construction",
+      "points": 1,
+      "requirement": "Керамика и EPDM по назначению",
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF13 / printed12 figure1–7 and text",
+      "source_fact": "Exact card and assembly ceramic bearings/shaft/washers, EPDM cuff.",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "nodes-visible",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 7,
+      "requirement": "Различимы все основные узлы",
+      "source_fact": "Manufacturer exploded assembly differentiates housing/wheel/rotor/can/stator/shaft.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 / PDF13 printed12",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "cooling-path",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 5,
+      "requirement": "Показаны отверстие пластины и пустой канал вала",
+      "source_fact": "Assembly text plate7 holes and shaft2 axial return; geometry simplified.",
+      "source_ids": [
+        "assembly"
+      ],
+      "locator": "PDF2 §4 / PDF13 printed12",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "no-extra",
+      "aspect": "delivery",
+      "block": "completeness",
+      "points": 3,
+      "requirement": "Нет бака, вентилятора, многоступенчатого пакета",
+      "source_fact": "Manual VRS single wet-rotor assembly.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 / PDF13 printed12",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "silhouette",
+      "aspect": "delivery",
+      "block": "appearance",
+      "points": 7,
+      "requirement": "Сохранены внешний вид и пропорции фото",
+      "source_fact": "Red short motor front silver vent screw, vertical rear hydraulic body.",
+      "source_ids": [
+        "photo"
+      ],
+      "locator": "Store-card primary photo",
+      "evidence_level": "photo",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "controls",
+      "aspect": "delivery",
+      "block": "appearance",
+      "points": 3,
+      "requirement": "Клеммная коробка с переключателем, кабель",
+      "source_fact": "Actual card left black terminal box, speed switch, cable.",
+      "source_ids": [
+        "photo"
+      ],
+      "locator": "Store-card primary photo",
+      "evidence_level": "photo",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": false
+    },
+    {
+      "id": "dry",
+      "aspect": "delivery",
+      "block": "clarity",
+      "points": 1,
+      "requirement": "Нет воды и стрелок потока",
+      "source_fact": "User dry-master delivery rule; sources used for empty physical passages.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 / PDF13 printed12",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "natural",
+      "aspect": "delivery",
+      "block": "clarity",
+      "points": 1,
+      "requirement": "Срезы материала без красных полос",
+      "source_fact": "User natural-substrate rule; manual4.3 castiron/aluminium/polymer.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 / PDF13 printed12",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": true,
+      "caption_dependent": false
+    },
+    {
+      "id": "captions",
+      "aspect": "delivery",
+      "block": "clarity",
+      "points": 3,
+      "requirement": "Читаемые проверенные русские подписи",
+      "source_fact": "Main functional parts named in current manual/assembly.",
+      "source_ids": [
+        "manual"
+      ],
+      "locator": "PDF2 §4 / PDF13 printed12",
+      "evidence_level": "series",
+      "evidence_supported": true,
+      "essential": true,
+      "critical": false,
+      "caption_dependent": true
+    }
+  ]
+}

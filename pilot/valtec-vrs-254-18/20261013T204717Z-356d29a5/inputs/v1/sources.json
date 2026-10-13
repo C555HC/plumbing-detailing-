@@ -1,0 +1,36 @@
+{
+  "sources": [
+    {
+      "id": "photo",
+      "kind": "product_photo",
+      "url": "https://477477.ru/images/products/_transparent-v1/vrs.254.18.0-7272e9f1a4ac0860-detail-6a62f4550434e6bd-detail.webp",
+      "verified": true,
+      "title": "Фотография выбранной карточки",
+      "applicability": "Exact store article VRS.254.18.0, exterior only"
+    },
+    {
+      "id": "card",
+      "kind": "manufacturer_model",
+      "url": "https://valtec.ru/catalog/nasosnoe_oborudovanie/nasosy_cirkulyacionnye/nasos_cirkulyacionnyj_vrs_254_180.html",
+      "verified": true,
+      "title": "VALTEC VRS.254.18",
+      "applicability": "Exact model, current description and CAD links"
+    },
+    {
+      "id": "manual",
+      "kind": "manufacturer_series",
+      "url": "https://valtec.ru/document/technical/VRS-0725.pdf",
+      "verified": true,
+      "title": "VRS паспорт ПС47522-2, 0725",
+      "applicability": "Lists254.180 in table; PDF2 section4 exploded family drawing, not precision model CAD"
+    },
+    {
+      "id": "assembly",
+      "kind": "manufacturer_series",
+      "url": "https://valtec.ru/document/Valtec-new-2015.pdf",
+      "verified": true,
+      "title": "Новинки2015, VRS, печатная12 / PDF13",
+      "applicability": "Historical VRS assembly 1–7 matches current described ceramic shaft/supports/EPDM and wet rotor. Supports family arrangement only, not exact current blade profile or tolerances."
+    }
+  ]
+}

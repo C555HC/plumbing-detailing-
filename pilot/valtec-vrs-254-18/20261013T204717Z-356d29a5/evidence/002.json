@@ -1,0 +1,13 @@
+{
+  "id": 2,
+  "source_id": "manual",
+  "url": "https://valtec.ru/document/technical/VRS-0725.pdf",
+  "kind": "manufacturer_series",
+  "applicability": "Lists254.180 in table; PDF2 section4 exploded family drawing, not precision model CAD",
+  "inputs_version": 1,
+  "locator": "PDF2 §4 and exploded",
+  "observation": "Nested rotor/can/stator and single wheel",
+  "archived_at": "2026-10-13T20:51:07+00:00",
+  "path": "evidence/files/b998f9bdedf99fc18a9a5848d986c5f52fb17705997d551b60d113b039e92b44.png",
+  "sha256": "b998f9bdedf99fc18a9a5848d986c5f52fb17705997d551b60d113b039e92b44"
+}

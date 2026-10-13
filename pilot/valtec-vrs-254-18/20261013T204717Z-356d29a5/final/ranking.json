@@ -1,0 +1,325 @@
+[
+  {
+    "attempt": 3,
+    "rating": 90.0,
+    "critical_errors": [],
+    "readiness": {
+      "status": "needs_technical_review",
+      "label": "Нужна техническая проверка: существенные признаки не подтверждены",
+      "reasons": [
+        "impeller-shape",
+        "impeller-placement_connections",
+        "rotor-material",
+        "stator-material"
+      ],
+      "technical_approval": false
+    },
+    "evidence_summary": {
+      "scope": "essential_internal_facts",
+      "source_basis": {
+        "model": [],
+        "series": [
+          "housing-type_count",
+          "housing-shape",
+          "housing-attachment",
+          "housing-placement_connections",
+          "housing-material",
+          "impeller-type_count",
+          "impeller-attachment",
+          "impeller-placement_connections",
+          "impeller-material",
+          "rotor-type_count",
+          "rotor-shape",
+          "rotor-attachment",
+          "rotor-placement_connections",
+          "stator-type_count",
+          "stator-shape",
+          "stator-attachment",
+          "stator-placement_connections",
+          "barrier-type_count",
+          "barrier-shape",
+          "barrier-attachment",
+          "barrier-placement_connections",
+          "barrier-material",
+          "shaft-type_count",
+          "shaft-shape",
+          "shaft-attachment",
+          "shaft-placement_connections",
+          "shaft-material"
+        ],
+        "analog": [],
+        "unknown": [
+          "impeller-shape",
+          "rotor-material",
+          "stator-material"
+        ]
+      },
+      "confirmed_facts": {
+        "model": [],
+        "series": [
+          "housing-type_count",
+          "housing-shape",
+          "housing-attachment",
+          "housing-placement_connections",
+          "housing-material",
+          "impeller-type_count",
+          "impeller-attachment",
+          "impeller-material",
+          "rotor-type_count",
+          "rotor-shape",
+          "rotor-attachment",
+          "rotor-placement_connections",
+          "stator-type_count",
+          "stator-shape",
+          "stator-attachment",
+          "stator-placement_connections",
+          "barrier-type_count",
+          "barrier-shape",
+          "barrier-attachment",
+          "barrier-placement_connections",
+          "barrier-material",
+          "shaft-type_count",
+          "shaft-shape",
+          "shaft-attachment",
+          "shaft-placement_connections",
+          "shaft-material"
+        ],
+        "analog": []
+      },
+      "unverified": [
+        "impeller-shape",
+        "impeller-placement_connections",
+        "rotor-material",
+        "stator-material"
+      ],
+      "contradicted": [],
+      "partial": [],
+      "unavailable_checks": [
+        "impeller-shape",
+        "rotor-material",
+        "stator-material"
+      ],
+      "unavailable_points": 5.0,
+      "source_supported_ceiling": 95.0
+    },
+    "evaluation_phase": "captioned",
+    "base_rating": 87.0
+  },
+  {
+    "attempt": 2,
+    "rating": 83.0,
+    "critical_errors": [],
+    "readiness": {
+      "status": "needs_technical_review",
+      "label": "Нужна техническая проверка: существенные признаки не подтверждены",
+      "reasons": [
+        "impeller-shape",
+        "impeller-placement_connections",
+        "rotor-material",
+        "stator-material",
+        "silhouette"
+      ],
+      "technical_approval": false
+    },
+    "evidence_summary": {
+      "scope": "essential_internal_facts",
+      "source_basis": {
+        "model": [],
+        "series": [
+          "housing-type_count",
+          "housing-shape",
+          "housing-attachment",
+          "housing-placement_connections",
+          "housing-material",
+          "impeller-type_count",
+          "impeller-attachment",
+          "impeller-placement_connections",
+          "impeller-material",
+          "rotor-type_count",
+          "rotor-shape",
+          "rotor-attachment",
+          "rotor-placement_connections",
+          "stator-type_count",
+          "stator-shape",
+          "stator-attachment",
+          "stator-placement_connections",
+          "barrier-type_count",
+          "barrier-shape",
+          "barrier-attachment",
+          "barrier-placement_connections",
+          "barrier-material",
+          "shaft-type_count",
+          "shaft-shape",
+          "shaft-attachment",
+          "shaft-placement_connections",
+          "shaft-material"
+        ],
+        "analog": [],
+        "unknown": [
+          "impeller-shape",
+          "rotor-material",
+          "stator-material"
+        ]
+      },
+      "confirmed_facts": {
+        "model": [],
+        "series": [
+          "housing-type_count",
+          "housing-shape",
+          "housing-attachment",
+          "housing-placement_connections",
+          "housing-material",
+          "impeller-type_count",
+          "impeller-attachment",
+          "impeller-material",
+          "rotor-type_count",
+          "rotor-shape",
+          "rotor-attachment",
+          "rotor-placement_connections",
+          "stator-type_count",
+          "stator-shape",
+          "stator-attachment",
+          "stator-placement_connections",
+          "barrier-type_count",
+          "barrier-shape",
+          "barrier-attachment",
+          "barrier-placement_connections",
+          "barrier-material",
+          "shaft-type_count",
+          "shaft-shape",
+          "shaft-attachment",
+          "shaft-placement_connections",
+          "shaft-material"
+        ],
+        "analog": []
+      },
+      "unverified": [
+        "impeller-shape",
+        "impeller-placement_connections",
+        "rotor-material",
+        "stator-material"
+      ],
+      "contradicted": [],
+      "partial": [],
+      "unavailable_checks": [
+        "impeller-shape",
+        "rotor-material",
+        "stator-material"
+      ],
+      "unavailable_points": 5.0,
+      "source_supported_ceiling": 95.0
+    },
+    "evaluation_phase": "captioned",
+    "base_rating": 80.0
+  },
+  {
+    "attempt": 1,
+    "rating": 75.0,
+    "critical_errors": [],
+    "readiness": {
+      "status": "needs_technical_review",
+      "label": "Нужна техническая проверка: существенные признаки не подтверждены",
+      "reasons": [
+        "impeller-shape",
+        "impeller-placement_connections",
+        "rotor-material",
+        "stator-material",
+        "shaft-placement_connections",
+        "cooling-path",
+        "controls",
+        "captions"
+      ],
+      "technical_approval": false
+    },
+    "evidence_summary": {
+      "scope": "essential_internal_facts",
+      "source_basis": {
+        "model": [],
+        "series": [
+          "housing-type_count",
+          "housing-shape",
+          "housing-attachment",
+          "housing-placement_connections",
+          "housing-material",
+          "impeller-type_count",
+          "impeller-attachment",
+          "impeller-placement_connections",
+          "impeller-material",
+          "rotor-type_count",
+          "rotor-shape",
+          "rotor-attachment",
+          "rotor-placement_connections",
+          "stator-type_count",
+          "stator-shape",
+          "stator-attachment",
+          "stator-placement_connections",
+          "barrier-type_count",
+          "barrier-shape",
+          "barrier-attachment",
+          "barrier-placement_connections",
+          "barrier-material",
+          "shaft-type_count",
+          "shaft-shape",
+          "shaft-attachment",
+          "shaft-placement_connections",
+          "shaft-material"
+        ],
+        "analog": [],
+        "unknown": [
+          "impeller-shape",
+          "rotor-material",
+          "stator-material"
+        ]
+      },
+      "confirmed_facts": {
+        "model": [],
+        "series": [
+          "housing-type_count",
+          "housing-shape",
+          "housing-attachment",
+          "housing-placement_connections",
+          "housing-material",
+          "impeller-type_count",
+          "impeller-attachment",
+          "impeller-material",
+          "rotor-type_count",
+          "rotor-shape",
+          "rotor-attachment",
+          "rotor-placement_connections",
+          "stator-type_count",
+          "stator-shape",
+          "stator-attachment",
+          "stator-placement_connections",
+          "barrier-type_count",
+          "barrier-shape",
+          "barrier-attachment",
+          "barrier-placement_connections",
+          "barrier-material",
+          "shaft-type_count",
+          "shaft-shape",
+          "shaft-attachment",
+          "shaft-material"
+        ],
+        "analog": []
+      },
+      "unverified": [
+        "impeller-shape",
+        "impeller-placement_connections",
+        "rotor-material",
+        "stator-material",
+        "shaft-placement_connections"
+      ],
+      "contradicted": [],
+      "partial": [],
+      "unavailable_checks": [
+        "impeller-shape",
+        "rotor-material",
+        "stator-material"
+      ],
+      "unavailable_points": 5.0,
+      "source_supported_ceiling": 95.0
+    },
+    "evaluation_phase": "base",
+    "base_rating": 75.0
+  }
+]

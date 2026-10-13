@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "source_id": "photo",
+  "url": "https://477477.ru/images/products/_transparent-v1/vrs.254.18.0-7272e9f1a4ac0860-detail-6a62f4550434e6bd-detail.webp",
+  "kind": "product_photo",
+  "applicability": "Exact store article VRS.254.18.0, exterior only",
+  "inputs_version": 1,
+  "locator": "Store primary gallery",
+  "observation": "Exact selected red pump exterior",
+  "archived_at": "2026-10-13T20:51:07+00:00",
+  "path": "evidence/files/d1be7bdf89bb27193e2fd0d0fbadbeba8fb08553ed472a81c3a3bb876d91df68.webp",
+  "sha256": "d1be7bdf89bb27193e2fd0d0fbadbeba8fb08553ed472a81c3a3bb876d91df68"
+}

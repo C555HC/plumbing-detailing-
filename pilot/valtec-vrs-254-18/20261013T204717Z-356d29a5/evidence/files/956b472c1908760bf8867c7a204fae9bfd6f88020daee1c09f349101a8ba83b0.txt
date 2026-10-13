@@ -1,0 +1,2 @@
+Exact VALTEC card: VRS.254.18.0; castiron; ceramic shaft/bearings/thrustwashers; EPDM cuff; plate holes and shaft channel; three-speed wetrotor. Links passport VRS-0725.pdf and STP drawing/VRS.254.18/stp.zip.
+STP archive retrieved but no geometry section inspected; not evidence for hidden assembly.
