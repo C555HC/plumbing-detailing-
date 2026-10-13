@@ -88,6 +88,22 @@ class CutawayTests(unittest.TestCase):
                 self.assertEqual(c.digest(cached), ref["sha256"])
                 c.fail(self.run, n, "Synthetic test call not dispatched")
 
+    def test_initial_store_photo_preserves_real_format_and_bytes(self):
+        for fmt, suffix in (("PNG", ".png"), ("JPEG", ".jpg"), ("WEBP", ".webp")):
+            with self.subTest(format=fmt):
+                asset = self.root / (fmt + ".wrong-extension")
+                Image.new("RGB", (80, 60), "grey").save(asset, format=fmt)
+                original = asset.read_bytes()
+                run = c.initialize(self.root / "runs", "card", "TEST", "https://example.org/card", asset)
+                data = c.load(run / "state.json")["input_image"]
+                cached = run / data["path"]
+                self.assertEqual(cached.suffix, suffix)
+                self.assertEqual(cached.read_bytes(), original)
+                self.assertEqual(data["sha256"], c.digest(asset))
+                self.assertEqual(data["format"], fmt)
+                self.assertEqual(data["size"], [80, 60])
+                self.assertEqual(asset.read_bytes(), original)
+
     def test_archive_survives_original_loss_without_spending_attempts(self):
         asset = self.root / "factory.png"
         Image.new("RGB", (80, 60), "grey").save(asset)

@@ -321,14 +321,18 @@ def initialize(root, product_id, model, url, image, limit=DEFAULT_LIMIT):
         raise ValueError("product_id must be a short lowercase identifier")
     if isinstance(limit, bool) or not isinstance(limit, int) or not 1 <= limit <= DEFAULT_LIMIT:
         raise ValueError("New run limit must be 1..5; preserve older runs and use a linked revision to continue")
-    image_size(image)
+    size, image_format = image_details(image, ("PNG", "JPEG", "WEBP"))
     run = Path(root).resolve() / product_id / (datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid4().hex[:8])
     (run / "input").mkdir(parents=True)
-    shutil.copy2(image, run / "input/reference.png")
+    suffix = {"PNG": ".png", "JPEG": ".jpg", "WEBP": ".webp"}[image_format]
+    reference = run / "input" / ("reference" + suffix)
+    shutil.copy2(image, reference)
     atomic_json(run / "state.json", {"schema_version": 1, "run_id": run.name,
         "product_id": product_id, "model": model, "url": url, "limit": limit,
         "created_at": now(), "updated_at": now(), "stage": "needs_inputs",
-        "attempts": [], "events": [], "inputs_version": 0, "best": None, "scoring_protocol_version": 2})
+        "attempts": [], "events": [], "inputs_version": 0, "best": None, "scoring_protocol_version": 2,
+        "input_image": {"path": str(reference.relative_to(run)), "sha256": digest(reference),
+                        "format": image_format, "size": size}})
     return run
 
 
@@ -820,7 +824,8 @@ def main():
     args = parser.parse_args()
     try:
         if args.command == "init":
-            result = {"run": str(initialize(args.root, args.product_id, args.model, args.url, args.image, args.limit))}
+            run = initialize(args.root, args.product_id, args.model, args.url, args.image, args.limit)
+            result = {"run": str(run), "input_image": str(run / load(run / "state.json")["input_image"]["path"])}
         elif args.command == "prepare":
             result = prepare(args.run, args.spec, args.checklist, args.sources, args.update)
         elif args.command == "reserve":

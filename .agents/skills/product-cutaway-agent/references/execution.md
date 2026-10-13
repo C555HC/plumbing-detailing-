@@ -2,6 +2,8 @@
 
 Helpers require Python 3.10+ and Pillow; file locking currently targets macOS/Linux (`fcntl`). Use an available runtime, or install the project's requirements in a virtual environment. No API key is needed for the built-in generator. `$SCRIPT` below means the actual absolute path to `scripts/cutaway.py`; `$RUN` means the actual returned run directory, not a shell variable to assume already exists.
 
+For a new product first complete [store-card.md](store-card.md). Pass the actual saved card photo to init and the card URL to --url. Init accepts actual PNG/JPEG/WebP bytes, copies them unchanged to input/reference with the correct format suffix and returns input_image as an absolute path. State stores its path/hash/format/size; this does not automatically prove web origin. Save input/store-card.json with the observed title/asset/card provenance before showing the photo and proceeding. Results/previews still require PNG.
+
 ```text
 python cutaway.py init --root output/cutaways --product-id brand-article --model MODEL --url URL --image PHOTO --limit 5
 python cutaway.py prepare --run RUN --spec SPEC.json --checklist CHECKLIST.json --sources SOURCES.json
