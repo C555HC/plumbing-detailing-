@@ -40,7 +40,7 @@ class CutawayTests(unittest.TestCase):
              "requirement": "Observable fact", "source_ids": ["manual"], "locator": "PDF page 1",
              "critical": block == "construction", **({"partial_rule": "Part visible, connection partly obscured"} if block == "topology" else {})}
             for block, maximum in c.WEIGHTS.items()]}
-        self.run = c.initialize(self.root / "runs", "test", "TEST", "https://example.org", self.image)
+        self.run = c.initialize(self.root / "runs", "test", "TEST", "https://example.org", self.image, workflow_version="1.0")
         # Preserve a historical v1/10-attempt fixture; new production runs use v2/5.
         state = c.load(self.run / "state.json")
         state.pop("scoring_protocol_version")
@@ -355,7 +355,7 @@ class CutawayTests(unittest.TestCase):
             c.record(self.run, 1, self.image)
 
     def test_parallel_runs_are_separate(self):
-        other = c.initialize(self.root / "runs", "test", "TEST", "https://example.org", self.image)
+        other = c.initialize(self.root / "runs", "test", "TEST", "https://example.org", self.image, workflow_version="1.0")
         self.assertNotEqual(other, self.run)
         c.reserve(self.run, self.prompt, [self.image])
         self.assertEqual(c.load(other / "state.json")["attempts"], [])
@@ -426,7 +426,7 @@ class CutawayTests(unittest.TestCase):
             c.finalize(self.run, "tampering")
 
     def test_prepare_required_before_generation(self):
-        other = c.initialize(self.root / "runs", "other", "TEST", "https://example.org", self.image)
+        other = c.initialize(self.root / "runs", "other", "TEST", "https://example.org", self.image, workflow_version="1.0")
         with self.assertRaisesRegex(ValueError, "Prepare"):
             c.reserve(other, self.prompt, [self.image])
 
@@ -560,7 +560,7 @@ class ScoringV2Tests(unittest.TestCase):
              "critical": key == "type_count", "source_ids": ["manual"], "locator": "page 1, fixture figure",
              "source_fact": "Factory fixture shows " + key, "evidence_level": "model", "evidence_supported": True}
             for key, block, weight in definitions]}
-        self.run = c.initialize(self.root / "runs", "test", "TEST", "https://example.org", self.image)
+        self.run = c.initialize(self.root / "runs", "test", "TEST", "https://example.org", self.image, workflow_version="1.0")
 
     def check(self, identifier):
         return next(item for item in self.checklist["checks"] if item["id"] == identifier)

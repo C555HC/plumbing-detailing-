@@ -1,13 +1,19 @@
 # Follow-up edits
 
-Read the saved run, chosen parent, inputs, and report. Save the user's wording. Decide if it changes labels/exterior or technical structure. If the request conflicts with an applicable document, explain the concrete conflict and clarify rather than silently inventing a different product.
+Read saved state/current facts/selected parent and preserve the user's wording. Distinguish caption/appearance edits from changed construction. Ask about a consequential conflict with applicable documentation; do not invent another mechanism.
 
-For only labels under composed mode: copy the labels JSON to a versioned sibling, change text/coordinates, render a new preview, inspect every changed name/target and the entire layout, and re-review its parent using `--preview --labels --label-review` with newly bound hashes. This creates a new review/preview while preserving old ones; no image-generator call is needed. Save the revision request and archive the prior final before finalizing again. Never reuse an old caption audit for a changed preview.
+For captions only, reuse the current eligible90+ base. Save new labels, compose a new flattened preview, inspect terms/targets and the entire frame, then submit `review --preview --labels --label-review`. Non-caption answers remain unchanged. Reviews/previews persist; a new caption audit binds to the actual files. Caption editing uses no generator call. Historical runs retain their recorded caption policy.
 
-In new thresholded runs, retain the eligible current base_score for caption-only edits. A new generated base needs its own raw review and80+ before composition; do not borrow the parent's rating. Historical caption edits keep their recorded caption mode. Show each newly captioned80+ draft promptly to allow user corrections during the run.
+For a technical edit inside the available budget, reserve --kind edit --parent N, dispatch, invoke the tool, record and inspect the new base. It earns its own technical review; do not borrow the parent's score. A reasoned reassessment of an unchanged base uses reassessment_reason and preserves earlier observations. Input fact changes use prepare --update and invalidate all active ratings until re-reviewed.
 
-For a technical image edit within a non-exhausted run: reserve with `--kind edit --parent N`, use the chosen base image, record, review and finalize again. The old best stays in attempts and review history. Never overwrite image.png of an existing attempt.
+After exhaustion or delivery, an explicit user request to continue may open a linked round. For v1.2 use:
 
-To continue after final delivery or exhaustion, use the user's explicit request to start a linked revision with at most5 calls. Initialize it with the prior chosen PNG, revalidate sources and protocol v2 checks, and save revision-of.json linking the earlier run and request. A plain request to continue uses the default5 unless a smaller budget was specified. The helper does not silently replenish an old run; preserve the old counter and all outputs. If inputs change within a run, use prepare --update, which preserves old inputs and invalidates prior ratings until re-reviewed. Historical10-call budgets remain historical, not the default for new revisions.
+```text
+python cutaway.py continue --run PREVIOUS_RUN --root OUTPUT_ROOT --request "Exact user correction" [--attempt N]
+```
 
-If a tool is unavailable, store the exact failure and available outputs. No automatic paid API fallback. During authorized development, record the bug, patch the appropriate project code, run affected tests, and continue where possible. Unresolved issues belong in the v0.1 development log with their practical effect.
+The helper copies original product photo/provenance, frozen facts/plan and registered evidence, and saves the selected unlabelled parent as input/edit-seed.png. It records revision-of.json and a new visible5-image+2-retry budget; it does not reset the parent counter or invoke generation. Recheck source applicability and whether the request still refers to the same model before reserving. Treat the external seed as an external reference for the child's first generation, not an in-run parent ID. The child's new generated images need fresh reviews; an inherited seed does not earn a new score automatically.
+
+For a pre-v1.2 run, create a v1.2 intake and plan explicitly; the helper refuses silent legacy migration. Preserve the old photo and all historical ratings. It cannot manufacture missing origin records.
+
+If a tool is unavailable, save its failure and available results. Unknown responses block re-sending until recovered or explicitly resolved with evidence. No automatic paid API fallback. During authorized skill development fix demonstrated bugs, run affected regressions and log unresolved issues in docs/development-v1.2.md. Cleanup is an unimplemented idea requiring a separate confirmation, never a consequence of saying the picture looks good.
