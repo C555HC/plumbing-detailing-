@@ -489,14 +489,14 @@ class CutawayTests(unittest.TestCase):
         labels = self.root / "labels.json"
         c.atomic_json(labels, {"labels": [{"text": "Long label", "position": [.98,.98]}]})
         with self.assertRaisesRegex(ValueError, "outside"):
-            layout.compose(self.image, labels, self.root / "out.png")
+            layout.compose(self.image, labels, self.root / "out.png", mode="strict")
 
     def test_overlapping_labels_rejected(self):
         labels = self.root / "labels.json"
         c.atomic_json(labels, {"labels": [{"id": "a", "text": "One", "position": [.1,.1]},
                                          {"id": "b", "text": "Two", "position": [.1,.1]}]})
         with self.assertRaisesRegex(ValueError, "overlap"):
-            layout.compose(self.image, labels, self.root / "out.png")
+            layout.compose(self.image, labels, self.root / "out.png", mode="strict")
 
     def test_coordinate_nan_rejected(self):
         with self.assertRaises(ValueError):
